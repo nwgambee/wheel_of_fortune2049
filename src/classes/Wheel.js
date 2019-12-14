@@ -7,9 +7,10 @@ class Wheel {
 
   }
   spinWheel() {
+    round.evaluateCurrentCard();
 
   }
   returnCardValue() {
-    
+
   }
 }
