@@ -6,5 +6,8 @@ class Puzzle {
     this.description;
     this.correctAnswer;
   }
+  splitCorrectAnswer() {
+
+  }
   
 }
