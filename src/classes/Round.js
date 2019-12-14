@@ -31,10 +31,17 @@ class Round {
 
   endTurn() {
     this.currentPlayer.shift().push();
+
+    // new turn with next player
+  }
+  startRound() {
+    // resets round data and starts turn
+    // this.loadPuzzle or puzzle.displayPuzzle
   }
 
-  startRound() {
-    loadPuzzle();
+  loadPuzzle() {
+    // instantiate new Puzzle
+    puzzle.displayPuzzle();
   }
 
 }
