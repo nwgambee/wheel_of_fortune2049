@@ -6,9 +6,10 @@ class Game {
 
   }
   beginGame() {
-    // instantiate 3 new players 
+    // instantiate 3 new players
     //let round = new Round;
     // round.startRound()
+    return true; //this is a test return statement for testing
   }
   endGame() {
     //evaluate the winner
@@ -23,3 +24,5 @@ class Game {
 
   }
 }
+
+module.exports = Game;
