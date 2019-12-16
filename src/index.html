@@ -2,21 +2,27 @@
 <html lang="en-US">
   <head>
     <title>Wheel of Fortune 2049</title>
+    <link rel="icon" href="../images/icon.png">
     <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
-    <link rel="icon" href="./images/icon.png">
   </head>
   <body>
     <img src="./images/WOD-logo.svg" alt="Wheel Of Fortune Title" class="logo">
     <section class="landing-page">
       <img>
-      <form>
-        <label>Player 1</label>
-        <input></input>
-        <label>Player 2</label>
-        <input></input>
-        <label>Player 3</label>
-        <input></input>
-        <button>Play Game</button>
+      <form class="name-input">
+        <div class="player-name">
+          <label>Player 1</label>
+          <input class="player-input" id="first-input" autocomplete="off"></input>
+        </div>
+        <div class="player-name">
+          <label>Player 2</label>
+          <input class="player-input" id="second-input" autocomplete="off"></input>
+        </div>
+        <div class="player-name">
+          <label>Player 3</label>
+          <input class="player-input" id="third-input" autocomplete="off"></input>
+        </div>
+          <button id="start-game">Play Game</button>
       </form>
     </section>
     <section class="game-page hidden">
