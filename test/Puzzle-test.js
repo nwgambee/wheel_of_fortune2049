@@ -10,7 +10,7 @@ describe('Puzzle', function() {
     puzzle = new Puzzle();
   });
 
-  it('should have access to the Player class', function() {
+  it('should have access to the Puzzle class', function() {
     expect(puzzle).to.be.an.instanceOf(Puzzle);
   });
 
