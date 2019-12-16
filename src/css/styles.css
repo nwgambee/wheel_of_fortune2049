@@ -1,0 +1,15 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0px;
+  color: white;
+}
+
+body {
+  background: url("../images/background.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: black;
+}
