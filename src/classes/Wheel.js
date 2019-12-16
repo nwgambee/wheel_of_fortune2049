@@ -1,6 +1,6 @@
 class Wheel {
-  constructor(data) {
-    this.elements = data.wheel;
+  constructor() {
+    this.elements = '';
     this.currentCard;
   }
   runBonusWheel() {
@@ -14,3 +14,5 @@ class Wheel {
 
   }
 }
+
+module.exports = Wheel;
