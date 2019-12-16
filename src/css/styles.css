@@ -4,6 +4,17 @@
   box-sizing: border-box;
   margin: 0px;
   color: white;
+  font-family: 'Exo 2', sans-serif;
+}
+
+@font-face {
+    font-family: "vermin";
+    src: url("../data/VerminVibes.woff") format('woff');
+}
+
+.logo {
+  font-family: "vermin";
+  height: 500px;
 }
 
 body {
@@ -12,4 +23,12 @@ body {
   background-size: contain;
   background-position: center;
   background-color: black;
+}
+
+button {
+  color: magenta;
+  height: 50px;
+  width: auto;
+  margin: 5px;
+  font-size: 1.5rem;
 }
