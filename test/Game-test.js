@@ -21,7 +21,6 @@ describe('Game', function() {
   });
 
   it('beginGame() should return true', function() {
-    // game.beginGame();
     expect(game.beginGame()).to.equal(true);
   })
 
