@@ -1,7 +1,6 @@
 $color_1: white;
 $color_2: magenta;
 $font_family_1: 'Exo 2', sans-serif;
-$font_family_2: "vermin";
 $background_color_1: black;
 
 * {
@@ -23,13 +22,7 @@ $background_color_1: black;
 	}
 }
 
-.font-face {
-	font-family: $font_family_2;
-	// src: url("../data/VerminVibes.woff") format('woff');
-}
-
 .logo {
-	font-family: $font_family_2;
 	height: auto;
   width: 60%;
   margin-top: -100px;
@@ -39,10 +32,8 @@ $background_color_1: black;
 }
 
 body {
-	background: url("../images/background.svg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+	background: url("../images/background.svg") no-repeat center fixed;
+  background-size: cover;
 	background-color: $background_color_1;
 }
 
