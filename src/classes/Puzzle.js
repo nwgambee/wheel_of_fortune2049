@@ -1,5 +1,5 @@
 class Puzzle {
-  constructor(puzzle) {
+  constructor() {
     this.category;
     this.numOfWord;
     this.totalLetters;
@@ -26,3 +26,5 @@ class Puzzle {
 
   }
 }
+
+module.exports = Puzzle;

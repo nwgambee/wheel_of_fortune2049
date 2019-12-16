@@ -1,0 +1,22 @@
+import chai from 'chai';
+const expect = chai.expect;
+
+import Player from '../src/classes/Player'
+
+describe('Player', function() {
+
+  let player;
+
+  beforeEach(() => {
+    player = new Player();
+  });
+
+  it('should have access to the Player class', function() {
+    expect(player).to.be.an.instanceOf(Player);
+  });
+
+  it('should have a spinWheel method', function() {
+    expect(player.spinWheel).to.be.a('function');
+  })
+
+});
