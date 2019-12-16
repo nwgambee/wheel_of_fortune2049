@@ -6,9 +6,11 @@ import $ from 'jquery';
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
+import './data/VerminVibes.woff';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/WOD-logo.svg'
+import './images/WOD-logo.svg';
+import './images/icon.png';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 console.log('hello');
