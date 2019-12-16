@@ -1,6 +1,61 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-// $primary-background: url("./images/background.svg");
+$color_1: white;
+$color_2: magenta;
+$font_family_1: 'Exo 2', sans-serif;
+$font_family_2: "vermin";
+$background_color_1: black;
+
+* {
+	box-sizing: border-box;
+	margin: 0%;
+	color: $color_1;
+	font-family: $font_family_1;
+	&:after {
+		box-sizing: border-box;
+		margin: 0px;
+		color: $color_1;
+		font-family: $font_family_1;
+	}
+	&:before {
+		box-sizing: border-box;
+		margin: 0px;
+		color: $color_1;
+		font-family: $font_family_1;
+	}
+}
+
+.font-face {
+	font-family: $font_family_2;
+	// src: url("../data/VerminVibes.woff") format('woff');
+}
+
+.logo {
+	font-family: $font_family_2;
+	height: auto;
+  width: 60%;
+  margin-top: -100px;
+  margin-bottom: -200px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
 
 body {
-  background: url("../images/background.svg");
+	background: url("../images/background.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-color: $background_color_1;
+}
+
+button {
+	color: $color_2;
+	height: 50px;
+	width: auto;
+	margin: 5px;
+	font-size: 1.5rem;
+}
+
+.hidden {
+  visibility: hidden;
+  height: 0px;
+  width: 0px;
 }

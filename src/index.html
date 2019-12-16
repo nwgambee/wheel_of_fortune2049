@@ -2,11 +2,12 @@
 <html lang="en-US">
   <head>
     <title>Wheel of Future</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/base.scss">
     <link rel="icon" href="./images/icon.png">
     <!-- <import '../application.scss'> -->
   </head>
   <body>
+    <img src="./images/WOD-logo.svg" alt="Wheel Of Fortune Title" class="logo">
     <section class="landing-page">
       <img>
       <form>
@@ -19,8 +20,7 @@
         <button>Play Game</button>
       </form>
     </section>
-    <section class="game-page">
-      <img src="./images/WOD-logo.svg" alt="Wheel Of Fortune Title">
+    <section class="game-page hidden">
       <h1>Round round.currentRound</h1>
       <div id="game-board">
         <section class="player-info">
@@ -146,7 +146,7 @@
         </div>
       </div>
     </section>
-    <section class="bonus-page">
+    <section class="bonus-page hidden">
       <img>
       <h1>Bonus Round</h4>
       <div id="bonus-board">
@@ -241,7 +241,7 @@
         <img>
       </div>
     </section>
-    <section class="winners-page">
+    <section class="winners-page hidden">
       <div id="game-winner">
         <h1>Congratulations Player ame who won</h1>
         <p>Total Score</p>
