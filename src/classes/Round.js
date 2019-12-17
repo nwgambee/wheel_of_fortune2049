@@ -40,8 +40,12 @@ class Round {
   }
 
   loadPuzzle() {
+
     // instantiate new Puzzle
-    puzzle.displayPuzzle();
+    let puzzle = new Puzzle(puzzleObj);
+
+
+    // puzzle.displayPuzzle();
   }
 
 }
