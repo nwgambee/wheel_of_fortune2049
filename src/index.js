@@ -61,11 +61,11 @@ function fetchPuzzles(num, wordLength) {
 
 function createPuzzle(puzzle) {
   let completedPuzzles = [];
+
   if (!completedPuzzles.includes(puzzle)) {
-      completedPuzzles.push(puzzle);
-      puzzle.splitCorrectAnswer();
+    completedPuzzles.push(puzzle);
+    puzzle.splitCorrectAnswer();
   } else {
     generateRandomInfo();
   }
-  console.log(puzzle);
 }
