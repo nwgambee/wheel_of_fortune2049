@@ -31,8 +31,13 @@ class Puzzle {
       return false;
     }
   }
-  evaluateSolution() {
-
+  evaluateSolution(guess) {
+    if (guess.toLowerCase() === this.correctAnswer.toLowerCase()) {
+      return true;
+    } else {
+      // endTurn()
+      return false;
+    }
   }
 }
 
