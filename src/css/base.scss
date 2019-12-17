@@ -33,11 +33,21 @@ $background-color-1: black;
 
 .logo {
 	height: auto;
-  width: 60%;
   margin-top: -100px;
+}
+
+.large-logo {
+  width: 60%;
   margin-bottom: -200px;
   margin-left: 20%;
   margin-right: 20%;
+}
+
+.small-logo {
+  width: 40%;
+  margin-bottom: -150px;
+  margin-left: 30%;
+  margin-right: 30%;
 }
 
 body {
