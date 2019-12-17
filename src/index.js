@@ -3,6 +3,7 @@
 
 // An example of how you import jQuery into a JS file if you use jQuery in that file
 import $ from 'jquery';
+import Puzzle from '../src/classes/Puzzle'
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
@@ -11,9 +12,6 @@ import './css/base.scss';
 import './images/WOD-logo.svg';
 import './images/icon.png';
 import './images/star.svg';
-
-console.log('This is the JavaScript entry file - your code begins here.');
-console.log('hello');
 
 const app = document.querySelector('.winners-page')
 
@@ -28,30 +26,40 @@ const myRand = () => {
 for (let i = 0; i < 50; i++) {
   const delay = Math.random() + 's';
   const el = document.createElement('img')
-  el.src            = './images/star.svg'
-  el.className      = 'glitter-star'
-  el.style.top      = myRand() + '%'
-  el.style.left     = myRand() + '%'
-  el.style.animationDelay       = delay
-  el.style.msAnimationDelay     = delay
+  el.src = './images/star.svg'
+  el.className = 'glitter-star'
+  el.style.top = myRand() + '%'
+  el.style.left = myRand() + '%'
+  el.style.animationDelay = delay
+  el.style.msAnimationDelay = delay
   el.style.webkitAnimationDelay = delay
-  el.style.monAnimationDelay    = delay
+  el.style.monAnimationDelay = delay
   app.appendChild(el)
+}
 
 // logic below is for fetching the puzzles from the API. It will eventually be moved to the Round class probably
-const playGameBtn = document.querySelector('#start-game');
 
-playGameBtn.addEventListener('click', fetchPuzzles);
+generateRandomInfo();
 
-let puzzleBank;
+function generateRandomInfo() {
+  let possibleWordLengths = ['one', 'two', 'three', 'four'];
+  var puzzleWordLength = possibleWordLengths[Math.floor(Math.random() * possibleWordLengths.length)] + '_word_answers';
 
-function fetchPuzzles() {
-  event.preventDefault();
+  console.log(puzzleWordLength);
 
+  let randomNum = Math.floor((Math.random() * 23) + 0);
+  console.log(randomNum);
+
+  fetchPuzzles(randomNum, puzzleWordLength);
+}
+
+function fetchPuzzles(num, wordLength) {
   fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
     .then(response => response.json())
-    .then(data => data.data.puzzles.one_word_answers.puzzle_bank.forEach(puzzle => console.log(puzzle)))
+    .then(data => createPuzzle(new Puzzle(data.data.puzzles[wordLength].puzzle_bank[num])))
+}
 
-    // The .then() statement below does not work as written, but we need to do something like that I think. I think it doesn't work because of fetch's async rules. 
-    // .then(data => data.data.puzzles.one_word_answers.puzzle_bank.forEach(puzzle => puzzleBank.unshift(puzzle)))
+function createPuzzle(puzzle) {
+  console.log(puzzle);
+  puzzle.splitCorrectAnswer();
 }

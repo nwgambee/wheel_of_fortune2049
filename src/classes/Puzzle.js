@@ -9,6 +9,8 @@ class Puzzle {
     // this.correctLettersRemaining;
   }
   splitCorrectAnswer() {
+    console.log('splitting');
+    console.log(this.correctAnswer);
     // this.correctAnswer.split('')
   }
   displayPuzzle() {
