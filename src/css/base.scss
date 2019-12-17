@@ -1,9 +1,12 @@
+// ------------------- Variable Declerations ---------------------- //
 $color-1: white;
 $color-2: deeppink;
 $color-3: darkviolet;
 $color-4: darkturquoise;
 $font_family_1: 'Exo 2', sans-serif;
 $background_color-1: black;
+
+// ------------------- Global Styles ---------------------- //
 
 * {
 	box-sizing: border-box;
@@ -23,6 +26,8 @@ $background_color-1: black;
 		font-family: $font_family_1;
 	}
 }
+
+// ------------------- Users Landing Page ---------------------- //
 
 .logo {
 	height: auto;
@@ -98,4 +103,84 @@ button {
 
 #third-input {
   color: $color-4;
+}
+
+// ------------------- Winners Page ---------------------- //
+
+.winners-page {
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#game-winner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2em;
+  padding: 15px;
+  width: 100%;
+}
+
+#first-place {
+	color:$color-1;
+	text-shadow: 0 0 5px $color-1, 0 0 10px $color-1, 0 0 15px $color-1, 0 0 20px $color-2, 0 0 30px $color-2, 0 0 40px $color-2, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
+	letter-spacing: 5px;
+	font-size: 1.5em;
+  padding: 10px;
+}
+
+
+#game-runnerups {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+#second-place,
+#third-place {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.5em;
+  text-shadow: none;
+  color: $color-2;
+}
+
+img.glitter-star {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+
+  animation: glitter 2s linear 0s infinite normal;
+  -webkit-animation: glitter 2s linear 0s infinite normal;
+  -moz-animation: glitter 2s linear 0s infinite normal;
+  -ms-animation: glitter 2s linear 0s infinite normal;
+  -o-animation: glitter 2s linear 0s infinite normal;
+}
+
+@keyframes glitter {
+  0% {
+    -webkit-transform: scale(1.0);
+    opacity: 1;
+  }
+  25% {
+    -webkit-transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1.0);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 1;
+  }
 }
