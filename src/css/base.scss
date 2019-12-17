@@ -1,31 +1,35 @@
-$color_1: white;
-$color_2: deeppink;
-$color_3: darkviolet;
-$color_4: darkturquoise;
-$color_5: gold;
-$font_family_1: 'Exo 2', sans-serif;
-$font_family_2: 'Fira Mono', monospace;
+// ------------------- Variable Declarations ---------------------- //
+$color-1: white;
+$color-2: deeppink;
+$color-3: darkviolet;
+$color-4: darkturquoise;
+$color-5: gold;
+$font-family-1: 'Exo 2', sans-serif;
+$font-family-2: 'Fira Mono', monospace;
+$background-color-1: black;
 
-$background_color_1: black;
+// ------------------- Global Styles ---------------------- //
 
 * {
 	box-sizing: border-box;
-	margin: 0% 0.5%;
-	color: $color_1;
+	margin: 0%;
+	color: $color-1;
 	font-family: $font_family_1;
 	&:after {
 		box-sizing: border-box;
 		margin: 0px;
-		color: $color_1;
+		color: $color-1;
 		font-family: $font_family_1;
 	}
 	&:before {
 		box-sizing: border-box;
 		margin: 0px;
-		color: $color_1;
+		color: $color-1;
 		font-family: $font_family_1;
 	}
 }
+
+// ------------------- Users Landing Page ---------------------- //
 
 .logo {
 	height: auto;
@@ -39,15 +43,9 @@ $background_color_1: black;
 body {
 	background: url("../images/background.svg") no-repeat center fixed;
   background-size: cover;
-	background-color: $background_color_1;
+	background-color: $background-color-1;
 	overflow: hidden;
 	margin: 0.1%;
-}
-
-.hidden {
-	visibility: hidden;
-	height: 0px;
-	width: 0px;
 }
 
 button {
@@ -59,7 +57,8 @@ button {
   background-color: $color-2;
 }
 
-//ALPHABET BANKS
+// ------------------- Alphabet Banks ---------------------- //
+
 .alphabet-btn {
 	background-color: rgba(0, 0, 0, 0);
 	border: none;
@@ -115,7 +114,7 @@ button {
 	margin: 1vw;
 }
 
-// GAME BOARD
+// ------------------- Game Board ---------------------- //
 #game-board {
 	display: flex;
 	flex-direction: row;
@@ -124,7 +123,7 @@ button {
 	padding: 0;
 }
 
-// PLAYER INFO
+// ------------------- Player Info ---------------------- //
 .player-info {
 	padding: 0;
 	margin: 0% 0% 0%;
@@ -169,7 +168,7 @@ button {
 	background: $color_4;
 }
 
-// PUZZLE BOARD
+// ------------------- Puzzle Board ---------------------- //
 .puzzle-board {
 	display: flex;
 	flex-direction: column;
@@ -243,8 +242,6 @@ button {
 
 .active-square {
 	background: $color_1;
-	// make font stretch and resize to fit letter-square div
-	// https://stackoverflow.com/questions/24557411/css-letter-spacing-percent-to-completely-fit-the-div-container
 }
 
 .letter {
@@ -257,11 +254,143 @@ button {
 	margin: 0;
 }
 
-//TURN CHOICE
+// ------------------- Turn Choice ---------------------- //
 .turn-choice {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	width: 20%;
 	text-align: right;
+}
+
+.name-input {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.8);
+  width: 76%;
+  margin-left: 12%;
+  flex-wrap: wrap;
+  padding: 25px;
+}
+
+.player-name {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  align-items: center;
+  padding: 15px;
+}
+
+.player-input {
+  width: 100%;
+  height: 40px;
+  margin: 25px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#start-game {
+  width: 50%;
+  height: 40px;
+}
+
+#first-input {
+  color: $color-2;
+}
+
+#second-input {
+  color: $color-3;
+}
+
+#third-input {
+  color: $color-4;
+}
+
+// ------------------- Winners Page ---------------------- //
+
+.winners-page {
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#game-winner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2em;
+  padding: 15px;
+  width: 100%;
+}
+
+#first-place {
+	color:$color-1;
+	text-shadow: 0 0 5px $color-1, 0 0 10px $color-1, 0 0 15px $color-1, 0 0 20px $color-2, 0 0 30px $color-2, 0 0 40px $color-2, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
+	letter-spacing: 5px;
+	font-size: 1.5em;
+  padding: 10px;
+}
+
+
+#game-runnerups {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  width: 100%;
+  font-size: 1.5em;
+  flex-direction: row;
+  padding: 30px;
+}
+
+#second-place,
+#third-place {
+  font-size: 1.5em;
+  text-shadow: none;
+  color: $color-2;
+}
+
+// ------------------- Hidden Class ---------------------- //
+.hidden {
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
+}
+
+// ------------------- Star Animation ---------------------- //
+
+img.glitter-star {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+
+  animation: glitter 2s linear 0s infinite normal;
+  -webkit-animation: glitter 2s linear 0s infinite normal;
+  -moz-animation: glitter 2s linear 0s infinite normal;
+  -ms-animation: glitter 2s linear 0s infinite normal;
+  -o-animation: glitter 2s linear 0s infinite normal;
+}
+
+@keyframes glitter {
+  0% {
+    -webkit-transform: scale(1.0);
+    opacity: 1;
+  }
+  25% {
+    -webkit-transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1.0);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 1;
+  }
 }

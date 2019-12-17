@@ -2,22 +2,28 @@
 <html lang="en-US">
   <head>
     <title>Wheel of Fortune 2049</title>
-    <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500,800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./images/icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700&display=swap" rel="stylesheet">
-    <link rel="icon" href="./images/icon.png">
   </head>
   <body>
-    <img src="./images/WOD-logo.svg" alt="Wheel Of Fortune Title" class="logo hidden">
+    <img src="./images/WOD-logo.svg" alt="Wheel Of Fortune Title" class="logo">
     <section class="landing-page hidden">
       <img>
-      <form>
-        <label>Player 1</label>
-        <input></input>
-        <label>Player 2</label>
-        <input></input>
-        <label>Player 3</label>
-        <input></input>
-        <button>Play Game</button>
+      <form class="name-input">
+        <div class="player-name">
+          <label>Player 1</label>
+          <input class="player-input" id="first-input" autocomplete="off"></input>
+        </div>
+        <div class="player-name">
+          <label>Player 2</label>
+          <input class="player-input" id="second-input" autocomplete="off"></input>
+        </div>
+        <div class="player-name">
+          <label>Player 3</label>
+          <input class="player-input" id="third-input" autocomplete="off"></input>
+        </div>
+        <button id="start-game">Play Game</button>
       </form>
     </section>
     <section class="game-page">
@@ -245,16 +251,16 @@
         <img>
       </div>
     </section>
-    <section class="winners-page hidden">
+    <section class="winners-page">
       <div id="game-winner">
-        <h1>Congratulations Player ame who won</h1>
-        <p>Total Score</p>
+        <h1 class="winner-name">Congratulations Player Name</h1>
+        <p id="first-place">14,000 Dollars</p>
       </div>
       <div id="game-runnerups">
-        <h1>Player.name who did not win</h1>
-        <p>Total Score</p>
-        <h1>Player.name who did not won</h1>
-        <p>Total Score</p>
+        <h1 class="winner-name">Player Name</h1>
+        <p id="second-place">12,350 Dollars</p>
+        <h1 class="winner-name">Player Name</h1>
+        <p id="third-place">875 Dollars</p>
       </div>
     </section>
   </body>
