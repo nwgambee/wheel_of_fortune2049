@@ -1,11 +1,15 @@
 $color_1: white;
-$color_2: magenta;
+$color_2: deeppink;
+$color_3: darkviolet;
+$color_4: darkturquoise;
 $font_family_1: 'Exo 2', sans-serif;
+$font_family_2: 'Fira Mono', monospace;
+
 $background_color_1: black;
 
 * {
 	box-sizing: border-box;
-	margin: 0%;
+	margin: 0% 0.5%;
 	color: $color_1;
 	font-family: $font_family_1;
 	&:after {
@@ -35,6 +39,7 @@ body {
 	background: url("../images/background.svg") no-repeat center fixed;
   background-size: cover;
 	background-color: $background_color_1;
+	overflow: hidden;
 }
 
 button {
@@ -49,4 +54,104 @@ button {
   visibility: hidden;
   height: 0px;
   width: 0px;
+}
+// GAME BOARD
+#game-board {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin: 0% 2%;
+}
+
+// PUZZLE BOARD
+.puzzle-board {
+	// background: linear-gradient(0.55turn, $color_4, $color_2, $color_3);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: auto;
+	width: 70%;
+}
+
+.row {
+	background: $color_2;
+	border: 10px groove $color_4;
+	border-top: 10px ridge $color_3;
+	border-bottom: 10px ridge $color_3;
+	display: flex;
+	flex-direction: row;
+	padding: 0% 1%;
+}
+
+.first-row {
+	border-bottom: none;
+	border-radius: 10px 10px 10px 10px;
+	overflow: hidden;
+	margin-bottom: -10px;
+	z-index: 4;
+	padding-top: 5px;
+}
+
+.fourth-row {
+	border-top: none;
+	border-radius: 10px 10px 10px 10px;
+	overflow: hidden;
+	margin-top: -10px;
+	z-index: 4;
+	padding-bottom: 5px;
+}
+
+.second-row {
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	z-index: 3;
+	padding-bottom: 3px;
+	padding-top: 2px;
+}
+
+.third-row {
+	border-top: none;
+	border-radius: 0px 0px 10px 10px;
+	z-index: 3;
+	padding-bottom: 2px;
+}
+
+#201 {
+	margin-top: 2px;
+}
+
+.letter-square {
+	background: $color_4;
+	background-image: url(../images/icon.png);
+	background-blend-mode: lighten, multiply;
+	background-repeat: round;
+	border: 3px ridge $color_3;
+	box-shadow: inset 0px 2px 7px 2px #003535, 0px 0px 3px 1px #c31d77;
+	font-family: $font_family_1;
+	height: 70px;
+	line-height: 60px;
+	width: 55px;
+	margin: 4px 2px;
+	text-align: center;
+}
+
+.preactive-square {
+	background: $color_2;
+	font-size: 50px;
+}
+
+.active-square {
+	background: $color_1;
+	// make font stretch and resize to fit letter-square div
+	// https://stackoverflow.com/questions/24557411/css-letter-spacing-percent-to-completely-fit-the-div-container
+}
+
+.letter {
+	color: $color_3;
+	font-family: $font_family_2;
+	font-size: 65px;
+	font-weight: 700;
+	text-align: center;
+	vertical-align: middle;
+	margin: 0;
 }
