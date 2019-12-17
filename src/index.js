@@ -28,4 +28,7 @@ function fetchPuzzles() {
   fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
     .then(response => response.json())
     .then(data => data.data.puzzles.one_word_answers.puzzle_bank.forEach(puzzle => console.log(puzzle)))
+
+    // The .then() statement below does not work as written, but we need to do something like that I think. I think it doesn't work because of fetch's async rules. 
+    // .then(data => data.data.puzzles.one_word_answers.puzzle_bank.forEach(puzzle => puzzleBank.unshift(puzzle)))
 }
