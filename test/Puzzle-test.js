@@ -48,10 +48,25 @@ describe('Puzzle', function() {
       expect(puzzle.totalLetters).to.equal(10);
     });
   });
-  describe('splitCorrectAnswers method', function() {
+  describe('splitCorrectAnswers() method tests', function() {
 
-    it('should split the correct answer into an array', function() {
+    it('should split puzzle.correctAnswer into an array of each letter', function() {
       expect(puzzle.splitCorrectAnswer()).to.deep.equal(['S','C','R','U','N','C','H','I','E','S'])
     })
+    it('should update the puzzle.splitAnswer property', function() {
+      expect(puzzle.splitAnswer).to.deep.equal([]);
+      puzzle.splitCorrectAnswer();
+      expect(puzzle.splitAnswer).to.deep.equal(['S','C','R','U','N','C','H','I','E','S']);
+    })
+  })
+  describe('evaluateLetterGuess() method tests', function() {
+    it('should return true if the letter exists in the correct answer', function() {
+      puzzle.splitCorrectAnswer();
+      expect(puzzle.evaluateLetterGuess('r')).to.deep.equal(true);
+    });
+    it('should return false if the letter does not exist in the correct answer', function() {
+      puzzle.splitCorrectAnswer();
+      expect(puzzle.evaluateLetterGuess('z')).to.deep.equal(false);
+    });
   })
 });
