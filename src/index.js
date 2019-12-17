@@ -11,5 +11,21 @@ import './css/base.scss';
 import './images/WOD-logo.svg';
 import './images/icon.png';
 
-console.log('This is the JavaScript entry file - your code begins here.');
-console.log('hello');
+// console.log('This is the JavaScript entry file - your code begins here.');
+// console.log('hello');
+
+
+// logic below is for fetching the puzzles from the API. It will eventually be moved to the Round class probably
+const playGameBtn = document.querySelector('#start-game');
+
+playGameBtn.addEventListener('click', fetchPuzzles);
+
+let puzzleBank;
+
+function fetchPuzzles() {
+  event.preventDefault();
+
+  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
+    .then(response => response.json())
+    .then(data => data.data.puzzles.one_word_answers.puzzle_bank.forEach(puzzle => console.log(puzzle)))
+}
