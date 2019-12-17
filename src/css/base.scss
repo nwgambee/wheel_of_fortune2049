@@ -156,11 +156,11 @@ img.glitter-star {
   height: 16px;
   width: 16px;
 
-  animation: glitter 2s linear 0s infinite normal;
-  -webkit-animation: glitter 2s linear 0s infinite normal;
-  -moz-animation: glitter 2s linear 0s infinite normal;
-  -ms-animation: glitter 2s linear 0s infinite normal;
-  -o-animation: glitter 2s linear 0s infinite normal;
+  animation: glitter 3s steps(3, end) infinite normal;
+  -webkit-animation: glitter 3s steps(3, end) infinite normal;
+  -moz-animation: glitter 3s steps(3, end) infinite normal;
+  -ms-animation: glitter 3s steps(3, end) infinite normal;
+  -o-animation: glitter 3s steps(3, end) infinite normal;
 }
 
 @keyframes glitter {
