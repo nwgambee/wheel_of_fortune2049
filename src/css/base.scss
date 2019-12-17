@@ -1,4 +1,5 @@
 // ------------------- Variable Declerations ---------------------- //
+
 $color-1: white;
 $color-2: deeppink;
 $color-3: darkviolet;
@@ -134,21 +135,21 @@ button {
 #game-runnerups {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100%;
   font-size: 1.5em;
+  flex-direction: row;
+  padding: 30px;
 }
 
 #second-place,
 #third-place {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  padding: 10px;
   font-size: 1.5em;
   text-shadow: none;
   color: $color-2;
 }
+
+// ------------------- Star Animation ---------------------- //
 
 img.glitter-star {
   position: absolute;
