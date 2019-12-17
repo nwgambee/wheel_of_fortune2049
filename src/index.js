@@ -85,6 +85,12 @@ function fetchPuzzles(num, wordLength) {
 }
 
 function createPuzzle(puzzle) {
-  console.log(puzzle);
-  puzzle.splitCorrectAnswer();
+  let completedPuzzles = [];
+
+  if (!completedPuzzles.includes(puzzle)) {
+    completedPuzzles.push(puzzle);
+    puzzle.splitCorrectAnswer();
+  } else {
+    generateRandomInfo();
+  }
 }
