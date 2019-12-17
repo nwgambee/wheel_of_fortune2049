@@ -59,6 +59,10 @@ body {
 	margin: 0%;
 }
 
+#landing-page {
+  margin-top: 5%;
+}
+
 button {
 	color: $color-1;
 	height: 50px;
@@ -78,7 +82,7 @@ button {
   position: absolute;
   background-color: $color_1;
   width: 74%;
-  margin-top: 100px;
+  margin-top: 30px;
   border: $color_3 solid 10px;
   border-radius: 15px;
   margin-left: 13%;
@@ -402,13 +406,6 @@ button {
   color: $color-2;
 }
 
-// ------------------- Hidden Class ---------------------- //
-.hidden {
-	visibility: hidden;
-	height: 0px;
-	width: 0px;
-}
-
 // ------------------- Star Animation ---------------------- //
 
 img.glitter-star {
@@ -444,4 +441,12 @@ img.glitter-star {
     -webkit-transform: scale(1.0);
     opacity: 1;
   }
+}
+
+// ------------------- Hidden Class ---------------------- //
+
+.hidden {
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
 }

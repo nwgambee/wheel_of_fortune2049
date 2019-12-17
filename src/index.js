@@ -14,12 +14,26 @@ import './images/icon.png';
 import './images/star.svg';
 
 const app = document.querySelector('.winners-page');
-const playGame = document.getElementById('start-game');
+const playGameBtn = document.getElementById('start-game');
+const landingPage = document.getElementById('landing-page');
+const instructionsPage = document.querySelector('.instructions');
+const gameBoardPage = document.querySelector('.game-page');
+const loadGameBtn = document.getElementById('load-game');
 
-playGame.addEventListener('click', showInstructions);
 
-function showInstructions() {
-  
+playGameBtn.addEventListener('click', showInstructions);
+loadGameBtn.addEventListener('click', showGameBoard);
+
+function showInstructions(event) {
+  event.preventDefault();
+  landingPage.classList.add('hidden');
+  instructionsPage.classList.remove('hidden');
+}
+
+function showGameBoard(event) {
+  event.preventDefault();
+  instructionsPage.classList.add('hidden');
+  gameBoardPage.classList.remove('hidden');
 }
 
 const myRand = () => {
