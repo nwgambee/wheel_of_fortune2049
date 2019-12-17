@@ -83,7 +83,6 @@ button {
   border-radius: 15px;
   margin-left: 13%;
   padding: 20px;
-
 }
 
 .instructions h2 {
@@ -95,12 +94,17 @@ button {
   color: $color-3;
   font-size: 1.9em;
   padding: 15px;
-
 }
 
 .instructions p {
   color: black;
   font-size: .8em;
+}
+
+#load-game {
+  width: 50%;
+  margin: 10px;
+  margin-left: 25%;
 }
 
 
