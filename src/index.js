@@ -13,7 +13,14 @@ import './images/WOD-logo.svg';
 import './images/icon.png';
 import './images/star.svg';
 
-const app = document.querySelector('.winners-page')
+const app = document.querySelector('.winners-page');
+const playGame = document.getElementById('start-game');
+
+playGame.addEventListener('click', showInstructions);
+
+function showInstructions() {
+  
+}
 
 const myRand = () => {
   let r = 50

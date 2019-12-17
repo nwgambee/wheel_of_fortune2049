@@ -33,12 +33,13 @@ $background-color-1: black;
 
 .logo {
 	height: auto;
-  margin-top: -100px;
 }
 
 .large-logo {
+
   width: 60%;
   margin-bottom: -200px;
+  margin-top: -200px;
   margin-left: 20%;
   margin-right: 20%;
 }
@@ -46,16 +47,17 @@ $background-color-1: black;
 .small-logo {
   width: 40%;
   margin-bottom: -150px;
+  margin-top: -150px;
   margin-left: 30%;
   margin-right: 30%;
 }
 
 body {
 	background: url("../images/background.svg") no-repeat center fixed;
-  background-size: cover;
+  background-size: 103%;
 	background-color: $background-color-1;
 	overflow: hidden;
-	margin: 0.1%;
+	margin: 0%;
 }
 
 button {
