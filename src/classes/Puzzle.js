@@ -1,11 +1,12 @@
 class Puzzle {
-  constructor() {
-    this.category;
-    this.numOfWord;
-    this.totalLetters;
-    this.description;
-    this.correctAnswer;
-    this.correctLettersRemaining;
+  constructor(puzzle) {
+    this.category = puzzle.category;
+    this.numOfWords = puzzle.number_of_words;
+    this.totalLetters = puzzle.total_number_of_letters;
+    this.description = puzzle.description;
+    this.correctAnswer = puzzle.correct_answer;
+    this.firstWord = puzzle.first_word;
+    // this.correctLettersRemaining;
   }
   splitCorrectAnswer() {
     // this.correctAnswer.split('')
