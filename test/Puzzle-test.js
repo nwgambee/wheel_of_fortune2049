@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 import Puzzle from '../src/classes/Puzzle'
 
-describe.only('Puzzle', function() {
+describe('Puzzle', function() {
   let puzzle;
 
   beforeEach(() => {
@@ -48,4 +48,10 @@ describe.only('Puzzle', function() {
       expect(puzzle.totalLetters).to.equal(10);
     });
   });
+  describe('splitCorrectAnswers method', function() {
+
+    it('should split the correct answer into an array', function() {
+      expect(puzzle.splitCorrectAnswer()).to.deep.equal(['S','C','R','U','N','C','H','I','E','S'])
+    })
+  })
 });
