@@ -1,23 +1,25 @@
-$color_1: white;
-$color_2: magenta;
+$color-1: white;
+$color-2: deeppink;
+$color-3: darkviolet;
+$color-4: darkturquoise;
 $font_family_1: 'Exo 2', sans-serif;
-$background_color_1: black;
+$background_color-1: black;
 
 * {
 	box-sizing: border-box;
 	margin: 0%;
-	color: $color_1;
+	color: $color-1;
 	font-family: $font_family_1;
 	&:after {
 		box-sizing: border-box;
 		margin: 0px;
-		color: $color_1;
+		color: $color-1;
 		font-family: $font_family_1;
 	}
 	&:before {
 		box-sizing: border-box;
 		margin: 0px;
-		color: $color_1;
+		color: $color-1;
 		font-family: $font_family_1;
 	}
 }
@@ -34,19 +36,66 @@ $background_color_1: black;
 body {
 	background: url("../images/background.svg") no-repeat center fixed;
   background-size: cover;
-	background-color: $background_color_1;
+	background-color: $background_color-1;
+  overflow: hidden;
 }
 
 button {
-	color: $color_2;
+	color: $color-1;
 	height: 50px;
 	width: auto;
 	margin: 5px;
 	font-size: 1.5rem;
+  background-color: $color-2;
 }
 
 .hidden {
   visibility: hidden;
   height: 0px;
   width: 0px;
+}
+
+.name-input {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.8);
+  width: 76%;
+  margin-left: 12%;
+  flex-wrap: wrap;
+  padding: 25px;
+}
+
+.player-name {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  align-items: center;
+  padding: 15px;
+}
+
+.player-input {
+  width: 100%;
+  height: 40px;
+  margin: 25px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#start-game {
+  width: 50%;
+  height: 40px;
+}
+
+#first-input {
+  color: $color-2;
+}
+
+#second-input {
+  color: $color-3;
+}
+
+#third-input {
+  color: $color-4;
 }
