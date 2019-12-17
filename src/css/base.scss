@@ -62,10 +62,11 @@ button {
 	justify-content: space-around;
 	margin: 0% 2%;
 }
+//
+
 
 // PUZZLE BOARD
 .puzzle-board {
-	// background: linear-gradient(0.55turn, $color_4, $color_2, $color_3);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -114,10 +115,6 @@ button {
 	border-radius: 0px 0px 10px 10px;
 	z-index: 3;
 	padding-bottom: 2px;
-}
-
-#201 {
-	margin-top: 2px;
 }
 
 .letter-square {
