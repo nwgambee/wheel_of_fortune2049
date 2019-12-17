@@ -33,29 +33,34 @@ $background-color-1: black;
 
 .logo {
 	height: auto;
-  margin-top: -100px;
 }
 
 .large-logo {
   width: 60%;
-  margin-bottom: -200px;
+  margin-bottom: -350px;
+  margin-top: -200px;
   margin-left: 20%;
   margin-right: 20%;
 }
 
 .small-logo {
-  width: 40%;
-  margin-bottom: -150px;
-  margin-left: 30%;
+  width: 30%;
+  margin-bottom: -200px;
+  margin-top: -80px;
+  margin-left: 33%;
   margin-right: 30%;
 }
 
 body {
 	background: url("../images/background.svg") no-repeat center fixed;
-  background-size: cover;
+  background-size: 103%;
 	background-color: $background-color-1;
 	overflow: hidden;
-	margin: 0.1%;
+	margin: 0%;
+}
+
+#landing-page {
+  margin-top: 5%;
 }
 
 button {
@@ -66,6 +71,46 @@ button {
 	font-size: 1.5rem;
   background-color: $color-2;
 }
+
+// ------------------- Instructions Popup ---------------------- //
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  position: absolute;
+  background-color: $color_1;
+  width: 74%;
+  margin-top: 30px;
+  border: $color_3 solid 10px;
+  border-radius: 15px;
+  margin-left: 13%;
+  padding: 20px;
+}
+
+.instructions h2 {
+  color: $color-2;
+  font-size: 2em;
+}
+
+.instructions h3 {
+  color: $color-3;
+  font-size: 1.9em;
+  padding: 15px;
+}
+
+.instructions p {
+  color: black;
+  font-size: .8em;
+}
+
+#load-game {
+  width: 50%;
+  margin: 10px;
+  margin-left: 25%;
+}
+
 
 // ------------------- Alphabet Banks ---------------------- //
 
@@ -361,13 +406,6 @@ button {
   color: $color-2;
 }
 
-// ------------------- Hidden Class ---------------------- //
-.hidden {
-	visibility: hidden;
-	height: 0px;
-	width: 0px;
-}
-
 // ------------------- Star Animation ---------------------- //
 
 img.glitter-star {
@@ -403,4 +441,12 @@ img.glitter-star {
     -webkit-transform: scale(1.0);
     opacity: 1;
   }
+}
+
+// ------------------- Hidden Class ---------------------- //
+
+.hidden {
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
 }
