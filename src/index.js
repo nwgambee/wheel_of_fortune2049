@@ -19,9 +19,9 @@ const titleLogo = document.querySelector('.logo');
 const playerOneNameInput = document.getElementById('first-input');
 const playerTwoNameInput = document.getElementById('second-input');
 const playerThreeNameInput = document.getElementById('third-input');
-const pOneName = document.getElementById('p-one-name');
-const pTwoName = document.getElementById('p-two-name');
-const pThreeName = document.getElementById('p-three-name');
+const pOneName = document.querySelector('.p-one-name');
+const pTwoName = document.querySelector('.p-two-name');
+const pThreeName = document.querySelector('.p-three-name');
 
 // ------------------- Event Listeners ---------------------- //
 
@@ -36,12 +36,6 @@ function saveName() {
   pOneName.innerText = firstName;
   pTwoName.innerText = secondName;
   pThreeName.innerText = thirdName;
-  console.log(thirdName);
-  // var twoName = document.querySelector(".player-two-name").value.toUpperCase();
-  // rightHeaderName.innerText = twoName;
-  // playerTwoName.innerText = twoName;
-  // players.push(twoName);
-  // winner.innerText = `${twoName} HAS WON`;
 }
 
 
