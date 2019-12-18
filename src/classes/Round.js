@@ -50,4 +50,5 @@ class Round {
 
 }
 
-module.exports = Round;
+
+export default Round;

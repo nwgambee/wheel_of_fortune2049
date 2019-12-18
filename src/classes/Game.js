@@ -1,3 +1,8 @@
+// import Round from './classes/Round'
+// import Round from '../src/classes/Round'
+import Round from './Round.js'
+
+
 class Game {
   constructor() {
     this.winner;
@@ -5,9 +10,15 @@ class Game {
   evaluateLeaderboard() {
 
   }
-  beginGame() {
+  beginRound() {
+    // pass in => p1Name, p2Name, p3Name
     // instantiate 3 new players
-    //let round = new Round;
+    // let player1 = new Player(p1Name);
+    // let player2 = new Player(p2Name);
+    // let player3 = new Player(p3Name);
+    // instantiate new Round
+    // let round = new Round();
+    console.log(Round);
     // round.startRound()
     return true; //this is a test return statement for testing
   }
@@ -25,4 +36,5 @@ class Game {
   }
 }
 
-module.exports = Game;
+
+export default Game;
