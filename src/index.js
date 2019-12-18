@@ -16,6 +16,12 @@ const instructionsPage = document.querySelector('.instructions');
 const gameBoardPage = document.querySelector('.game-page');
 const loadGameBtn = document.getElementById('load-game');
 const titleLogo = document.querySelector('.logo');
+const playerOneNameInput = document.getElementById('first-input');
+const playerTwoNameInput = document.getElementById('second-input');
+const playerThreeNameInput = document.getElementById('third-input');
+const pOneName = document.getElementById('p-one-name');
+const pTwoName = document.getElementById('p-two-name');
+const pThreeName = document.getElementById('p-three-name');
 
 // ------------------- Event Listeners ---------------------- //
 
@@ -23,9 +29,26 @@ playGameBtn.addEventListener('click', showInstructions);
 loadGameBtn.addEventListener('click', showGameBoard);
 
 // ------------------- Functionality ---------------------- //
+function saveName() {
+  let firstName = playerOneNameInput.value;
+  let secondName = playerTwoNameInput.value;
+  let thirdName = playerThreeNameInput.value;
+  pOneName.innerText = firstName;
+  pTwoName.innerText = secondName;
+  pThreeName.innerText = thirdName;
+  console.log(thirdName);
+  // var twoName = document.querySelector(".player-two-name").value.toUpperCase();
+  // rightHeaderName.innerText = twoName;
+  // playerTwoName.innerText = twoName;
+  // players.push(twoName);
+  // winner.innerText = `${twoName} HAS WON`;
+}
+
+
 
 function showInstructions(event) {
   event.preventDefault();
+  saveName();
   landingPage.classList.add('hidden');
   instructionsPage.classList.remove('hidden');
 }
