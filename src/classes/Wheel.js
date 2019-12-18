@@ -15,4 +15,5 @@ class Wheel {
   }
 }
 
-module.exports = Wheel;
+
+export default Wheel;

@@ -41,4 +41,4 @@ class Puzzle {
   }
 }
 
-module.exports = Puzzle;
+export default Puzzle;
