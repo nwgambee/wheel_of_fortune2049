@@ -3,9 +3,7 @@ const expect = chai.expect;
 
 import Game from '../src/classes/Game'
 
-
-
-describe('Game', function() {
+describe.only('Game', function() {
   let game;
 
   beforeEach(() => {
@@ -16,12 +14,19 @@ describe('Game', function() {
     expect(game).to.be.an.instanceOf(Game);
   });
 
-  it('should have a beginGame method', function() {
-    expect(game.beginGame).to.be.a('function');
+  describe('beginRound() method tests', function() {
+
+    it('should should increment game.rounds', function() {
+      expect(game.rounds).to.deep.equal(0);
+      game.beginRound('me','myself','I');
+      expect(game.rounds).to.deep.equal(1);
+    });
+    it('should instantiate 3 new players', function() {
+      expect(game.players).to.deep.equal([]);
+      game.beginRound('me','myself','I');
+      expect(game.players.length).to.deep.equal(3)
+    });
   });
 
-  it('beginGame() should return true', function() {
-    expect(game.beginGame()).to.equal(true);
-  })
 
 });
