@@ -29,7 +29,7 @@ playGameBtn.addEventListener('click', showInstructions);
 loadGameBtn.addEventListener('click', showGameBoard);
 
 // ------------------- Functionality ---------------------- //
-function saveName() {
+function saveNames() {
   let firstName = playerOneNameInput.value;
   let secondName = playerTwoNameInput.value;
   let thirdName = playerThreeNameInput.value;
@@ -38,11 +38,9 @@ function saveName() {
   pThreeName.innerText = thirdName;
 }
 
-
-
 function showInstructions(event) {
   event.preventDefault();
-  saveName();
+  saveNames();
   landingPage.classList.add('hidden');
   instructionsPage.classList.remove('hidden');
 }
