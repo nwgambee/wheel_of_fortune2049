@@ -1,3 +1,6 @@
+import Puzzle from './Puzzle'
+// const fetch = require("node-fetch")
+
 class Round {
   constructor() {
     this.round = 0;
@@ -39,13 +42,29 @@ class Round {
     // this.loadPuzzle or puzzle.displayPuzzle
   }
 
-  loadPuzzle() {
+  generateRandomInfo() {
+    let possibleWordLengths = ['one', 'two', 'three', 'four'];
+    var puzzleWordLength = possibleWordLengths[Math.floor(Math.random() * possibleWordLengths.length)] + '_word_answers';
 
-    // instantiate new Puzzle
-    let puzzle = new Puzzle(puzzleObj);
+    let randomNum = Math.floor((Math.random() * 23) + 0);
+    this.fetchPuzzles(randomNum, puzzleWordLength);
+    return randomNum;
+  }
+  fetchPuzzles(num, wordLength) {
+    fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
+      .then(response => response.json())
+      .then(data => this.createPuzzle(new Puzzle(data.data.puzzles[wordLength].puzzle_bank[num])))
+  }
+  createPuzzle(puzzle) {
+    let completedPuzzles = [];
+    console.log(puzzle);
 
-
-    // puzzle.displayPuzzle();
+    if (!completedPuzzles.includes(puzzle)) {
+      completedPuzzles.push(puzzle);
+      puzzle.splitCorrectAnswer();
+    } else {
+      this.generateRandomInfo();
+    }
   }
 
 }

@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 import Game from '../src/classes/Game'
 
-describe.only('Game', function() {
+describe.skip('Game', function() {
   let game;
 
   beforeEach(() => {

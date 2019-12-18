@@ -70,34 +70,3 @@ function beginGame() {
   let game = new Game();
   game.beginRound('Deckard', 'K', 'Wallace')
 }
-
-
-// ------------------- Fetching Puzzles from API ---------------------- //
-// logic below is for fetching the puzzles from the API. It will eventually be moved to the Round class probably
-
-// generateRandomInfo();
-// 
-// function generateRandomInfo() {
-//   let possibleWordLengths = ['one', 'two', 'three', 'four'];
-//   var puzzleWordLength = possibleWordLengths[Math.floor(Math.random() * possibleWordLengths.length)] + '_word_answers';
-//
-//   let randomNum = Math.floor((Math.random() * 23) + 0);
-//   fetchPuzzles(randomNum, puzzleWordLength);
-// }
-//
-// function fetchPuzzles(num, wordLength) {
-//   fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
-//     .then(response => response.json())
-//     .then(data => createPuzzle(new Puzzle(data.data.puzzles[wordLength].puzzle_bank[num])))
-// }
-//
-// function createPuzzle(puzzle) {
-//   let completedPuzzles = [];
-//
-//   if (!completedPuzzles.includes(puzzle)) {
-//     completedPuzzles.push(puzzle);
-//     puzzle.splitCorrectAnswer();
-//   } else {
-//     generateRandomInfo();
-//   }
-// }
