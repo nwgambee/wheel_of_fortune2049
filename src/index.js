@@ -16,6 +16,12 @@ const instructionsPage = document.querySelector('.instructions');
 const gameBoardPage = document.querySelector('.game-page');
 const loadGameBtn = document.getElementById('load-game');
 const titleLogo = document.querySelector('.logo');
+const playerOneNameInput = document.getElementById('first-input');
+const playerTwoNameInput = document.getElementById('second-input');
+const playerThreeNameInput = document.getElementById('third-input');
+const pOneName = document.querySelector('.p-one-name');
+const pTwoName = document.querySelector('.p-two-name');
+const pThreeName = document.querySelector('.p-three-name');
 
 // ------------------- Event Listeners ---------------------- //
 
@@ -23,9 +29,18 @@ playGameBtn.addEventListener('click', showInstructions);
 loadGameBtn.addEventListener('click', showGameBoard);
 
 // ------------------- Functionality ---------------------- //
+function saveNames() {
+  let firstName = playerOneNameInput.value;
+  let secondName = playerTwoNameInput.value;
+  let thirdName = playerThreeNameInput.value;
+  pOneName.innerText = firstName;
+  pTwoName.innerText = secondName;
+  pThreeName.innerText = thirdName;
+}
 
 function showInstructions(event) {
   event.preventDefault();
+  saveNames();
   landingPage.classList.add('hidden');
   instructionsPage.classList.remove('hidden');
 }
