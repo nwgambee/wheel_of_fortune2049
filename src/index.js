@@ -80,8 +80,23 @@ for (let i = 0; i < 50; i++) {
 }
 
 // -------------------- Begin Game ----------------------------- //
-beginGame();
+beginGame(); // call on 'start game' button click
+
 function beginGame() {
   let game = new Game();
   game.beginRound('Deckard', 'K', 'Wallace')
+  // pass in player names from user inputs
 }
+
+
+// syntax for exporting index.js functions into class methods
+
+// export const testFunc = () => {
+//   console.log('adding puzzle to dom');
+// }
+
+// OR
+
+// export function testFunc() {
+//   console.log('hello');
+// }

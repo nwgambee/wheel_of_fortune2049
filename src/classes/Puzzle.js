@@ -1,3 +1,6 @@
+import { testFunc } from '../index.js'
+
+
 class Puzzle {
   constructor(puzzle) {
     this.category = puzzle.category;
@@ -12,10 +15,13 @@ class Puzzle {
   splitCorrectAnswer() {
     let upperCaseAnswer = this.correctAnswer.toUpperCase();
     this.splitAnswer = upperCaseAnswer.split('');
+    console.log('splitting');
+    this.displayPuzzle();
     return this.splitAnswer;
   }
   displayPuzzle() {
-    // add correct answer to DOM
+    // add puzzle to DOM
+    // testFunc();
   }
   uncoverLetters() {
     // player.chooseAction
