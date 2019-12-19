@@ -34,16 +34,15 @@ const errorMessage = document.querySelector('.error-message');
 
 // ------------------- Event Listeners ---------------------- //
 
-playGameBtn.addEventListener('click', showError);
+playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
 
 // ------------------- Functionality ---------------------- //
-function showError(event) {
+function checkForError(event) {
   event.preventDefault();
   if(playerOneNameInput.value === '') {
     console.log(pOneName.value);
     errorMessage.classList.remove('hidden');
-    // playGameBtn.disabled = true;
   } else {
     showInstructions();
     playGameBtn.classList.remove('disabled');
@@ -60,7 +59,6 @@ function saveNames() {
 }
 
 function showInstructions() {
-  // event.preventDefault();
   saveNames();
   landingPage.classList.add('hidden');
   instructionsPage.classList.remove('hidden');
