@@ -32,11 +32,14 @@ const pThreeName = document.querySelector('.p-three-name');
 const patHost = document.querySelector('.pat-host');
 const vannaHost = document.querySelector('.vanna-host');
 const errorMessage = document.querySelector('.error-message');
+const alphabetBank = document.querySelector('.alphabet-banks');
+const puzzleSquares = document.querySelectorAll('.letter');
 
 // ------------------- Event Listeners ---------------------- //
 
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
+alphabetBank.addEventListener('click', clickLetter);
 
 // ------------------- Functionality ---------------------- //
 function checkForError(event) {
@@ -111,7 +114,7 @@ function beginGame() {
 
 // ------------------- Add Puzzle to Game Board -----------------
 
-export function displayFirstWord(words) {
+export function displayPuzzleOnBoard(words) {
   // display first word
   if (words.length === 2) {
     displaySecondWord()
@@ -119,13 +122,14 @@ export function displayFirstWord(words) {
   }
 }
 
+// ------------------- Click letter -----------------
 
-
-
-
-
-
-
+function clickLetter(e) {
+  let letter = e.target.innerHTML;
+  puzzleSquares.forEach(square => {
+    (square.innerText === letter) && (square.style.fontSize = '65px');
+  });
+}
 
 // export function addPuzzleToBoard(words) {
 //   if (words.length < 3) {
