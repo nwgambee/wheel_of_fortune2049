@@ -72,6 +72,11 @@ button {
   background-color: $color-2;
 }
 
+.error-message {
+  color: red;
+  font-size: 1.3rem;
+}
+
 // ------------------- Instructions Popup ---------------------- //
 
 .instructions {
@@ -330,7 +335,7 @@ button {
 #player-three {
 	background: $color_4;
   z-index: 20;
-  
+
 }
 
 // ------------------- Puzzle Board ---------------------- //
