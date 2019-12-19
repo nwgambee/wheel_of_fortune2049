@@ -38,7 +38,7 @@ $background-color-1: black;
 .large-logo {
   width: 60%;
   margin-bottom: -350px;
-  margin-top: -200px;
+  margin-top: -150px;
   margin-left: 20%;
   margin-right: 20%;
 }
@@ -222,7 +222,76 @@ button {
   }
 }
 
+// ------------------- Logo Animation ---------------------- //
 
+
+.scale-down-top {
+	-webkit-animation: scale-down-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-down-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes scale-down-top {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+  }
+  100% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    -webkit-transform-origin: 50% 25%;
+            transform-origin: 50% 25%;
+  }
+}
+@keyframes scale-down-top {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+  }
+  100% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    -webkit-transform-origin: 50% 25%;
+            transform-origin: 50% 25%;
+  }
+}
+
+
+// ------------------- Board Animation ---------------------- //
+
+
+.fade-in-fwd {
+	-webkit-animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes fade-in-fwd {
+  0% {
+    -webkit-transform: translateZ(-80px);
+            transform: translateZ(-80px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-fwd {
+  0% {
+    -webkit-transform: translateZ(-80px);
+            transform: translateZ(-80px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
 
 // ------------------- Alphabet Banks ---------------------- //
 
