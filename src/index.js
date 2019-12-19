@@ -30,13 +30,25 @@ const pTwoName = document.querySelector('.p-two-name');
 const pThreeName = document.querySelector('.p-three-name');
 const patHost = document.querySelector('.pat-host');
 const vannaHost = document.querySelector('.vanna-host');
+const errorMessage = document.querySelector('.error-message');
 
 // ------------------- Event Listeners ---------------------- //
 
-playGameBtn.addEventListener('click', showInstructions);
+playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
 
 // ------------------- Functionality ---------------------- //
+function checkForError(event) {
+  event.preventDefault();
+  if(playerOneNameInput.value === '') {
+    console.log(pOneName.value);
+    errorMessage.classList.remove('hidden');
+  } else {
+    showInstructions();
+    playGameBtn.classList.remove('disabled');
+  }
+}
+
 function saveNames() {
   let firstName = playerOneNameInput.value;
   let secondName = playerTwoNameInput.value;
@@ -46,8 +58,7 @@ function saveNames() {
   pThreeName.innerText = thirdName;
 }
 
-function showInstructions(event) {
-  event.preventDefault();
+function showInstructions() {
   saveNames();
   landingPage.classList.add('hidden');
   instructionsPage.classList.remove('hidden');
