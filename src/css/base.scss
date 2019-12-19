@@ -224,7 +224,6 @@ button {
 
 // ------------------- Logo Animation ---------------------- //
 
-
 .scale-down-top {
 	-webkit-animation: scale-down-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: scale-down-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -260,39 +259,26 @@ button {
 }
 
 
-// ------------------- Board Animation ---------------------- //
 
-.fade-in-fwd {
-	-webkit-animation: fade-in-fwd 2.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: fade-in-fwd 2.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
-@-webkit-keyframes fade-in-fwd {
-  0% {
-    -webkit-transform: translateZ(-80px);
-            transform: translateZ(-80px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-    opacity: 1;
-  }
-}
-@keyframes fade-in-fwd {
-  0% {
-    -webkit-transform: translateZ(-80px);
-            transform: translateZ(-80px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-    opacity: 1;
-  }
-}
 
 // ------------------- Wheel Animation ---------------------- //
+
+.wheel-canvas {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  z-index: 50;
+  border: solid $color_1 10px;
+  border-radius: 260px;
+  background-color: $color_1;
+}
+// 
+// .wheel-screen {
+//   height: 100vh;
+//   width: 100vh;
+//   background-color: rgba(0, 0, 0, 0.7);
+//   z-index: 40;
+// }
 
 .rotate-center {
 	-webkit-animation: rotate-center 3s ease-in-out both;
@@ -320,12 +306,36 @@ button {
   }
 }
 
-
-.wheel-canvas {
-  position: absolute;
-  top: 200px;
-  z-index: 50;
+.slide-in-bottom {
+	-webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 
 // ------------------- Alphabet Banks ---------------------- //
 
@@ -385,6 +395,7 @@ button {
 }
 
 // ------------------- Game Board ---------------------- //
+
 #game-board {
 	display: flex;
 	flex-direction: row;
@@ -527,6 +538,38 @@ button {
 	text-align: center;
 	vertical-align: middle;
 	margin: 0;
+}
+
+// ------------------- Puzzle Board Animation ---------------------- //
+
+.fade-in-fwd {
+	-webkit-animation: fade-in-fwd 2.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-fwd 2.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes fade-in-fwd {
+  0% {
+    -webkit-transform: translateZ(-80px);
+            transform: translateZ(-80px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-fwd {
+  0% {
+    -webkit-transform: translateZ(-80px);
+            transform: translateZ(-80px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
 }
 
 // ------------------- Turn Choice ---------------------- //

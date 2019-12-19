@@ -34,11 +34,13 @@ const vannaHost = document.querySelector('.vanna-host');
 const errorMessage = document.querySelector('.error-message');
 const wheelWindow = document.querySelector('.wheel-canvas');
 const wheelObject = document.getElementById('canvas');
+const spinBtn = document.getElementById('spin-btn');
 
 // ------------------- Event Listeners ---------------------- //
 
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
+spinBtn.addEventListener('click', showWheel);
 wheelObject.addEventListener('click', spinWheel);
 
 // ------------------- Functionality ---------------------- //
@@ -74,7 +76,6 @@ function showGameBoard(event) {
   event.preventDefault();
   let wheel = new Wheel;
   wheel.createWheel();
-  wheelWindow.classList.remove('hidden');
   titleLogo.classList.add('scale-down-top');
   instructionsPage.classList.add('hidden');
   gameBoardPage.classList.add('fade-in-fwd');
@@ -82,6 +83,12 @@ function showGameBoard(event) {
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
   // vannaHost.classList.add('slide-left');
+}
+
+function showWheel(event) {
+  event.preventDefault();
+  wheelWindow.classList.remove('hidden');
+  wheelWindow.classList.add('slide-in-bottom');
 }
 
 function spinWheel(event) {

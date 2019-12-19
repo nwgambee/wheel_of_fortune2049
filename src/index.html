@@ -127,15 +127,15 @@
         <section class="turn-choice">
           <div class="choice-button" id="spin">
             <img>
-            <h4>SPIN</h4>
+            <h4 id="spin-btn">SPIN</h4>
           </div>
           <div class="choice-button" id="buy">
             <img>
-            <h4>BUY</h4>
+            <h4 id="buy-btn">BUY</h4>
           </div>
           <div class="choice-button" id="solve">
             <img>
-            <h4>SOLVE</h4>
+            <h4 id="solve-btn">SOLVE</h4>
           </div>
           <img class="vanna-host hidden" src="./images/vanna.png" alt="Vanna white in the future as an 8 bit character">
         </section>
@@ -174,7 +174,9 @@
       </div>
     </section>
     <section class="wheel-canvas hidden">
-      <canvas id="canvas" height="500" width="500"></canvas>
+      <div class="wheel-screen">
+        <canvas id="canvas" height="500" width="500"></canvas>
+      </div>
     </section>
     <section class="bonus-page hidden">
       <img>
