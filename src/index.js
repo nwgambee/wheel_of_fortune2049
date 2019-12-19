@@ -23,6 +23,7 @@ const titleLogo = document.querySelector('.logo');
 const playerOneNameInput = document.getElementById('first-input');
 const playerTwoNameInput = document.getElementById('second-input');
 const playerThreeNameInput = document.getElementById('third-input');
+const allNames = document.querySelector('.player-names');
 const pOneName = document.querySelector('.p-one-name');
 const pTwoName = document.querySelector('.p-two-name');
 const pThreeName = document.querySelector('.p-three-name');
@@ -37,6 +38,7 @@ function saveNames() {
   let firstName = playerOneNameInput.value;
   let secondName = playerTwoNameInput.value;
   let thirdName = playerThreeNameInput.value;
+  allNames.innerHTML = `${firstName}, ${secondName}, & ${thirdName}`;
   pOneName.innerText = firstName;
   pTwoName.innerText = secondName;
   pThreeName.innerText = thirdName;
