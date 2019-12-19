@@ -1,5 +1,4 @@
 import Puzzle from './Puzzle'
-// const fetch = require("node-fetch")
 
 class Round {
   constructor() {
@@ -56,8 +55,8 @@ class Round {
       .then(data => this.createPuzzle(new Puzzle(data.data.puzzles[wordLength].puzzle_bank[num])))
   }
   createPuzzle(puzzle) {
-    let completedPuzzles = [];
     console.log(puzzle);
+    let completedPuzzles = [];
 
     if (!completedPuzzles.includes(puzzle)) {
       completedPuzzles.push(puzzle);

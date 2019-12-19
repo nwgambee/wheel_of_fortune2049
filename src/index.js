@@ -32,11 +32,16 @@ const pThreeName = document.querySelector('.p-three-name');
 const patHost = document.querySelector('.pat-host');
 const vannaHost = document.querySelector('.vanna-host');
 const errorMessage = document.querySelector('.error-message');
+const wheelWindow = document.querySelector('.wheel-canvas');
+const wheelObject = document.getElementById('canvas');
+const spinBtn = document.getElementById('spin-btn');
 
 // ------------------- Event Listeners ---------------------- //
 
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
+spinBtn.addEventListener('click', showWheel);
+wheelObject.addEventListener('click', spinWheel);
 
 // ------------------- Functionality ---------------------- //
 function checkForError(event) {
@@ -69,13 +74,26 @@ function showInstructions() {
 
 function showGameBoard(event) {
   event.preventDefault();
+  let wheel = new Wheel;
+  wheel.createWheel();
+  titleLogo.classList.add('scale-down-top');
   instructionsPage.classList.add('hidden');
+  gameBoardPage.classList.add('fade-in-fwd');
   gameBoardPage.classList.remove('hidden');
-  titleLogo.classList.remove('large-logo');
-  titleLogo.classList.add('small-logo');
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
   // vannaHost.classList.add('slide-left');
+}
+
+function showWheel(event) {
+  event.preventDefault();
+  wheelWindow.classList.remove('hidden');
+  wheelWindow.classList.add('slide-in-bottom');
+}
+
+function spinWheel(event) {
+  event.preventDefault();
+  wheelObject.classList.add('rotate-center');
 }
 
 const myRand = () => {
@@ -109,8 +127,59 @@ function beginGame() {
   // pass in player names from user inputs
 }
 
+// ------------------- Add Puzzle to Game Board -----------------
 
-// syntax for exporting index.js functions into class methods
+export function displayFirstWord(words) {
+  if (words.length >= 1) {
+    if(words.length  >= 2) {
+      if(words.length >= 3) {
+        if(words.length === 4) {
+          displayFourthWord();
+        }
+        displayThirdWord();
+      }
+      displaySecondWord();
+    }
+    displayFirstWord();
+  }
+}
+
+
+
+
+
+
+
+
+
+// export function addPuzzleToBoard(words) {
+//   if (words.length < 3) {
+//     let startingRow = document.querySelector('.second-row')
+//     words.forEach(word => {
+//       for (var i = 0; i < word.length; i++) {
+//         let n = i + 201;
+//         let letterSquare = document.getElementById(`${n}`)
+//         // console.log(letterSquare);
+//         console.log(letterSquare.firstChild);
+//         letterSquare.firstChild.innerText = 'Z';
+//       }
+//     })
+//   } else {
+//     let startingRow = document.querySelector('.first-row')
+//     words.forEach(word => {
+//       for (var i = 0; i < word.length; i++) {
+//         let n = i + 101;
+//         let letterSquare = document.getElementById(`${n}`)
+//         // console.log(letterSquare);
+//         console.log(letterSquare.firstChild);
+//         letterSquare.firstChild.innerText = 'Z';
+//       }
+//     })
+//   }
+// }
+
+
+// this is the syntax for exporting index.js functions into class methods
 
 // export const testFunc = () => {
 //   console.log('adding puzzle to dom');
