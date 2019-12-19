@@ -117,6 +117,105 @@ button {
   color: $color-2;
 }
 
+// ------------------- Character Animation ---------------------- //
+
+.pat-host {
+  position: absolute;
+  margin-right: 90%;
+  top: 110%;
+  left: -23%;
+}
+
+.vanna-host {
+  height: auto;
+  width: 12%;
+  position: absolute;
+  z-index: 15;
+}
+
+.slide-top {
+	-webkit-animation: slide-top 2.5s cubic-bezier(0.785, 0.135, 0.150, 0.860) 2s both;
+	        animation: slide-top 2.5s cubic-bezier(0.785, 0.135, 0.150, 0.860) 2s both;
+}
+
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-300px);
+            transform: translateY(-300px);
+  }
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-300px);
+            transform: translateY(-300px);
+  }
+}
+
+.slide-in-fwd-right {
+	-webkit-animation: slide-in-fwd-right 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+	        animation: slide-in-fwd-right 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+}
+
+@-webkit-keyframes slide-in-fwd-right {
+  0% {
+    -webkit-transform: translateZ(-1400px) translateX(1000px);
+            transform: translateZ(-1400px) translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateX(0);
+            transform: translateZ(0) translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-fwd-right {
+  0% {
+    -webkit-transform: translateZ(-1400px) translateX(1000px);
+            transform: translateZ(-1400px) translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateX(0);
+            transform: translateZ(0) translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-left {
+	-webkit-animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+	        animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+}
+
+@-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-900%);
+            transform: translateX(-900%);
+  }
+}
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-900%);
+            transform: translateX(-900%);
+  }
+}
+
+
 
 // ------------------- Alphabet Banks ---------------------- //
 
@@ -216,6 +315,7 @@ button {
 	background: $color_2;
 	width: 90%;
 	opacity: 100%;
+  z-index: 20;
 }
 
 .player-card h3 {
@@ -224,9 +324,13 @@ button {
 
 #player-two {
 	background: $color_3;
+  z-index: 20;
+
 }
 #player-three {
 	background: $color_4;
+  z-index: 20;
+  
 }
 
 // ------------------- Puzzle Board ---------------------- //

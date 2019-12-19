@@ -10,6 +10,8 @@ import './css/base.scss';
 import './images/WOD-logo.svg';
 import './images/icon.png';
 import './images/star.svg';
+import './images/vanna.png';
+import './images/pat.png';
 
 // ------------------- Variable Declerations ---------------------- //
 
@@ -26,6 +28,8 @@ const playerThreeNameInput = document.getElementById('third-input');
 const pOneName = document.querySelector('.p-one-name');
 const pTwoName = document.querySelector('.p-two-name');
 const pThreeName = document.querySelector('.p-three-name');
+const patHost = document.querySelector('.pat-host');
+const vannaHost = document.querySelector('.vanna-host');
 
 // ------------------- Event Listeners ---------------------- //
 
@@ -47,6 +51,7 @@ function showInstructions(event) {
   saveNames();
   landingPage.classList.add('hidden');
   instructionsPage.classList.remove('hidden');
+  patHost.classList.add('slide-top');
 }
 
 function showGameBoard(event) {
@@ -55,6 +60,9 @@ function showGameBoard(event) {
   gameBoardPage.classList.remove('hidden');
   titleLogo.classList.remove('large-logo');
   titleLogo.classList.add('small-logo');
+  vannaHost.classList.remove('hidden');
+  vannaHost.classList.add('slide-in-fwd-right');
+  // vannaHost.classList.add('slide-left');
 }
 
 const myRand = () => {
