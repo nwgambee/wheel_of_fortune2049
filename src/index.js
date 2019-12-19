@@ -133,7 +133,7 @@ export function displayFirstWord(words) {
 // }
 
 
-// syntax for exporting index.js functions into class methods
+// this is the syntax for exporting index.js functions into class methods
 
 // export const testFunc = () => {
 //   console.log('adding puzzle to dom');
