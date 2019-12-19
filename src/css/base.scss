@@ -73,8 +73,12 @@ button {
 }
 
 .error-message {
-  color: red;
+  color: $color-5;
   font-size: 1.3rem;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 // ------------------- Instructions Popup ---------------------- //
