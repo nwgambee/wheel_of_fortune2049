@@ -29,6 +29,7 @@ const pOneName = document.querySelector('.p-one-name');
 const pTwoName = document.querySelector('.p-two-name');
 const pThreeName = document.querySelector('.p-three-name');
 const patHost = document.querySelector('.pat-host');
+const vannaHost = document.querySelector('.vanna-host');
 
 // ------------------- Event Listeners ---------------------- //
 
@@ -51,7 +52,6 @@ function showInstructions(event) {
   landingPage.classList.add('hidden');
   instructionsPage.classList.remove('hidden');
   patHost.classList.add('slide-top');
-
 }
 
 function showGameBoard(event) {
@@ -60,6 +60,8 @@ function showGameBoard(event) {
   gameBoardPage.classList.remove('hidden');
   titleLogo.classList.remove('large-logo');
   titleLogo.classList.add('small-logo');
+  vannaHost.classList.remove('hidden');
+  vannaHost.classList.add('slide-in-fwd-right');
 }
 
 const myRand = () => {
