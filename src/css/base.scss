@@ -117,6 +117,39 @@ button {
   color: $color-2;
 }
 
+// ------------------- Character Animation ---------------------- //
+
+.pat-host {
+  position: absolute;
+  margin-right: 90%;
+  top: 110%;
+  left: -23%;
+}
+
+.slide-top {
+	-webkit-animation: slide-top 2.5s cubic-bezier(0.785, 0.135, 0.150, 0.860) 2s both;
+	        animation: slide-top 2.5s cubic-bezier(0.785, 0.135, 0.150, 0.860) 2s both;
+}
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-300px);
+            transform: translateY(-300px);
+  }
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-300px);
+            transform: translateY(-300px);
+  }
+}
 
 // ------------------- Alphabet Banks ---------------------- //
 
