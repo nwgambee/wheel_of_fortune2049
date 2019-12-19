@@ -217,8 +217,6 @@ button {
 
 
 
-
-
 // ------------------- Alphabet Banks ---------------------- //
 
 .alphabet-btn {
@@ -317,6 +315,7 @@ button {
 	background: $color_2;
 	width: 90%;
 	opacity: 100%;
+  z-index: 20;
 }
 
 .player-card h3 {
@@ -325,9 +324,13 @@ button {
 
 #player-two {
 	background: $color_3;
+  z-index: 20;
+
 }
 #player-three {
 	background: $color_4;
+  z-index: 20;
+  
 }
 
 // ------------------- Puzzle Board ---------------------- //
