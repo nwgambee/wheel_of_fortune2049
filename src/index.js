@@ -69,6 +69,9 @@ function showInstructions() {
 
 function showGameBoard(event) {
   event.preventDefault();
+  let wheel = new Wheel;
+  wheel.createWheel();
+  
   titleLogo.classList.add('scale-down-top');
   instructionsPage.classList.add('hidden');
   gameBoardPage.classList.add('fade-in-fwd');
