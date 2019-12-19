@@ -2,11 +2,11 @@ class Wheel {
   constructor(elements) {
     this.elements = elements;
     this.currentCard;
-    this.color = ['#ca7','#7ac','#77c','#aac','#a7c','#ac7'];
-    this.label = ['10', '200','50','100','5','500'];
-    this.slices = 7;
+    this.color = ['deeppink','white','darkturquoise','darkviolet','deeppink','darkturquoise', 'darkviolet', 'black', 'darkturquoise'];
+    this.label = ['10', '200','50','100','5','500', 'Bankrupt', 'Lose A Turn', '1 Million'];
+    this.slices = 9;
     this.sliceDeg = 360/this.slices;
-    this.deg = 60;
+    this.deg = 40;
     this.ctx = canvas.getContext('2d');
     this.width = 500;
     this.center = this.width/2;

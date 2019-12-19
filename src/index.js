@@ -32,11 +32,14 @@ const pThreeName = document.querySelector('.p-three-name');
 const patHost = document.querySelector('.pat-host');
 const vannaHost = document.querySelector('.vanna-host');
 const errorMessage = document.querySelector('.error-message');
+const wheelWindow = document.querySelector('.wheel-canvas');
+const wheelObject = document.getElementById('canvas');
 
 // ------------------- Event Listeners ---------------------- //
 
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
+wheelObject.addEventListener('click', spinWheel);
 
 // ------------------- Functionality ---------------------- //
 function checkForError(event) {
@@ -71,15 +74,19 @@ function showGameBoard(event) {
   event.preventDefault();
   let wheel = new Wheel;
   wheel.createWheel();
-  
+  wheelWindow.classList.remove('hidden');
   titleLogo.classList.add('scale-down-top');
   instructionsPage.classList.add('hidden');
   gameBoardPage.classList.add('fade-in-fwd');
   gameBoardPage.classList.remove('hidden');
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
-
   // vannaHost.classList.add('slide-left');
+}
+
+function spinWheel(event) {
+  event.preventDefault();
+  wheelObject.classList.add('rotate-center');
 }
 
 const myRand = () => {

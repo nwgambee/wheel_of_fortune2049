@@ -292,6 +292,41 @@ button {
   }
 }
 
+// ------------------- Wheel Animation ---------------------- //
+
+.rotate-center {
+	-webkit-animation: rotate-center 3s ease-in-out both;
+	        animation: rotate-center 3s ease-in-out both;
+}
+
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+  }
+}
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+  }
+}
+
+
+.wheel-canvas {
+  position: absolute;
+  top: 200px;
+  z-index: 50;
+}
+
 // ------------------- Alphabet Banks ---------------------- //
 
 .alphabet-btn {
