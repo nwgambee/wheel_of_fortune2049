@@ -130,6 +130,7 @@ button {
   height: auto;
   width: 12%;
   position: absolute;
+  z-index: 15;
 }
 
 .slide-top {
@@ -187,6 +188,33 @@ button {
     opacity: 1;
   }
 }
+
+.slide-left {
+	-webkit-animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+	        animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+}
+
+@-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-900%);
+            transform: translateX(-900%);
+  }
+}
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-900%);
+            transform: translateX(-900%);
+  }
+}
+
 
 
 

@@ -62,6 +62,7 @@ function showGameBoard(event) {
   titleLogo.classList.add('small-logo');
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
+  vannaHost.classList.add('slide-left');
 }
 
 const myRand = () => {
