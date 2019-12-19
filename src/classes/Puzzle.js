@@ -1,4 +1,4 @@
-import { testFunc } from '../index.js'
+import { addPuzzleToBoard, displayFirstWord } from '../index.js'
 
 
 class Puzzle {
@@ -14,14 +14,26 @@ class Puzzle {
   }
   splitCorrectAnswer() {
     let upperCaseAnswer = this.correctAnswer.toUpperCase();
-    this.splitAnswer = upperCaseAnswer.split('');
-    console.log('splitting');
+    let splitAtSpace = upperCaseAnswer.split(' ');
+    splitAtSpace.forEach(word => {
+      this.splitAnswer.push(word.split(''));
+    });
+
     this.displayPuzzle();
     return this.splitAnswer;
   }
   displayPuzzle() {
     // add puzzle to DOM
-    // testFunc();
+    // if (this.splitAnswer.length === 1) {
+    //   displayFirstWord(this.splitAnswer[0]);
+    // } else if (this.splitAnswer.length === 2) {
+    //   displaySecondWord(this.splitAnswer[1]);
+    // } else if (this.splitAnswer.length === 3){
+    //   displayThirdWord(this.splitAnswer[2])
+    // } else {f{
+    //   displayFourth
+    // }
+    displayFirstWord(this.splitAnswer);
   }
   uncoverLetters() {
     // player.chooseAction

@@ -109,8 +109,52 @@ function beginGame() {
   // pass in player names from user inputs
 }
 
+// ------------------- Add Puzzle to Game Board -----------------
 
-// syntax for exporting index.js functions into class methods
+export function displayFirstWord(words) {
+  // display first word
+  if (words.length === 2) {
+    displaySecondWord()
+
+  }
+}
+
+
+
+
+
+
+
+
+
+// export function addPuzzleToBoard(words) {
+//   if (words.length < 3) {
+//     let startingRow = document.querySelector('.second-row')
+//     words.forEach(word => {
+//       for (var i = 0; i < word.length; i++) {
+//         let n = i + 201;
+//         let letterSquare = document.getElementById(`${n}`)
+//         // console.log(letterSquare);
+//         console.log(letterSquare.firstChild);
+//         letterSquare.firstChild.innerText = 'Z';
+//       }
+//     })
+//   } else {
+//     let startingRow = document.querySelector('.first-row')
+//     words.forEach(word => {
+//       for (var i = 0; i < word.length; i++) {
+//         let n = i + 101;
+//         let letterSquare = document.getElementById(`${n}`)
+//         // console.log(letterSquare);
+//         console.log(letterSquare.firstChild);
+//         letterSquare.firstChild.innerText = 'Z';
+//       }
+//     })
+//   }
+// }
+
+
+// this is the syntax for exporting index.js functions into class methods
 
 // export const testFunc = () => {
 //   console.log('adding puzzle to dom');
