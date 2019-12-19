@@ -50,6 +50,8 @@ function showInstructions(event) {
   saveNames();
   landingPage.classList.add('hidden');
   instructionsPage.classList.remove('hidden');
+  patHost.classList.add('slide-top');
+
 }
 
 function showGameBoard(event) {
