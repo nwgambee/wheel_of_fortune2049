@@ -71,9 +71,11 @@ function showGameBoard(event) {
   event.preventDefault();
   titleLogo.classList.add('scale-down-top');
   instructionsPage.classList.add('hidden');
+  gameBoardPage.classList.add('fade-in-fwd');
   gameBoardPage.classList.remove('hidden');
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
+
   // vannaHost.classList.add('slide-left');
 }
 
