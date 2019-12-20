@@ -272,13 +272,13 @@ button {
   border-radius: 260px;
   background-color: $color_1;
 }
-// 
-// .wheel-screen {
-//   height: 100vh;
-//   width: 100vh;
-//   background-color: rgba(0, 0, 0, 0.7);
-//   z-index: 40;
-// }
+
+.black-bg {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 40;
+}
 
 .rotate-center {
 	-webkit-animation: rotate-center 3s ease-in-out both;
@@ -335,6 +335,7 @@ button {
     opacity: 1;
   }
 }
+
 
 
 // ------------------- Alphabet Banks ---------------------- //
@@ -712,4 +713,9 @@ img.glitter-star {
 	visibility: hidden;
 	height: 0px;
 	width: 0px;
+}
+
+
+.invisible {
+  visibility: hidden;
 }
