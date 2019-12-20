@@ -126,8 +126,16 @@ export function displayPuzzleOnBoard(words) {
 
 function clickLetter(e) {
   let letter = e.target.innerHTML;
+
   puzzleSquares.forEach(square => {
-    (square.innerText === letter) && (square.style.fontSize = '65px');
+    console.log(square);
+    if (square.innerText === letter) {
+      square.parentElement.style.backgroundColor = 'deeppink';
+      setTimeout(function() {
+        square.parentElement.style.backgroundColor = 'white';
+        square.style.fontSize = '65px';
+      }, 2000);
+    }
   });
 }
 
