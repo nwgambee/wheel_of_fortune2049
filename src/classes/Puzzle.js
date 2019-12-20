@@ -1,6 +1,5 @@
 // import { addPuzzleToBoard, displayFirstWord } from '../index.js'
 
-
 class Puzzle {
   constructor(puzzle) {
     this.category = puzzle.category;
