@@ -96,6 +96,13 @@ function showWheel(event) {
 function spinWheel(event) {
   event.preventDefault();
   wheelObject.classList.add('rotate-center');
+  hideWheel(event);
+}
+
+function hideWheel(event) {
+  event.preventDefault();
+  wheelWindow.classList.add('slide-out-bottom');
+  setTimeout(function(){puzzleBoard.classList.remove('invisible')}, 2800);
 }
 
 const myRand = () => {
