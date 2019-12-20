@@ -8,7 +8,7 @@ import Round from '../src/classes/Round'
 import Wheel from '../src/classes/Wheel'
 import './css/base.scss';
 import './images/WOD-logo.svg';
-import './images/icon.png';
+import './images/w.png';
 import './images/star.svg';
 import './images/vanna.png';
 import './images/pat.png';
@@ -32,6 +32,10 @@ const pThreeName = document.querySelector('.p-three-name');
 const patHost = document.querySelector('.pat-host');
 const vannaHost = document.querySelector('.vanna-host');
 const errorMessage = document.querySelector('.error-message');
+const wheelWindow = document.querySelector('.wheel-canvas');
+const wheelObject = document.getElementById('canvas');
+const spinBtn = document.getElementById('spin-btn');
+const puzzleBoard = document.querySelector('.puzzle-board');
 const alphabetBank = document.querySelector('.alphabet-banks');
 const puzzleSquares = document.querySelectorAll('.letter');
 
@@ -39,6 +43,8 @@ const puzzleSquares = document.querySelectorAll('.letter');
 
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
+spinBtn.addEventListener('click', showWheel);
+wheelObject.addEventListener('click', spinWheel);
 alphabetBank.addEventListener('click', clickLetter);
 
 // ------------------- Functionality ---------------------- //
@@ -72,13 +78,27 @@ function showInstructions() {
 
 function showGameBoard(event) {
   event.preventDefault();
+  let wheel = new Wheel;
+  wheel.createWheel();
+  titleLogo.classList.add('scale-down-top');
   instructionsPage.classList.add('hidden');
+  gameBoardPage.classList.add('fade-in-fwd');
   gameBoardPage.classList.remove('hidden');
-  titleLogo.classList.remove('large-logo');
-  titleLogo.classList.add('small-logo');
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
   // vannaHost.classList.add('slide-left');
+}
+
+function showWheel(event) {
+  event.preventDefault();
+  wheelWindow.classList.remove('hidden');
+  wheelWindow.classList.add('slide-in-bottom');
+  puzzleBoard.classList.add('invisible');
+}
+
+function spinWheel(event) {
+  event.preventDefault();
+  wheelObject.classList.add('rotate-center');
 }
 
 const myRand = () => {
@@ -113,7 +133,6 @@ function beginGame() {
 }
 
 // ------------------- Add Puzzle to Game Board -----------------
-
 export function displayPuzzleOnBoard(words) {
   // display first word
   if (words.length === 2) {

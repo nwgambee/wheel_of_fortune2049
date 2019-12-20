@@ -1,5 +1,4 @@
-import { addPuzzleToBoard, displayFirstWord } from '../index.js'
-
+// import { addPuzzleToBoard, displayFirstWord } from '../index.js'
 
 class Puzzle {
   constructor(puzzle) {
