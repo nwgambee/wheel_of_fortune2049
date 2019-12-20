@@ -126,9 +126,7 @@ export function displayPuzzleOnBoard(words) {
 
 function clickLetter(e) {
   let letter = e.target.innerHTML;
-
   puzzleSquares.forEach(square => {
-    console.log(square);
     if (square.innerText === letter) {
       square.parentElement.style.backgroundColor = 'deeppink';
       setTimeout(function() {
