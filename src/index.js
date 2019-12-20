@@ -8,7 +8,7 @@ import Round from '../src/classes/Round'
 import Wheel from '../src/classes/Wheel'
 import './css/base.scss';
 import './images/WOD-logo.svg';
-import './images/icon.png';
+import './images/w.png';
 import './images/star.svg';
 import './images/vanna.png';
 import './images/pat.png';
@@ -35,6 +35,7 @@ const errorMessage = document.querySelector('.error-message');
 const wheelWindow = document.querySelector('.wheel-canvas');
 const wheelObject = document.getElementById('canvas');
 const spinBtn = document.getElementById('spin-btn');
+const puzzleBoard = document.querySelector('.puzzle-board');
 
 // ------------------- Event Listeners ---------------------- //
 
@@ -89,6 +90,7 @@ function showWheel(event) {
   event.preventDefault();
   wheelWindow.classList.remove('hidden');
   wheelWindow.classList.add('slide-in-bottom');
+  puzzleBoard.classList.add('invisible');
 }
 
 function spinWheel(event) {
