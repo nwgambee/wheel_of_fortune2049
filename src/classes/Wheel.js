@@ -1,3 +1,5 @@
+import { currentPlayer } from '../index.js'
+
 class Wheel {
   constructor(elements) {
     this.elements = elements;
@@ -46,19 +48,22 @@ class Wheel {
 
   runBonusWheel() {
   }
-  evaluateCurrentCard(card) {
-    console.log('evaluating');
-    if (card === 'Bankrupt') {
-      // player.roundScore = 0;
-    } else if (card === 'Lose A Turn') {
-      // current players turn is over, move to next player
-    } else {
-      // player.chooseConsonate()
-    }
-  }
   chooseWheelElement() {
     let chosenElement = this.label[Math.floor(Math.random() * this.label.length)]
-    evaluateCurrentCard(chosenElement);
+    this.evaluateCurrentCard(chosenElement);
+  }
+  evaluateCurrentCard(card) {
+    // display results of each wheel spin on DOM
+
+    if (card === 'Bankrupt') {
+      console.log(card);
+      // player.roundScore = 0;
+    } else if (card === 'Lose A Turn') {
+      console.log(card);
+      // current players turn is over, move to next player
+    } else {
+      currentPlayer.chooseConsonant()
+    }
   }
 }
 

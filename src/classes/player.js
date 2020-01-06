@@ -1,4 +1,4 @@
-import { showWheel, wheel } from '../index.js'
+import { showWheel, wheel, evaluateLetter } from '../index.js'
 
 import Round from './Round'
 
@@ -15,7 +15,6 @@ class Player {
     // round.availableLetters = [];
     showWheel(event);
     // round.evaluateCurrentCard();
-    wheel.chooseWheelElement();
   }
 
   buyVowel() {
@@ -25,6 +24,15 @@ class Player {
   solvePuzzle() {
     // player.choose
     console.log('solving puzzle');
+  }
+  chooseConsonant() {
+    console.log('choosing consonant');
+    // allow consonants to be clicked and wait for user to choose only one
+    // assign clicked letter to a variable and pass it into evaluateLetter();
+
+    // let letter = event.target.innerHTML;
+    // console.log(letter);
+    // evaluateLetter();
   }
 
 }

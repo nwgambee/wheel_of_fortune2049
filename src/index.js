@@ -39,7 +39,7 @@ const puzzleBoard = document.querySelector('.puzzle-board');
 const alphabetBank = document.querySelector('.alphabet-banks');
 const puzzleSquares = document.querySelectorAll('.letter');
 let player1, player2, player3;
-let currentPlayer;
+export let currentPlayer;
 export let wheel;
 
 // ------------------- Event Listeners ---------------------- //
@@ -47,7 +47,7 @@ export let wheel;
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
 wheelObject.addEventListener('click', spinWheel);
-alphabetBank.addEventListener('click', clickLetter);
+// alphabetBank.addEventListener('click', clickLetter);
 
 // ------------------- Functionality ---------------------- //
 
@@ -123,6 +123,7 @@ function spinWheel(event) {
   event.preventDefault();
   wheelObject.classList.remove('rotate-center');
   wheelObject.classList.add('rotate-center');
+  wheel.chooseWheelElement();
   hideWheel(event);
 }
 
@@ -177,12 +178,14 @@ export function displayPuzzleOnBoard(words) {
   }
 }
 
-// ------------------- Click letter -----------------
+// ------------------- evaluate letter -----------------
 
-function clickLetter(e) {
-  let letter = e.target.innerHTML;
+export function evaluateLetter(letter) {
+  // if letter is contained within puzzle, display it on the DOM. If not, it is the next players turn.
+
   puzzleSquares.forEach(square => {
     if (square.innerText === letter) {
+      console.log('correct');
       square.style.backgroundColor = 'deeppink';
       setTimeout(function() {
         square.style.backgroundColor = 'white';
@@ -191,44 +194,3 @@ function clickLetter(e) {
     }
   });
 }
-
-
-//
-// export function addPuzzleToBoard(words) {
-//   if (words.length < 3) {
-//     let startingRow = document.querySelector('.second-row')
-//     words.forEach(word => {
-//       for (var i = 0; i < word.length; i++) {
-//         let n = i + 201;
-//         let letterSquare = document.getElementById(`${n}`)
-//         // console.log(letterSquare);
-//         console.log(letterSquare.firstChild);
-//         letterSquare.firstChild.innerText = 'Z';
-//       }
-//     })
-//   } else {
-//     let startingRow = document.querySelector('.first-row')
-//     words.forEach(word => {
-//       for (var i = 0; i < word.length; i++) {
-//         let n = i + 101;
-//         let letterSquare = document.getElementById(`${n}`)
-//         // console.log(letterSquare);
-//         console.log(letterSquare.firstChild);
-//         letterSquare.firstChild.innerText = 'Z';
-//       }
-//     })
-//   }
-// }
-
-
-// this is the syntax for exporting index.js functions into class methods
-
-// export const testFunc = () => {
-//   console.log('adding puzzle to dom');
-// }
-
-// OR
-
-// export function testFunc() {
-//   console.log('hello');
-// }
