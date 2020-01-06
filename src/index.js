@@ -182,9 +182,9 @@ function clickLetter(e) {
   let letter = e.target.innerHTML;
   puzzleSquares.forEach(square => {
     if (square.innerText === letter) {
-      square.parentElement.style.backgroundColor = 'deeppink';
+      square.style.backgroundColor = 'deeppink';
       setTimeout(function() {
-        square.parentElement.style.backgroundColor = 'white';
+        square.style.backgroundColor = 'white';
         square.style.fontSize = '65px';
       }, 2000);
     }
