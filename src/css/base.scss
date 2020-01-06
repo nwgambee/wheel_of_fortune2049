@@ -492,10 +492,10 @@ button {
   z-index: 20;
 
 }
+
 #player-three {
 	background: $color_4;
   z-index: 20;
-
 }
 
 // ------------------- Puzzle Board ---------------------- //
@@ -505,6 +505,7 @@ button {
 	align-items: center;
 	overflow: auto;
 	width: 70%;
+	margin-right: 10%;
 }
 
 .row {
