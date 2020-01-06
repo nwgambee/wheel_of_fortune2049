@@ -35,7 +35,7 @@ class Puzzle {
   displayOneWord(words) {
     let letterSquare;
     let firstWord = this.splitAnswer[0]
-    let spaceOne = Math.floor((14 - firstWord.length) / 2)
+    let spaceOne = Math.ceil((14 - firstWord.length) / 2)
     for(var i = 201; i < (firstWord.length + 201); i++) {
         letterSquare = document.getElementById(`${i + spaceOne}`);
         console.log(firstWord[i-201] === '&' || '-' || '\'')
@@ -51,10 +51,9 @@ class Puzzle {
     let letterSquare;
     let firstWord = this.splitAnswer[0];
     let secondWord = this.splitAnswer[1];
-    let spaceOne = Math.floor((14 - firstWord.length) / 2)
-    let spaceTwo = Math.floor((14 - secondWord.length) / 2)
+    let spaceOne = Math.ceil((14 - firstWord.length) / 2)
+    let spaceTwo = Math.ceil((14 - secondWord.length) / 2)
     for(var i = 201; i < (firstWord.length + 201); i++) {
-      // letterSquare = document.getElementById(`${i + spaceOne}`).firstChild;
       letterSquare = document.getElementById(`${i + spaceOne}`);
       if (firstWord[i  - 201] === '&' || firstWord[i  - 201] === '-' || firstWord[i  - 201] === '\'') {
         letterSquare.classList.add('show-symbol')
@@ -77,9 +76,9 @@ class Puzzle {
     let firstWord = this.splitAnswer[0];
     let secondWord = this.splitAnswer[1];
     let thirdWord = this.splitAnswer[2];
-    let spaceOne = Math.floor((12 - firstWord.length) / 2)
-    let spaceTwo = Math.floor((14 - secondWord.length) / 2)
-    let spaceThree = Math.floor((14 - thirdWord.length) / 2)
+    let spaceOne = Math.ceil((12 - firstWord.length) / 2)
+    let spaceTwo = Math.ceil((14 - secondWord.length) / 2)
+    let spaceThree = Math.ceil((14 - thirdWord.length) / 2)
     for(var i = 101; i < (firstWord.length + 101); i++) {
         letterSquare = document.getElementById(`${i + spaceOne}`);
         if (firstWord[i - 101] === '&' || firstWord[i - 101] === '-' || firstWord[i - 101] === '\'') {
@@ -112,11 +111,10 @@ class Puzzle {
     let secondWord = this.splitAnswer[1];
     let thirdWord = this.splitAnswer[2];
     let fourthWord = this.splitAnswer[3];
-    let spaceOne = Math.floor((12 - firstWord.length) / 2)
-    let spaceTwo = Math.floor((14 - secondWord.length) / 2)
-    let spaceThree = Math.floor((14 - thirdWord.length) / 2)
-    let spaceFour = Math.floor((12 - fourthWord.length) / 2)
-
+    let spaceOne = Math.ceil((12 - firstWord.length) / 2)
+    let spaceTwo = Math.ceil((14 - secondWord.length) / 2)
+    let spaceThree = Math.ceil((14 - thirdWord.length) / 2)
+    let spaceFour = Math.ceil((12 - fourthWord.length) / 2)
     for(var i = 101; i < (firstWord.length + 101); i++) {
         letterSquare = document.getElementById(`${i + spaceOne}`);
           if (firstWord[i - 101] === '&' || firstWord[i - 101] === '-' || firstWord[i - 101] === '\'') {

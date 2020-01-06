@@ -158,10 +158,11 @@ function clickLetter(e) {
   puzzleSquares.forEach(square => {
     if (square.innerText === letter) {
       square.style.backgroundColor = 'deeppink';
+      vannaHost.classList.add('slide-left');
       setTimeout(function() {
         square.style.backgroundColor = 'white';
         square.style.fontSize = '65px';
-      }, 2000);
+      }, 1200);
     }
   });
 }
