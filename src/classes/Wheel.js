@@ -42,7 +42,7 @@ class Wheel {
     this.ctx.textAlign = "right";
     this.ctx.fillStyle = "#fff";
     this.ctx.font = 'bold 30px sans-serif';
-    this.ctx.fillText(text, 130, 10);
+    this.ctx.fillText(text, 220, 10);
     this.ctx.restore();
   }
 
@@ -55,8 +55,8 @@ class Wheel {
   evaluateCurrentCard(card) {
     // display results of each wheel spin on DOM
 
+    this.currentCard = card;
     if (card === 'Bankrupt') {
-      console.log(card);
       // player.roundScore = 0;
     } else if (card === 'Lose A Turn') {
       console.log(card);

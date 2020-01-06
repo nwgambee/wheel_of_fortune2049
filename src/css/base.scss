@@ -400,6 +400,18 @@ button {
 	align-items: center;
 	padding: 0 0 1%;
 	margin: -0.4% 0.1% 0%;
+
+}
+
+.dead-mouse {
+	opacity: 20%;
+	pointer-events: none;
+}
+
+.used-mouse {
+	opacity: 20%;
+	pointer-events: none;
+	color: black;
 }
 
 .consonants-bank {
@@ -480,10 +492,10 @@ button {
   z-index: 20;
 
 }
+
 #player-three {
 	background: $color_4;
   z-index: 20;
-
 }
 
 // ------------------- Puzzle Board ---------------------- //
@@ -493,6 +505,7 @@ button {
 	align-items: center;
 	overflow: auto;
 	width: 70%;
+	margin-right: 10%;
 }
 
 .row {

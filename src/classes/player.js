@@ -27,12 +27,18 @@ class Player {
   }
   chooseConsonant() {
     console.log('choosing consonant');
+    document.querySelectorAll('.consonant-letter').forEach(c => c.classList.remove('dead-mouse'));
     // allow consonants to be clicked and wait for user to choose only one
     // assign clicked letter to a variable and pass it into evaluateLetter();
 
     // let letter = event.target.innerHTML;
     // console.log(letter);
     // evaluateLetter();
+  }
+  calculateScore(cardCount) {
+    console.log([cardCount, wheel.currentCard]);
+    this.roundScore += parseInt(wheel.currentCard) * cardCount;
+    console.log(this.roundScore);
   }
 
 }
