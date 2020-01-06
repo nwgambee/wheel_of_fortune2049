@@ -35,8 +35,9 @@ class Puzzle {
   displayOneWord(words) {
     let letterSquare;
     let firstWord = this.splitAnswer[0]
+    let spaceOne = Math.floor((14 - firstWord.length) / 2)
     for(var i = 201; i < (firstWord.length + 201); i++) {
-        letterSquare = document.getElementById(`${i}`);
+        letterSquare = document.getElementById(`${i + spaceOne}`);
         letterSquare.innerText = firstWord[i - 201];
         letterSquare.classList.add('active-square');
     }
@@ -46,13 +47,15 @@ class Puzzle {
     let letterSquare;
     let firstWord = this.splitAnswer[0];
     let secondWord = this.splitAnswer[1];
+    let spaceOne = Math.floor((14 - firstWord.length) / 2)
+    let spaceTwo = Math.floor((14 - secondWord.length) / 2)
     for(var i = 201; i < (firstWord.length + 201); i++) {
-        letterSquare = document.getElementById(`${i}`).firstChild;
+        letterSquare = document.getElementById(`${i + spaceOne}`).firstChild;
         letterSquare.innerText = firstWord[i - 201];
         letterSquare.classList.add('active-square');
     }
     for(var i = 301; i < (secondWord.length + 301); i++) {
-        letterSquare = document.getElementById(`${i}`);
+        letterSquare = document.getElementById(`${i + spaceTwo}`);
         letterSquare.innerText = secondWord[i - 301];
         letterSquare.classList.add('active-square');
     }
@@ -63,18 +66,21 @@ class Puzzle {
     let firstWord = this.splitAnswer[0];
     let secondWord = this.splitAnswer[1];
     let thirdWord = this.splitAnswer[2];
+    let spaceOne = Math.floor((12 - firstWord.length) / 2)
+    let spaceTwo = Math.floor((14 - secondWord.length) / 2)
+    let spaceThree = Math.floor((14 - thirdWord.length) / 2)
     for(var i = 101; i < (firstWord.length + 101); i++) {
-        letterSquare = document.getElementById(`${i}`);
+        letterSquare = document.getElementById(`${i + spaceOne}`);
         letterSquare.innerText = firstWord[i - 101];
         letterSquare.classList.add('active-square');
     }
     for(var i = 201; i < (secondWord.length + 201); i++) {
-        letterSquare = document.getElementById(`${i}`);
+        letterSquare = document.getElementById(`${i + spaceTwo}`);
         letterSquare.innerText = secondWord[i - 201];
         letterSquare.classList.add('active-square');
     }
     for(var i = 301; i < (thirdWord.length + 301); i++) {
-        letterSquare = document.getElementById(`${i}`);
+        letterSquare = document.getElementById(`${i + spaceThree}`);
         letterSquare.innerText = thirdWord[i - 301];
         letterSquare.classList.add('active-square');
     }
@@ -86,23 +92,28 @@ class Puzzle {
     let secondWord = this.splitAnswer[1];
     let thirdWord = this.splitAnswer[2];
     let fourthWord = this.splitAnswer[3];
+    let spaceOne = Math.floor((12 - firstWord.length) / 2)
+    let spaceTwo = Math.floor((14 - secondWord.length) / 2)
+    let spaceThree = Math.floor((14 - thirdWord.length) / 2)
+    let spaceFour = Math.floor((12 - fourthWord.length) / 2)
+
     for(var i = 101; i < (firstWord.length + 101); i++) {
-        letterSquare = document.getElementById(`${i}`);
+        letterSquare = document.getElementById(`${i + spaceOne}`);
         letterSquare.innerText = firstWord[i - 101];
         letterSquare.classList.add('active-square');
     }
     for(var i = 201; i < (secondWord.length + 201); i++) {
-        letterSquare = document.getElementById(`${i}`);
+        letterSquare = document.getElementById(`${i + spaceTwo}`);
         letterSquare.innerText = secondWord[i - 201];
         letterSquare.classList.add('active-square');
     }
     for(var i = 301; i < (thirdWord.length + 301); i++) {
-        letterSquare = document.getElementById(`${i}`);
+        letterSquare = document.getElementById(`${i + spaceThree}`);
         letterSquare.innerText = thirdWord[i - 301];
         letterSquare.classList.add('active-square');
     }
     for(var i = 401; i < (fourthWord.length + 401); i++) {
-        letterSquare = document.getElementById(`${i}`);
+        letterSquare = document.getElementById(`${i + spaceFour}`);
         letterSquare.innerText = fourthWord[i - 401];
         letterSquare.classList.add('active-square');
     }
