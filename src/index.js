@@ -36,6 +36,8 @@ const wheelWindow = document.querySelector('.wheel-canvas');
 const wheelObject = document.getElementById('canvas');
 const spinBtn = document.getElementById('spin-btn');
 const puzzleBoard = document.querySelector('.puzzle-board');
+const alphabetBank = document.querySelector('.alphabet-banks');
+const puzzleSquares = document.querySelectorAll('.letter');
 
 // ------------------- Event Listeners ---------------------- //
 
@@ -43,6 +45,7 @@ playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
 spinBtn.addEventListener('click', showWheel);
 wheelObject.addEventListener('click', spinWheel);
+alphabetBank.addEventListener('click', clickLetter);
 
 // ------------------- Functionality ---------------------- //
 function checkForError(event) {
@@ -140,15 +143,28 @@ function beginGame() {
 }
 
 // ------------------- Add Puzzle to Game Board -----------------
+export function displayPuzzleOnBoard(words) {
+  // display first word
+  if (words.length === 2) {
+    displaySecondWord()
 
+  }
+}
 
+// ------------------- Click letter -----------------
 
-
-
-
-
-
-
+function clickLetter(e) {
+  let letter = e.target.innerHTML;
+  puzzleSquares.forEach(square => {
+    if (square.innerText === letter) {
+      square.parentElement.style.backgroundColor = 'deeppink';
+      setTimeout(function() {
+        square.parentElement.style.backgroundColor = 'white';
+        square.style.fontSize = '65px';
+      }, 2000);
+    }
+  });
+}
 
 
 //
