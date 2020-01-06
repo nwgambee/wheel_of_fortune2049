@@ -197,28 +197,28 @@ button {
 }
 
 .slide-left {
-	-webkit-animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
-	        animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+	-webkit-animation: slide-left 6s linear both;
+	        animation: slide-left 6s linear both;
 }
 
 @-webkit-keyframes slide-left {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+	0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
   }
   100% {
-    -webkit-transform: translateX(-900%);
-            transform: translateX(-900%);
+    -webkit-transform: translateX(-650%);
+            transform: translateX(-650%);
   }
 }
 @keyframes slide-left {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+	0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
   }
   100% {
-    -webkit-transform: translateX(-900%);
-            transform: translateX(-900%);
+    -webkit-transform: translateZ(0) translateX(-650%);
+            transform: translateZ(0) translateX(-650%);
   }
 }
 
@@ -574,7 +574,6 @@ button {
 }
 
 .show-symbol {
-	// color: $color-3;
 	font-size: 65px;
 }
 
