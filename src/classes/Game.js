@@ -13,17 +13,12 @@ class Game {
   evaluateLeaderboard() {
 
   }
-  beginRound(p1Name, p2Name, p3Name) {
-    // instantiate 3 new players
-    let player1 = new Player(p1Name);
-    let player2 = new Player(p2Name);
-    let player3 = new Player(p3Name);
-    this.players.push(player1, player2, player3);
-
+  beginRound(p1, p2, p3) {
+    this.players.push(p1, p2, p3);
     // instantiate new Round
     let round = new Round();
     this.rounds++;
-    round.generateRandomInfo()
+    round.startRound(p1);
 
   }
   endGame() {

@@ -1,4 +1,7 @@
 import Puzzle from './Puzzle'
+import {
+ getCurrentPlayer
+} from '../index.js'
 
 class Round {
   constructor() {
@@ -36,9 +39,10 @@ class Round {
 
     // new turn with next player
   }
-  startRound() {
-    // resets round data and starts turn
-    // this.loadPuzzle or puzzle.displayPuzzle
+  startRound(player) {
+    this.currentPlayer = player;
+    console.log(this.currentPlayer);
+    this.generateRandomInfo();
   }
 
   generateRandomInfo() {
@@ -55,7 +59,6 @@ class Round {
       .then(data => this.createPuzzle(new Puzzle(data.data.puzzles[wordLength].puzzle_bank[num])))
   }
   createPuzzle(puzzle) {
-    console.log(puzzle);
     let completedPuzzles = [];
 
     if (!completedPuzzles.includes(puzzle)) {
@@ -65,6 +68,13 @@ class Round {
     } else {
       this.generateRandomInfo();
     }
+    getCurrentPlayer(this.currentPlayer);
+  }
+
+  allowTurnSelection() {
+    console.log('allow it');
+    const playerChoiceBtns = document.querySelector('.turn-choice');
+    playerChoiceBtns.addEventListener('click', takeTurn());
   }
 
 }

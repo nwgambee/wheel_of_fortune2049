@@ -1,23 +1,28 @@
+import { showWheel } from '../index.js'
+
 class Player {
-  constructor(name) {
+  constructor(name, order) {
     this.name = name;
     this.totalScore = 0;
-    this.roundScore = 0
+    this.roundScore = 0;
+    this.playerNumber = order;
 
   }
 
-   spinWheel() {
-     round.evaluateCurrentCard();
-     round.availableLetters = [];
-   }
+  spinWheel() {
+    // round.evaluateCurrentCard();
+    // round.availableLetters = [];
+    showWheel(event)
+  }
 
-   buyVowel() {
+  buyVowel() {
+    console.log('buying vowel');
+  }
 
-   }
-
-   solvePuzzle() {
-     player.choose
-   }
+  solvePuzzle() {
+    // player.choose
+    console.log('solving puzzle');
+  }
 
 }
 
