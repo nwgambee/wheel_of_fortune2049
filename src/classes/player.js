@@ -35,9 +35,9 @@ class Player {
     // console.log(letter);
     // evaluateLetter();
   }
-  calculateScore(i) {
-    console.log([i, wheel.currentCard]);
-    this.roundScore += parseInt(wheel.currentCard) * i;
+  calculateScore(cardCount) {
+    console.log([cardCount, wheel.currentCard]);
+    this.roundScore += parseInt(wheel.currentCard) * cardCount;
     console.log(this.roundScore);
   }
 
