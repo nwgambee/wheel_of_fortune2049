@@ -551,6 +551,7 @@ button {
 	width: 55px;
 	margin: 4px 2px;
 	text-align: center;
+	font-size: 0px;
 }
 
 .preactive-square {
@@ -565,11 +566,16 @@ button {
 .letter {
 	color: $color_3;
 	font-family: $font_family_2;
-	font-size: 0;
+	font-size: 0px;
 	font-weight: 700;
 	text-align: center;
 	vertical-align: middle;
 	margin: 0;
+}
+
+.show-symbol {
+	// color: $color-3;
+	font-size: 65px;
 }
 
 // ------------------- Puzzle Board Animation ---------------------- //
