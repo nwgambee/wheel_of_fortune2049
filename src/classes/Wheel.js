@@ -2,7 +2,7 @@ class Wheel {
   constructor(elements) {
     this.elements = elements;
     this.currentCard;
-    this.color = ['deeppink','white','darkturquoise','darkviolet','deeppink','darkturquoise', 'darkviolet', 'black', 'darkturquoise'];
+    this.color = ['deeppink','black','darkturquoise','darkviolet','deeppink','darkturquoise', 'darkviolet', 'black', 'darkturquoise'];
     this.label = ['10', '200','50','100','5','500', 'Bankrupt', 'Lose A Turn', '1 Million'];
     this.slices = 9;
     this.sliceDeg = 360/this.slices;

@@ -50,12 +50,13 @@ class Puzzle {
     let spaceOne = Math.floor((14 - firstWord.length) / 2)
     let spaceTwo = Math.floor((14 - secondWord.length) / 2)
     for(var i = 201; i < (firstWord.length + 201); i++) {
-        letterSquare = document.getElementById(`${i + spaceOne}`).firstChild;
-        letterSquare.innerText = firstWord[i - 201];
-        letterSquare.classList.add('active-square');
+      // letterSquare = document.getElementById(`${i + spaceOne}`).firstChild;
+      letterSquare = document.getElementById(`${i + spaceOne}`).firstChild;
+      letterSquare.innerText = firstWord[i - 201];
+      letterSquare.classList.add('active-square');
     }
     for(var i = 301; i < (secondWord.length + 301); i++) {
-        letterSquare = document.getElementById(`${i + spaceTwo}`);
+        letterSquare = document.getElementById(`${i + spaceTwo}`).firstChild;
         letterSquare.innerText = secondWord[i - 301];
         letterSquare.classList.add('active-square');
     }
