@@ -34,7 +34,6 @@ class Puzzle {
     // displayFirstWord(this.splitAnswer);
   }
   displayWords(words) {
-    console.log(words.numOfWords);
     if(words.numOfWords === 1) {
       if(words.numOfWords === 2) {
         if(words.numOfWords === 3) {
@@ -70,15 +69,14 @@ class Puzzle {
             console.log(letterSquare)
         }
       }
-      console.log('one');
+      // console.log('one');
       // this.displayOneWord(words);
       let firstWord = this.splitAnswer[0];
       let letterSquare;
       for(var i = 101; i < (firstWord.length + 101); i++) {
           letterSquare = document.getElementById(`${i}`);
           letterSquare.innerText = firstWord[i - 101];
-          console.log(letterSquare)
-
+          // console.log(letterSquare)
       }
     }
   }

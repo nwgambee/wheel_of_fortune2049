@@ -80,6 +80,8 @@ function saveNames() {
   let firstName = playerOneNameInput.value;
   let secondName = playerTwoNameInput.value;
   let thirdName = playerThreeNameInput.value;
+
+// begin game logic
   beginGame(firstName, secondName, thirdName);
   allNames.innerHTML = `${firstName}, ${secondName}, & ${thirdName}`;
   pOneName.innerText = firstName;
