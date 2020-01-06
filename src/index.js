@@ -184,17 +184,24 @@ export function displayPuzzleOnBoard(words) {
 
 export function evaluateLetter(event) {
   // if letter is contained within puzzle, display it on the DOM. If not, it is the next players turn.
+  let cardCount = 0;
   let letter = event.target;
   puzzleSquares.forEach(square => {
     if (square.innerText === letter.innerHTML) {
+      cardCount++;
       square.style.backgroundColor = 'deeppink';
       vannaHost.classList.add('slide-left');
       setTimeout(function() {
         square.style.backgroundColor = 'white';
         square.style.fontSize = '65px';
       }, 1200);
+      // inform player that it's still their turn and update score on DOM
+
+    } else {
+      // move currentPlayer to next player and inform that it's their turn
     }
   });
+  currentPlayer.calculateScore(cardCount);
   document.querySelectorAll('.consonant-letter').forEach(c => c.classList.add('dead-mouse'));
   letter.classList.add('used-mouse');
 }
