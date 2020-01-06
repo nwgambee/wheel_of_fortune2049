@@ -1,4 +1,7 @@
 import Puzzle from './Puzzle'
+import {
+ getCurrentPlayer
+} from '../index.js'
 
 class Round {
   constructor() {
@@ -38,7 +41,7 @@ class Round {
   }
   startRound(player) {
     this.currentPlayer = player;
-
+    console.log(this.currentPlayer);
     this.generateRandomInfo();
   }
 
@@ -65,6 +68,13 @@ class Round {
     } else {
       this.generateRandomInfo();
     }
+    getCurrentPlayer(this.currentPlayer);
+  }
+
+  allowTurnSelection() {
+    console.log('allow it');
+    const playerChoiceBtns = document.querySelector('.turn-choice');
+    playerChoiceBtns.addEventListener('click', takeTurn());
   }
 
 }

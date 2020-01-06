@@ -38,36 +38,37 @@ const spinBtn = document.getElementById('spin-btn');
 const puzzleBoard = document.querySelector('.puzzle-board');
 const alphabetBank = document.querySelector('.alphabet-banks');
 const puzzleSquares = document.querySelectorAll('.letter');
-const playerChoiceBtns = document.querySelector('.turn-choice');
+let player1, player2, player3;
+let currentPlayer;
 
 // ------------------- Event Listeners ---------------------- //
 
 
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
-spinBtn.addEventListener('click', showWheel);
 wheelObject.addEventListener('click', spinWheel);
 alphabetBank.addEventListener('click', clickLetter);
-playerChoiceBtns.addEventListener('click', takeTurn);
-
 // ------------------- Functionality ---------------------- //
 
 function takeTurn() {
   if (event.target.id === 'spin-btn') {
-    // player.spin method
-    console.log('spinning');
+    currentPlayer.spinWheel();
   } else if (event.target.id === 'buy-btn') {
-    // player.buyVowel method
-    console.log('buying vowel');
+    currentPlayer.buyVowel();
   } else if (event.target.id === 'solve-btn') {
-    // player.solvePuzzle method
-    console.log('solving puzzle');
+    currentPlayer.solvePuzzle();
   }
+}
+
+export function getCurrentPlayer(currentPlayerX) {
+   currentPlayer = currentPlayerX;
+   const playerChoiceBtns = document.querySelector('.turn-choice');
+   playerChoiceBtns.addEventListener('click', takeTurn);
 }
 
 function checkForError(event) {
   event.preventDefault();
-  if(playerOneNameInput.value === '') {
+  if (playerOneNameInput.value === '') {
     errorMessage.classList.remove('hidden');
   } else {
     showInstructions();
@@ -106,13 +107,13 @@ function showGameBoard(event) {
   // vannaHost.classList.add('slide-left');
 }
 
-function showWheel(event) {
+export function showWheel(event) {
   event.preventDefault();
   wheelWindow.classList.remove('hidden');
   wheelWindow.classList.remove('slide-out-bottom');
   wheelWindow.classList.add('slide-in-bottom');
   puzzleBoard.classList.add('invisible');
-  form.reset();
+  // form.reset();
 }
 
 function spinWheel(event) {
@@ -126,7 +127,9 @@ function hideWheel(event) {
   event.preventDefault();
   wheelWindow.classList.remove('slide-in-bottom');
   wheelWindow.classList.add('slide-out-bottom');
-  setTimeout(function(){puzzleBoard.classList.remove('invisible')}, 2800);
+  setTimeout(function() {
+    puzzleBoard.classList.remove('invisible')
+  }, 2800);
 }
 
 const myRand = () => {
@@ -155,8 +158,11 @@ for (let i = 0; i < 50; i++) {
 
 function beginGame(p1, p2, p3) {
   let game = new Game();
-  game.beginRound(p1, p2, p3)
-  // pass in player names from user inputs
+  // instantiate 3 new players
+  player1 = new Player(p1, 1);
+  player2 = new Player(p2, 2);
+  player3 = new Player(p3, 3);
+  game.beginRound(player1, player2, player3)
 }
 
 // ------------------- Add Puzzle to Game Board -----------------
