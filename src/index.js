@@ -48,7 +48,6 @@ wheelObject.addEventListener('click', spinWheel);
 function checkForError(event) {
   event.preventDefault();
   if(playerOneNameInput.value === '') {
-    console.log(pOneName.value);
     errorMessage.classList.remove('hidden');
   } else {
     showInstructions();
@@ -89,18 +88,22 @@ function showGameBoard(event) {
 function showWheel(event) {
   event.preventDefault();
   wheelWindow.classList.remove('hidden');
+  wheelWindow.classList.remove('slide-out-bottom');
   wheelWindow.classList.add('slide-in-bottom');
   puzzleBoard.classList.add('invisible');
+  form.reset();
 }
 
 function spinWheel(event) {
   event.preventDefault();
+  wheelObject.classList.remove('rotate-center');
   wheelObject.classList.add('rotate-center');
   hideWheel(event);
 }
 
 function hideWheel(event) {
   event.preventDefault();
+  wheelWindow.classList.remove('slide-in-bottom');
   wheelWindow.classList.add('slide-out-bottom');
   setTimeout(function(){puzzleBoard.classList.remove('invisible')}, 2800);
 }
@@ -138,20 +141,6 @@ function beginGame() {
 
 // ------------------- Add Puzzle to Game Board -----------------
 
-export function displayFirstWord(words) {
-  if (words.length >= 1) {
-    if(words.length  >= 2) {
-      if(words.length >= 3) {
-        if(words.length === 4) {
-          displayFourthWord();
-        }
-        displayThirdWord();
-      }
-      displaySecondWord();
-    }
-    displayFirstWord();
-  }
-}
 
 
 
@@ -161,6 +150,8 @@ export function displayFirstWord(words) {
 
 
 
+
+//
 // export function addPuzzleToBoard(words) {
 //   if (words.length < 3) {
 //     let startingRow = document.querySelector('.second-row')

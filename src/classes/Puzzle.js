@@ -18,7 +18,6 @@ class Puzzle {
     splitAtSpace.forEach(word => {
       this.splitAnswer.push(word.split(''));
     });
-
     this.displayPuzzle();
     return this.splitAnswer;
   }
@@ -33,8 +32,142 @@ class Puzzle {
     // } else {f{
     //   displayFourth
     // }
-    displayFirstWord(this.splitAnswer);
+    // displayFirstWord(this.splitAnswer);
   }
+  displayWords(words) {
+    console.log(words.numOfWords);
+    if(words.numOfWords === 1) {
+      if(words.numOfWords === 2) {
+        if(words.numOfWords === 3) {
+          if(words.numOfWords === 4) {
+            console.log('four');
+            // this.displayFourWord(words);
+            let fourthWord = this.splitAnswer[3];
+            let letterSquare;
+            for(var i = 401; i < (fourthWord.length + 401); i++) {
+                letterSquare = document.getElementById(`${i}`);
+                letterSquare.innerText = fourthWord[i - 401];
+                console.log(letterSquare)
+            }
+          }
+          console.log('three');
+          // this.displayThreeWord(words);
+          let thirdWord = this.splitAnswer[2];
+          let letterSquare;
+          for(var i = 301; i < (thirdWord.length + 301); i++) {
+              letterSquare = document.getElementById(`${i}`);
+              letterSquare.innerText = thirdWord[i - 301];
+              console.log(letterSquare)
+          }
+        }
+        console.log('two');
+        // this.displayTwodWord(words);
+        let secondWord = this.splitAnswer[1];
+        let letterSquare;
+
+        for(var i = 201; i < (secondWord.length + 201); i++) {
+            letterSquare = document.getElementById(`${i}`);
+            letterSquare.innerText = secondWord[i - 201];
+            console.log(letterSquare)
+        }
+      }
+      console.log('one');
+      // this.displayOneWord(words);
+      let firstWord = this.splitAnswer[0];
+      let letterSquare;
+      for(var i = 101; i < (firstWord.length + 101); i++) {
+          letterSquare = document.getElementById(`${i}`);
+          letterSquare.innerText = firstWord[i - 101];
+          console.log(letterSquare)
+
+      }
+    }
+  }
+
+  displayOneWord(words) {
+    let letterSquare;
+    let firstWord = this.splitAnswer[0]
+    for(var i = 201; i < (firstWord.length + 201); i++) {
+      console.log('>>>>>>plitAns0<<<<<<<', firstWord);
+        letterSquare = document.getElementById(`${i}`);
+        letterSquare.innerText = firstWord[i - 201];
+        console.log('>>>>>splitAns', this.splitAnswer);
+        console.log(letterSquare)
+    }
+  }
+
+  displayTwoWord(words) {
+    let letterSquare;
+    let firstWord = this.splitAnswer[0];
+    let secondWord = this.splitAnswer[1];
+    for(var i = 201; i < (firstWord.length + 201); i++) {
+        letterSquare = document.getElementById(`${i}`);
+        letterSquare.innerText = firstWord[i - 201];
+    }
+    for(var i = 301; i < (secondWord.length + 301); i++) {
+        letterSquare = document.getElementById(`${i}`);
+        letterSquare.innerText = secondWord[i - 301];
+        console.log(letterSquare)
+    }
+  }
+
+  displayThreeWord(words) {
+    let letterSquare;
+    let firstWord = this.splitAnswer[0];
+    let secondWord = this.splitAnswer[1];
+    let thirdWord = this.splitAnswer[2];
+    for(var i = 101; i < (firstWord.length + 101); i++) {
+        letterSquare = document.getElementById(`${i}`);
+        letterSquare.innerText = firstWord[i - 101];
+        console.log(letterSquare)
+    }
+    for(var i = 201; i < (secondWord.length + 201); i++) {
+        letterSquare = document.getElementById(`${i}`);
+        letterSquare.innerText = secondWord[i - 201];
+        console.log(letterSquare)
+    }
+    for(var i = 301; i < (thirdWord.length + 301); i++) {
+        letterSquare = document.getElementById(`${i}`);
+        letterSquare.innerText = thirdWord[i - 301];
+        console.log(letterSquare)
+    }
+  }
+
+  displayFourWord(words) {
+    let letterSquare;
+    let firstWord = this.splitAnswer[0];
+    let secondWord = this.splitAnswer[1];
+    let thirdWord = this.splitAnswer[2];
+    let fourthWord = this.splitAnswer[3];
+    for(var i = 101; i < (firstWord.length + 101); i++) {
+        letterSquare = document.getElementById(`${i}`);
+        letterSquare.innerText = firstWord[i - 101];
+        console.log(letterSquare)
+    }
+    for(var i = 201; i < (secondWord.length + 201); i++) {
+        letterSquare = document.getElementById(`${i}`);
+        letterSquare.innerText = secondWord[i - 201];
+        console.log(letterSquare)
+    }
+    for(var i = 301; i < (thirdWord.length + 301); i++) {
+        letterSquare = document.getElementById(`${i}`);
+        letterSquare.innerText = thirdWord[i - 301];
+        console.log(letterSquare)
+    }
+    for(var i = 401; i < (fourthWord.length + 401); i++) {
+        letterSquare = document.getElementById(`${i}`);
+        letterSquare.innerText = fourthWord[i - 401];
+        console.log(letterSquare)
+    }
+  }
+
+
+
+
+
+
+
+
   uncoverLetters() {
     // player.chooseAction
     // uncover letters that have been guessed from the puzzle board
