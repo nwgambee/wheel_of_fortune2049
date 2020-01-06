@@ -15,7 +15,7 @@ class Player {
     // round.availableLetters = [];
     showWheel(event);
     // round.evaluateCurrentCard();
-    wheel.evaluateCurrentCard();
+    wheel.chooseWheelElement();
   }
 
   buyVowel() {

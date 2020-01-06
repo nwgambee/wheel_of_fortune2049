@@ -46,27 +46,19 @@ class Wheel {
 
   runBonusWheel() {
   }
-
-  returnCardValue() {
+  evaluateCurrentCard(card) {
+    console.log('evaluating');
+    if (card === 'Bankrupt') {
+      // player.roundScore = 0;
+    } else if (card === 'Lose A Turn') {
+      // current players turn is over, move to next player
+    } else {
+      // player.chooseConsonate()
+    }
   }
-  evaluateCurrentCard() {
-    console.log('evaluatin   this g');
-    // if(currentCard === 'Bankrupt') {
-    //   player.roundScore = 0;
-    // }
-    // if(currentCard === 'Lose A Turn') {
-    //   this.round ++
-    //   this.endTurn();
-    // }
-    // if(currentCard === typeof integer) {
-    //   if(puzzle.letters.includes(player.availableLetters())) {
-    //     // update score
-    //   }
-    //   player.chooseConsonant();
-    //   this.updateScore();
-    //   let guessedletter = this.letters.splice();
-    //   this.guessedletter.push(guessedLetter);
-    // }
+  chooseWheelElement() {
+    let chosenElement = this.label[Math.floor(Math.random() * this.label.length)]
+    evaluateCurrentCard(chosenElement);
   }
 }
 
