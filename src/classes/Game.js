@@ -23,7 +23,7 @@ class Game {
     // instantiate new Round
     let round = new Round();
     this.rounds++;
-    round.generateRandomInfo()
+    round.startRound(player1);
 
   }
   endGame() {

@@ -38,16 +38,33 @@ const spinBtn = document.getElementById('spin-btn');
 const puzzleBoard = document.querySelector('.puzzle-board');
 const alphabetBank = document.querySelector('.alphabet-banks');
 const puzzleSquares = document.querySelectorAll('.letter');
+const playerChoiceBtns = document.querySelector('.turn-choice');
 
 // ------------------- Event Listeners ---------------------- //
+
 
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
 spinBtn.addEventListener('click', showWheel);
 wheelObject.addEventListener('click', spinWheel);
 alphabetBank.addEventListener('click', clickLetter);
+playerChoiceBtns.addEventListener('click', takeTurn);
 
 // ------------------- Functionality ---------------------- //
+
+function takeTurn() {
+  if (event.target.id === 'spin-btn') {
+    // player.spin method
+    console.log('spinning');
+  } else if (event.target.id === 'buy-btn') {
+    // player.buyVowel method
+    console.log('buying vowel');
+  } else if (event.target.id === 'solve-btn') {
+    // player.solvePuzzle method
+    console.log('solving puzzle');
+  }
+}
+
 function checkForError(event) {
   event.preventDefault();
   if(playerOneNameInput.value === '') {
@@ -62,6 +79,7 @@ function saveNames() {
   let firstName = playerOneNameInput.value;
   let secondName = playerTwoNameInput.value;
   let thirdName = playerThreeNameInput.value;
+  beginGame(firstName, secondName, thirdName);
   allNames.innerHTML = `${firstName}, ${secondName}, & ${thirdName}`;
   pOneName.innerText = firstName;
   pTwoName.innerText = secondName;
@@ -134,11 +152,10 @@ for (let i = 0; i < 50; i++) {
 }
 
 // -------------------- Begin Game ----------------------------- //
-beginGame(); // call on 'start game' button click
 
-function beginGame() {
+function beginGame(p1, p2, p3) {
   let game = new Game();
-  game.beginRound('Deckard', 'K', 'Wallace')
+  game.beginRound(p1, p2, p3)
   // pass in player names from user inputs
 }
 

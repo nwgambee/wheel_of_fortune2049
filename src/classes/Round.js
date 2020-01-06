@@ -36,9 +36,10 @@ class Round {
 
     // new turn with next player
   }
-  startRound() {
-    // resets round data and starts turn
-    // this.loadPuzzle or puzzle.displayPuzzle
+  startRound(player) {
+    this.currentPlayer = player;
+
+    this.generateRandomInfo();
   }
 
   generateRandomInfo() {
@@ -55,7 +56,6 @@ class Round {
       .then(data => this.createPuzzle(new Puzzle(data.data.puzzles[wordLength].puzzle_bank[num])))
   }
   createPuzzle(puzzle) {
-    console.log(puzzle);
     let completedPuzzles = [];
 
     if (!completedPuzzles.includes(puzzle)) {
