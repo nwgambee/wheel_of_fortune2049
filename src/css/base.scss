@@ -400,6 +400,18 @@ button {
 	align-items: center;
 	padding: 0 0 1%;
 	margin: -0.4% 0.1% 0%;
+
+}
+
+.dead-mouse {
+	opacity: 20%;
+	pointer-events: none;
+}
+
+.used-mouse {
+	opacity: 20%;
+	pointer-events: none;
+	color: black;
 }
 
 .consonants-bank {
