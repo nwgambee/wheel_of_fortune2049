@@ -36,7 +36,7 @@ const wheelWindow = document.querySelector('.wheel-canvas');
 const wheelObject = document.getElementById('canvas');
 const spinBtn = document.getElementById('spin-btn');
 const puzzleBoard = document.querySelector('.puzzle-board');
-const alphabetBank = document.querySelector('.alphabet-banks');
+const alphabetBtns = document.querySelectorAll('.alphabet-btn');
 const puzzleSquares = document.querySelectorAll('.letter');
 let player1, player2, player3;
 export let currentPlayer;
@@ -47,7 +47,9 @@ export let wheel;
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
 wheelObject.addEventListener('click', spinWheel);
-// alphabetBank.addEventListener('click', clickLetter);
+for (const btn of alphabetBtns) {
+  btn.addEventListener('click', evaluateLetter);
+}
 
 // ------------------- Functionality ---------------------- //
 
@@ -180,12 +182,11 @@ export function displayPuzzleOnBoard(words) {
 
 // ------------------- evaluate letter -----------------
 
-export function evaluateLetter(letter) {
+export function evaluateLetter(event) {
   // if letter is contained within puzzle, display it on the DOM. If not, it is the next players turn.
-
+  let letter = event.target;
   puzzleSquares.forEach(square => {
-    if (square.innerText === letter) {
-      console.log('correct');
+    if (square.innerText === letter.innerHTML) {
       square.style.backgroundColor = 'deeppink';
       vannaHost.classList.add('slide-left');
       setTimeout(function() {
@@ -194,4 +195,6 @@ export function evaluateLetter(letter) {
       }, 1200);
     }
   });
+  document.querySelectorAll('.consonant-letter').forEach(c => c.classList.add('dead-mouse'));
+  letter.classList.add('used-mouse');
 }
