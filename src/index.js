@@ -51,7 +51,6 @@ alphabetBank.addEventListener('click', clickLetter);
 function checkForError(event) {
   event.preventDefault();
   if(playerOneNameInput.value === '') {
-    console.log(pOneName.value);
     errorMessage.classList.remove('hidden');
   } else {
     showInstructions();
@@ -92,13 +91,24 @@ function showGameBoard(event) {
 function showWheel(event) {
   event.preventDefault();
   wheelWindow.classList.remove('hidden');
+  wheelWindow.classList.remove('slide-out-bottom');
   wheelWindow.classList.add('slide-in-bottom');
   puzzleBoard.classList.add('invisible');
+  form.reset();
 }
 
 function spinWheel(event) {
   event.preventDefault();
+  wheelObject.classList.remove('rotate-center');
   wheelObject.classList.add('rotate-center');
+  hideWheel(event);
+}
+
+function hideWheel(event) {
+  event.preventDefault();
+  wheelWindow.classList.remove('slide-in-bottom');
+  wheelWindow.classList.add('slide-out-bottom');
+  setTimeout(function(){puzzleBoard.classList.remove('invisible')}, 2800);
 }
 
 const myRand = () => {
@@ -156,6 +166,8 @@ function clickLetter(e) {
   });
 }
 
+
+//
 // export function addPuzzleToBoard(words) {
 //   if (words.length < 3) {
 //     let startingRow = document.querySelector('.second-row')

@@ -61,6 +61,7 @@ class Round {
     if (!completedPuzzles.includes(puzzle)) {
       completedPuzzles.push(puzzle);
       puzzle.splitCorrectAnswer();
+      puzzle.displayWords(puzzle);
     } else {
       this.generateRandomInfo();
     }
