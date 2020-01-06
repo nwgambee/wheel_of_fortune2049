@@ -1,4 +1,6 @@
-import { showWheel } from '../index.js'
+import { showWheel, wheel } from '../index.js'
+
+import Round from './Round'
 
 class Player {
   constructor(name, order) {
@@ -10,9 +12,10 @@ class Player {
   }
 
   spinWheel() {
-    // round.evaluateCurrentCard();
     // round.availableLetters = [];
-    showWheel(event)
+    showWheel(event);
+    // round.evaluateCurrentCard();
+    wheel.evaluateCurrentCard();
   }
 
   buyVowel() {

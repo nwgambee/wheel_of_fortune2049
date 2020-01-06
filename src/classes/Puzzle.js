@@ -20,7 +20,7 @@ class Puzzle {
   }
 
   displayWords(words) {
-    console.log(words.numOfWords);
+    // console.log(words.numOfWords);
     if (words.numOfWords === 1) {
       this.displayOneWord(words)
     } else if (words.numOfWords === 2) {
@@ -38,7 +38,7 @@ class Puzzle {
     let spaceOne = Math.floor((14 - firstWord.length) / 2)
     for(var i = 201; i < (firstWord.length + 201); i++) {
         letterSquare = document.getElementById(`${i + spaceOne}`);
-        console.log(firstWord[i-201] === '&' || '-' || '\'')
+        // console.log(firstWord[i-201] === '&' || '-' || '\'')
         if (firstWord[i - 201] === '&' || firstWord[i - 201] === '-' || firstWord[i - 201] === '\'') {
           letterSquare.classList.add('show-symbol')
         }

@@ -40,14 +40,15 @@ const alphabetBank = document.querySelector('.alphabet-banks');
 const puzzleSquares = document.querySelectorAll('.letter');
 let player1, player2, player3;
 let currentPlayer;
+export let wheel;
 
 // ------------------- Event Listeners ---------------------- //
-
 
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
 wheelObject.addEventListener('click', spinWheel);
 alphabetBank.addEventListener('click', clickLetter);
+
 // ------------------- Functionality ---------------------- //
 
 function takeTurn() {
@@ -81,7 +82,7 @@ function saveNames() {
   let secondName = playerTwoNameInput.value;
   let thirdName = playerThreeNameInput.value;
 
-// begin game logic
+// beginning of game logic
   beginGame(firstName, secondName, thirdName);
   allNames.innerHTML = `${firstName}, ${secondName}, & ${thirdName}`;
   pOneName.innerText = firstName;
@@ -98,7 +99,7 @@ function showInstructions() {
 
 function showGameBoard(event) {
   event.preventDefault();
-  let wheel = new Wheel;
+  wheel = new Wheel;
   wheel.createWheel();
   titleLogo.classList.add('scale-down-top');
   instructionsPage.classList.add('hidden');
