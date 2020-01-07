@@ -10,7 +10,9 @@ class Player {
     this.playerNumber = order;
 
   }
-
+  spinWheel() {
+    showWheel(event);
+  }
   buyVowel() {
     if (this.roundScore >= 100) {
       document.querySelectorAll('.vowel-letter').forEach(v => v.classList.remove('dead-mouse'));
