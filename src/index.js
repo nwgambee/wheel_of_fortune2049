@@ -110,23 +110,41 @@ function showGameBoard(event) {
   gameBoardPage.classList.remove('hidden');
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
-  // vannaHost.classList.add('slide-left');
+  $('#p-1-score').html(`${currentPlayer.roundScore}`);
+  $('#p-2-score').html(`${currentPlayer.roundScore}`);
+  $('#p-3-score').html(`${currentPlayer.roundScore}`);
+  setTimeout(function() {
+    showTurnMessage();
+  }, 2800);
+}
+
+function showTurnMessage() {
+  console.log(currentPlayer);
+  $('.speech-bubble').removeClass('hidden');
+  $('.speech-bubble').html(`
+    <p>${currentPlayer.name}'s Turn to Pick</p>
+  `);
 }
 
 export function showWheel(event) {
   event.preventDefault();
+  // $('.speech-bubble').addClass('hidden');
   wheelWindow.classList.remove('hidden');
   wheelWindow.classList.remove('slide-out-bottom');
   wheelWindow.classList.add('slide-in-bottom');
   puzzleBoard.classList.add('invisible');
-  // form.reset();
 }
 
 function spinWheel(event) {
   event.preventDefault();
-  wheelObject.classList.remove('rotate-center');
-  wheelObject.classList.add('rotate-center');
   wheel.chooseWheelElement();
+  if(wheelObject.classList.contains('rotate-out')) {
+    wheelObject.classList.add('rotate-center');
+    wheelObject.classList.remove('rotate-out');
+  } else {
+    wheelObject.classList.add('rotate-out');
+    wheelObject.classList.remove('rotate-center');
+  }
   hideWheel(event);
 }
 
@@ -137,6 +155,24 @@ function hideWheel(event) {
   setTimeout(function() {
     puzzleBoard.classList.remove('invisible')
   }, 2800);
+  setTimeout(function() {
+    showMoneyAmount();
+  }, 2800);
+}
+
+function showMoneyAmount() {
+  console.log(wheel.currentCard);
+  if (wheel.currentCard !== 'Lose A Turn' && wheel.currentCard !== 'Bankrupt') {
+    $('.money-card').html(`<p>$${wheel.currentCard}</p>`);
+  } else if (wheel.currentCard === 'Lose A Turn') {
+    // $('.speech-bubble').removeClass('hidden');
+    $('.speech-bubble').html(`<p>Oh No! You ${wheel.currentCard}</p>`);
+    $('.money-card').html(`<p></p>`);
+  } else if (wheel.currentCard === 'Bankrupt') {
+    // $('.speech-bubble').removeClass('hidden');
+    $('.speech-bubble').html(`<p>Oh No! You Are Now ${wheel.currentCard}</p>`);
+    $('.money-card').html(`<p></p>`);
+  }
 }
 
 const myRand = () => {
@@ -205,18 +241,27 @@ export function evaluateLetter(event) {
     if (square.innerText === letter.innerHTML) {
       cardCount++;
       square.style.backgroundColor = 'deeppink';
-      vannaHost.classList.add('slide-left');
+      // vannaHost.classList.add('slide-left');
       setTimeout(function() {
         square.style.backgroundColor = 'white';
         square.style.fontSize = '65px';
       }, 1200);
+      if (cardCount === 1) {
+        $('.speech-bubble').html(`There is ${cardCount} ${letter.innerHTML} on the Board!`);
+      } else if (cardCount === 0) { 
+        $('.speech-bubble').html(`There Are ${cardCount} ${letter.innerHTML}'s on the Board!`);
+      }
       // inform player that it's still their turn and update score on DOM
-
     } else {
+      $('.speech-bubble').html(`There Are No ${letter.innerHTML}'s on the Board`)
       // move currentPlayer to next player and inform that it's their turn
     }
   });
   currentPlayer.calculateScore(cardCount);
   document.querySelectorAll('.consonant-letter').forEach(c => c.classList.add('dead-mouse'));
   letter.classList.add('used-mouse');
+  $(`#p-${currentPlayer.playerNumber}-score`).html(`${currentPlayer.roundScore}`);
+  setTimeout(function() {
+    showTurnMessage();
+  }, 1600);
 }

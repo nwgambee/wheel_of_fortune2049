@@ -268,9 +268,9 @@ button {
   top: 20%;
   left: 30%;
   z-index: 50;
-  border: solid $color_1 10px;
+  border: dotted $color_5 15px;
   border-radius: 260px;
-  background-color: $color_1;
+  background-color: black;
 }
 
 .black-bg {
@@ -280,30 +280,16 @@ button {
   z-index: 40;
 }
 
-.rotate-center {
-	-webkit-animation: rotate-center 3.3s ease-in-out both;
-	        animation: rotate-center 3.3s ease-in-out both;
+#canvas {
+	transition: all 3.3s 0s;
 }
 
-@-webkit-keyframes rotate-center {
-  0% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
-  }
-  100% {
-    -webkit-transform: rotate(770deg);
-            transform: rotate(770deg);
-  }
+.rotate-out {
+	transform: rotate(770deg);
 }
-@keyframes rotate-center {
-  0% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
-  }
-  100% {
-    -webkit-transform: rotate(770deg);
-            transform: rotate(770deg);
-  }
+
+.rotate-center {
+	transform: rotate(0deg);
 }
 
 .slide-in-bottom {
@@ -448,6 +434,39 @@ button {
 	padding: 0;
 }
 
+.speech-bubble {
+	position: absolute;
+	background: $color_3;
+	border-radius: .4em;
+	width: 300px;
+	margin-top: -100px;
+	font-family: $font-family-1;
+	font-size: 1.5em;
+	height: 80px;
+	margin-left: 70%;
+	border: 5px solid $color-4;
+	padding: 5px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0px;
+	border: 30px solid transparent;
+	border-top-color: $color-4;
+	border-bottom: 0;
+	border-right: 0;
+	margin-left: -10px;
+	margin-bottom: -30px;
+}
+
 .solve-input {
 	font-size: 2em;
 	color: black;
@@ -466,7 +485,9 @@ button {
 }
 
 #round-num {
+	margin-top: -25%;
 	font-size: 50px;
+	margin-bottom: 100px;
 }
 
 .player-card {
@@ -482,27 +503,47 @@ button {
 	opacity: 70%;
 }
 
-#player-one {
-	margin-top: 15%;
-	background: $color_2;
-	width: 90%;
-	opacity: 100%;
-  z-index: 20;
-}
-
 .player-card h3 {
 	font-size: 30px;
+}
+
+#player-one {
+	margin-top: -15%;
+	background: $color_2;
+  z-index: 20;
 }
 
 #player-two {
 	background: $color_3;
   z-index: 20;
-
 }
 
 #player-three {
 	background: $color_4;
   z-index: 20;
+}
+
+.score-margin {
+	width: 90%;
+	opacity: 100%;
+	margin-bottom: 50px;
+}
+
+
+// ------------------- Money Card ---------------------- //
+
+.money-card {
+	width: 200px;
+	background: black;
+	height: 100px;
+	padding: 10px;
+	font-size: 3.3em;
+	border-radius: 0px 15px 15px 0px;
+	border: dotted 10px $color-5;
+	margin-top: -190px;
+	position: absolute;
+	display: flex;
+	align-items: center;
 }
 
 // ------------------- Puzzle Board ---------------------- //
