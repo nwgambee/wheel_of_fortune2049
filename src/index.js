@@ -127,7 +127,7 @@ function showTurnMessage() {
 
 export function showWheel(event) {
   event.preventDefault();
-  $('.speech-bubble').addClass('hidden');
+  // $('.speech-bubble').addClass('hidden');
   wheelWindow.classList.remove('hidden');
   wheelWindow.classList.remove('slide-out-bottom');
   wheelWindow.classList.add('slide-in-bottom');
@@ -162,25 +162,15 @@ function hideWheel(event) {
 function showMoneyAmount() {
   console.log(wheel.currentCard);
   if (wheel.currentCard !== 'Lose A Turn' && wheel.currentCard !== 'Bankrupt') {
-    $('.money-card').html(`
-      <p>$${wheel.currentCard}</p>
-      `);
+    $('.money-card').html(`<p>$${wheel.currentCard}</p>`);
   } else if (wheel.currentCard === 'Lose A Turn') {
-    $('.speech-bubble').removeClass('hidden');
-    $('.speech-bubble').html(`
-      <p>Oh No! You ${wheel.currentCard}</p>
-      `);
-    $('.money-card').html(`
-      <p></p>
-      `);
+    // $('.speech-bubble').removeClass('hidden');
+    $('.speech-bubble').html(`<p>Oh No! You ${wheel.currentCard}</p>`);
+    $('.money-card').html(`<p></p>`);
   } else if (wheel.currentCard === 'Bankrupt') {
-    $('.speech-bubble').removeClass('hidden');
-    $('.speech-bubble').html(`
-      <p>Oh No! You Are Now ${wheel.currentCard}</p>
-      `);
-    $('.money-card').html(`
-      <p></p>
-      `);
+    // $('.speech-bubble').removeClass('hidden');
+    $('.speech-bubble').html(`<p>Oh No! You Are Now ${wheel.currentCard}</p>`);
+    $('.money-card').html(`<p></p>`);
   }
 }
 
@@ -241,9 +231,15 @@ export function evaluateLetter(event) {
         square.style.backgroundColor = 'white';
         square.style.fontSize = '65px';
       }, 1200);
+      if (cardCount === 1) {
+        $('.speech-bubble').html(`There is ${cardCount} ${letter.innerHTML} on the Board!`);
+      } else {
+        $('.speech-bubble').html(`There Are ${cardCount} ${letter.innerHTML}'s on the Board!`);
+      }
       // inform player that it's still their turn and update score on DOM
 
     } else {
+      $('.speech-bubble').html(`There Are No ${letter.innerHTML}'s' on the Board`)
       // move currentPlayer to next player and inform that it's their turn
     }
   });
