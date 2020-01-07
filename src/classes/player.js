@@ -1,4 +1,4 @@
-import { showWheel, wheel, evaluateLetter } from '../index.js'
+import { showWheel, wheel, evaluateLetter, showTurnMessage } from '../index.js'
 
 import Round from './Round'
 
@@ -14,11 +14,13 @@ class Player {
   spinWheel() {
     // round.availableLetters = [];
     showWheel(event);
+
     // round.evaluateCurrentCard();
   }
 
   buyVowel() {
     console.log('buying vowel');
+
   }
 
   solvePuzzle() {
@@ -40,6 +42,7 @@ class Player {
     this.roundScore += parseInt(wheel.currentCard) * cardCount;
     console.log(this.roundScore);
   }
+
 
 }
 

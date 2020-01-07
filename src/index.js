@@ -110,12 +110,11 @@ function showGameBoard(event) {
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
   setTimeout(function() {
-    showMessage();
-    //this is wherer youre running youre function
+    showTurnMessage();
   }, 2800);
 }
 
-function showMessage() {
+function showTurnMessage() {
   console.log(currentPlayer);
   $('.speech-bubble').removeClass('hidden');
   $('.speech-bubble').html(`
@@ -125,6 +124,7 @@ function showMessage() {
 
 export function showWheel(event) {
   event.preventDefault();
+  $('.speech-bubble').addClass('hidden');
   wheelWindow.classList.remove('hidden');
   wheelWindow.classList.remove('slide-out-bottom');
   wheelWindow.classList.add('slide-in-bottom');
@@ -214,4 +214,7 @@ export function evaluateLetter(event) {
   currentPlayer.calculateScore(cardCount);
   document.querySelectorAll('.consonant-letter').forEach(c => c.classList.add('dead-mouse'));
   letter.classList.add('used-mouse');
+  setTimeout(function() {
+    showTurnMessage();
+  }, 1600);
 }
