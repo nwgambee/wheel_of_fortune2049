@@ -1,7 +1,5 @@
-import { showWheel, wheel, evaluateLetter, showTurnMessage, currentPuzzle, switchPlayer } from '../index.js'
+import { unfreezeButtons, showWheel, wheel, evaluateLetter, showTurnMessage, currentPuzzle, switchPlayer } from '../index.js'
 
-
-// import {currentPuzzle} from './Puzzle'
 import $ from 'jquery';
 
 class Player {
@@ -13,21 +11,18 @@ class Player {
 
   }
 
-  spinWheel() {
-    // round.availableLetters = [];
-    showWheel(event);
-
-    // round.evaluateCurrentCard();
-  }
-
   buyVowel() {
     if (this.roundScore >= 100) {
       document.querySelectorAll('.vowel-letter').forEach(v => v.classList.remove('dead-mouse'));
       this.roundScore -= 100;
       $('.speech-bubble').html(`<p>Choose A Vowel!</p>`);
-
     } else {
-      console.log('CANNOT BUY');
+      $('.speech-bubble').html(`<p>Zetus Lapetus! You Need $100 To Buy A Vowel!</p>`);
+      // Unfreeze Turn Options
+      setTimeout(() => {
+        unfreezeButtons();
+        showTurnMessage();
+      }, 2000);
     }
   }
 
@@ -38,15 +33,19 @@ class Player {
   }
   checkGuess() {
     let guess = document.querySelector('.solve-input').value;
-    console.log(currentPuzzle.correctAnswer);
     if (guess.toLowerCase() === currentPuzzle.correctAnswer.toLowerCase()) {
-      // player wins the round
       console.log('correct!');
     } else {
-      console.log('incorrect!');
       switchPlayer();
-    }
+      $('.speech-bubble').html(`<p>Gadzooks! That guess is incorrect!</p>`);
 
+      setTimeout(() => {
+        unfreezeButtons();
+        showTurnMessage();
+      }, 2000);
+    }
+    $('.solve-input').remove();
+    $('.solve-btn').remove();
   }
   chooseConsonant() {
     document.querySelectorAll('.consonant-letter').forEach(c => c.classList.remove('dead-mouse'));
