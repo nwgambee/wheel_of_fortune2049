@@ -136,9 +136,14 @@ export function showWheel(event) {
 
 function spinWheel(event) {
   event.preventDefault();
-  wheelObject.classList.remove('rotate-center');
-  wheelObject.classList.add('rotate-center');
   wheel.chooseWheelElement();
+  if(wheelObject.classList.contains('rotate-out')) {
+    wheelObject.classList.add('rotate-center');
+    wheelObject.classList.remove('rotate-out');
+  } else {
+    wheelObject.classList.add('rotate-out');
+    wheelObject.classList.remove('rotate-center');
+  }
   hideWheel(event);
 }
 
@@ -159,7 +164,7 @@ function showMoneyAmount() {
   if (wheel.currentCard !== 'Lose A Turn' && wheel.currentCard !== 'Bankrupt') {
     $('.money-card').html(`
       <p>$${wheel.currentCard}</p>
-      `)
+      `);
   } else {
     $('.speech-bubble').html(`
       <p>${wheel.currentCard}</p>

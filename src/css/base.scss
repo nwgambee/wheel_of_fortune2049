@@ -268,9 +268,9 @@ button {
   top: 20%;
   left: 30%;
   z-index: 50;
-  border: solid $color_1 10px;
+  border: dotted $color_5 15px;
   border-radius: 260px;
-  background-color: $color_1;
+  background-color: black;
 }
 
 .black-bg {
@@ -280,30 +280,16 @@ button {
   z-index: 40;
 }
 
-.rotate-center {
-	-webkit-animation: rotate-center 3.3s ease-in-out both;
-	        animation: rotate-center 3.3s ease-in-out both;
+#canvas {
+	transition: all 3.3s 0s;
 }
 
-@-webkit-keyframes rotate-center {
-  0% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
-  }
-  100% {
-    -webkit-transform: rotate(770deg);
-            transform: rotate(770deg);
-  }
+.rotate-out {
+	transform: rotate(770deg);
 }
-@keyframes rotate-center {
-  0% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
-  }
-  100% {
-    -webkit-transform: rotate(770deg);
-            transform: rotate(770deg);
-  }
+
+.rotate-center {
+	transform: rotate(0deg);
 }
 
 .slide-in-bottom {
@@ -535,6 +521,9 @@ button {
 	opacity: 100%;
 	margin-bottom: 50px;
 }
+
+
+// ------------------- Money Card ---------------------- //
 
 .money-card {
 	width: 200px;
