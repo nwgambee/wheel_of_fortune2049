@@ -238,7 +238,7 @@ export function evaluateLetter(event) {
       }, 1200);
       if (cardCount === 1) {
         $('.speech-bubble').html(`There is ${cardCount} ${letter.innerHTML} on the Board!`);
-      } else {
+      } else if (cardCount === 0) { 
         $('.speech-bubble').html(`There Are ${cardCount} ${letter.innerHTML}'s on the Board!`);
       }
       // inform player that it's still their turn and update score on DOM
