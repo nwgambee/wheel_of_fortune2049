@@ -18,9 +18,10 @@ class Game {
     // instantiate new Round
     let round = new Round();
     this.rounds++;
-    round.startRound(p1);
+    round.startRound(this.players[0]);
 
   }
+
   endGame() {
     //evaluate the winner
   }

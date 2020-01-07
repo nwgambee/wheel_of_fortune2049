@@ -1,7 +1,5 @@
-import { showWheel, wheel, evaluateLetter, showTurnMessage, currentPuzzle } from '../index.js'
+import { unfreezeButtons, showWheel, wheel, evaluateLetter, showTurnMessage, currentPuzzle, switchPlayer } from '../index.js'
 
-
-// import {currentPuzzle} from './Puzzle'
 import $ from 'jquery';
 
 class Player {
@@ -13,16 +11,19 @@ class Player {
 
   }
 
-  spinWheel() {
-    // round.availableLetters = [];
-    showWheel(event);
-
-    // round.evaluateCurrentCard();
-  }
-
   buyVowel() {
-    console.log('buying vowel');
-
+    if (this.roundScore >= 100) {
+      document.querySelectorAll('.vowel-letter').forEach(v => v.classList.remove('dead-mouse'));
+      this.roundScore -= 100;
+      $('.speech-bubble').html(`<p>Choose A Vowel!</p>`);
+    } else {
+      $('.speech-bubble').html(`<p>Zetus Lapetus! You Need $100 To Buy A Vowel!</p>`);
+      // Unfreeze Turn Options
+      setTimeout(() => {
+        unfreezeButtons();
+        showTurnMessage();
+      }, 2000);
+    }
   }
 
   solvePuzzle() {
@@ -32,17 +33,21 @@ class Player {
   }
   checkGuess() {
     let guess = document.querySelector('.solve-input').value;
-    console.log(currentPuzzle.correctAnswer);
     if (guess.toLowerCase() === currentPuzzle.correctAnswer.toLowerCase()) {
-      // player wins the round
       console.log('correct!');
     } else {
-      console.log('incorrect!');
-    }
+      switchPlayer();
+      $('.speech-bubble').html(`<p>Gadzooks! That guess is incorrect!</p>`);
 
+      setTimeout(() => {
+        unfreezeButtons();
+        showTurnMessage();
+      }, 2000);
+    }
+    $('.solve-input').remove();
+    $('.solve-btn').remove();
   }
   chooseConsonant() {
-    console.log('choosing consonant');
     document.querySelectorAll('.consonant-letter').forEach(c => c.classList.remove('dead-mouse'));
     // allow consonants to be clicked and wait for user to choose only one
     // assign clicked letter to a variable and pass it into evaluateLetter();
@@ -52,9 +57,7 @@ class Player {
     // evaluateLetter();
   }
   calculateScore(cardCount) {
-    console.log([cardCount, wheel.currentCard]);
     this.roundScore += parseInt(wheel.currentCard) * cardCount;
-    console.log(this.roundScore);
   }
 
 
