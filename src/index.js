@@ -41,7 +41,7 @@ const spinBtn = document.getElementById('spin-btn');
 const puzzleBoard = document.querySelector('.puzzle-board');
 const alphabetBtns = document.querySelectorAll('.alphabet-btn');
 const puzzleSquares = document.querySelectorAll('.letter');
-let player1, player2, player3;
+let game, player1, player2, player3;
 export let currentPlayer;
 export let wheel;
 export let currentPuzzle;
@@ -58,6 +58,7 @@ for (const btn of alphabetBtns) {
 // ------------------- Functionality ---------------------- //
 
 function takeTurn() {
+  freezeButtons();
   if (event.target.id === 'spin-btn') {
     currentPlayer.spinWheel();
   } else if (event.target.id === 'buy-btn') {
@@ -65,6 +66,14 @@ function takeTurn() {
   } else if (event.target.id === 'solve-btn') {
     currentPlayer.solvePuzzle();
   }
+}
+
+function freezeButtons() {
+  $('.choice-button').addClass('dead-mouse');
+}
+
+export function unfreezeButtons() {
+  $('.choice-button').removeClass('dead-mouse');
 }
 
 export function getCurrentPlayer(currentPlayerX) {
@@ -121,8 +130,7 @@ function showGameBoard(event) {
   }, 2800);
 }
 
-function showTurnMessage() {
-  console.log(currentPlayer);
+export function showTurnMessage() {
   $('.speech-bubble').removeClass('hidden');
   $('.speech-bubble').html(`
     <p>${currentPlayer.name}'s Turn to Pick</p>
@@ -131,7 +139,6 @@ function showTurnMessage() {
 
 export function showWheel(event) {
   event.preventDefault();
-  // $('.speech-bubble').addClass('hidden');
   wheelWindow.classList.remove('hidden');
   wheelWindow.classList.remove('slide-out-bottom');
   wheelWindow.classList.add('slide-in-bottom');
@@ -169,13 +176,13 @@ function showMoneyAmount() {
     $('.money-card').html(`<p>$${wheel.currentCard}</p>`);
     $('.speech-bubble').html(`<p>Choose A Consonant!</p>`);
   } else if (wheel.currentCard === 'Lose A Turn') {
-    // $('.speech-bubble').removeClass('hidden');
     $('.speech-bubble').html(`<p>Oh No! You ${wheel.currentCard}</p>`);
     $('.money-card').html(`<p></p>`);
+    setTimeout(() => showTurnMessage(), 2000);
   } else if (wheel.currentCard === 'Bankrupt') {
-    // $('.speech-bubble').removeClass('hidden');
     $('.speech-bubble').html(`<p>Oh No! You Are Now ${wheel.currentCard}</p>`);
     $('.money-card').html(`<p></p>`);
+    setTimeout(() => showTurnMessage(), 2000);
   }
 }
 
@@ -204,7 +211,7 @@ for (let i = 0; i < 50; i++) {
 // -------------------- Begin Game ----------------------------- //
 
 function beginGame(p1, p2, p3) {
-  let game = new Game();
+  game = new Game();
   // instantiate 3 new players
   player1 = new Player(p1, 1);
   player2 = new Player(p2, 2);
@@ -214,7 +221,6 @@ function beginGame(p1, p2, p3) {
 
 // ------------------- Add Puzzle to Game Board -----------------
 export function combineAmpersand(answerArr) {
-  console.log('hey');
   for(var i = 0; i < answerArr.length; i++) {
     if (answerArr[i] === '&') {
       answerArr[i+1] = '&' + answerArr[i+1]
@@ -247,18 +253,19 @@ export function evaluateLetter(event) {
       square.style.backgroundColor = 'deeppink';
       // vannaHost.classList.add('slide-left');
       setTimeout(function() {
+        unfreezeButtons();
         square.style.backgroundColor = 'white';
         square.style.fontSize = '65px';
       }, 1200);
       if (cardCount === 1) {
-        $('.speech-bubble').html(`There is ${cardCount} ${letter.innerHTML} on the Board!`);
+        $('.speech-bubble').html(`Bazinga! There is ${cardCount} ${letter.innerHTML} on the Board!`);
       } else {
-        $('.speech-bubble').html(`There Are ${cardCount} ${letter.innerHTML}'s on the Board!`);
+        $('.speech-bubble').html(`Stellar! There Are ${cardCount} ${letter.innerHTML}'s on the Board!`);
       }
     }
   });
   if (cardCount === 0) {
-    $('.speech-bubble').html(`There Are No ${letter.innerHTML}'s on the Board`)
+    $('.speech-bubble').html(`Data Zap! There Are No ${letter.innerHTML}'s on the Board`)
     switchPlayer();
   }
   letter.classList.contains('consonant-letter') && currentPlayer.calculateScore(cardCount);
@@ -274,6 +281,8 @@ export function evaluateLetter(event) {
 // ------------------- switch players -----------------
 
 export function switchPlayer() {
-  console.log('SWITCHING PLAYER');
-  console.log(currentPlayer);
+  if (currentPlayer === player1) {getCurrentPlayer(player2)}
+  else if (currentPlayer === player2) {getCurrentPlayer(player3)}
+  else {getCurrentPlayer(player1)};
+  setTimeout(() => unfreezeButtons(), 1200);
 }
