@@ -1,4 +1,4 @@
-import { showWheel, wheel, evaluateLetter, showTurnMessage, currentPuzzle } from '../index.js'
+import { showWheel, wheel, evaluateLetter, showTurnMessage, currentPuzzle, switchPlayer } from '../index.js'
 
 
 // import {currentPuzzle} from './Puzzle'
@@ -44,6 +44,7 @@ class Player {
       console.log('correct!');
     } else {
       console.log('incorrect!');
+      switchPlayer();
     }
 
   }
