@@ -492,7 +492,9 @@ button {
 }
 
 #round-num {
+	margin-top: -25%;
 	font-size: 50px;
+	margin-bottom: 100px;
 }
 
 .player-card {
@@ -508,27 +510,30 @@ button {
 	opacity: 70%;
 }
 
-#player-one {
-	margin-top: 15%;
-	background: $color_2;
-	width: 90%;
-	opacity: 100%;
-  z-index: 20;
-}
-
 .player-card h3 {
 	font-size: 30px;
+}
+
+#player-one {
+	margin-top: -15%;
+	background: $color_2;
+  z-index: 20;
 }
 
 #player-two {
 	background: $color_3;
   z-index: 20;
-
 }
 
 #player-three {
 	background: $color_4;
   z-index: 20;
+}
+
+.score-margin {
+	width: 90%;
+	opacity: 100%;
+	margin-bottom: 50px;
 }
 
 // ------------------- Puzzle Board ---------------------- //

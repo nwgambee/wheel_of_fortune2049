@@ -109,6 +109,9 @@ function showGameBoard(event) {
   gameBoardPage.classList.remove('hidden');
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
+  $('#p-1-score').html(`${currentPlayer.roundScore}`);
+  $('#p-2-score').html(`${currentPlayer.roundScore}`);
+  $('#p-3-score').html(`${currentPlayer.roundScore}`);
   setTimeout(function() {
     showTurnMessage();
   }, 2800);
@@ -119,7 +122,7 @@ function showTurnMessage() {
   $('.speech-bubble').removeClass('hidden');
   $('.speech-bubble').html(`
     <p>${currentPlayer.name}'s Turn to Pick</p>
-    `);
+  `);
 }
 
 export function showWheel(event) {
@@ -214,6 +217,7 @@ export function evaluateLetter(event) {
   currentPlayer.calculateScore(cardCount);
   document.querySelectorAll('.consonant-letter').forEach(c => c.classList.add('dead-mouse'));
   letter.classList.add('used-mouse');
+  $(`#p-${currentPlayer.playerNumber}-score`).html(`${currentPlayer.roundScore}`);
   setTimeout(function() {
     showTurnMessage();
   }, 1600);
