@@ -537,12 +537,17 @@ button {
 }
 
 .money-card {
-	width: 60%;
-	background: $color_5;
-	height: 50px;
+	width: 200px;
+	background: black;
+	height: 100px;
 	padding: 10px;
-	font-size: 2em;
+	font-size: 3.3em;
 	border-radius: 0px 15px 15px 0px;
+	border: dotted 10px $color-5;
+	margin-top: -190px;
+	position: absolute;
+	display: flex;
+	align-items: center;
 }
 
 // ------------------- Puzzle Board ---------------------- //

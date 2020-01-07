@@ -155,12 +155,13 @@ function hideWheel(event) {
 }
 
 function showMoneyAmount() {
+  console.log(wheel.currentCard);
   if (wheel.currentCard !== 'Lose A Turn' && wheel.currentCard !== 'Bankrupt') {
     $('.money-card').html(`
       <p>$${wheel.currentCard}</p>
       `)
   } else {
-    $('.money-card').html(`
+    $('.speech-bubble').html(`
       <p>${wheel.currentCard}</p>
       `)
   }
