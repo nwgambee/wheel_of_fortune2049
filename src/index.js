@@ -116,10 +116,10 @@ function showGameBoard(event) {
 }
 
 function showMessage() {
+  console.log(currentPlayer);
   $('.speech-bubble').removeClass('hidden');
   $('.speech-bubble').html(`
-    <p>Hello</p>
-    <p>Player Ones Turn</p>
+    <p>${currentPlayer.name}'s Turn to Pick</p>
     `);
 }
 
