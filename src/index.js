@@ -255,14 +255,12 @@ export function evaluateLetter(event) {
       } else {
         $('.speech-bubble').html(`There Are ${cardCount} ${letter.innerHTML}'s on the Board!`);
       }
-      // inform player that it's still their turn and update score on DOM
-      // make sure this is else if cardcunt --- 0
-      // please push up
-    } else if (cardCount === 0) {
-      $('.speech-bubble').html(`There Are No ${letter.innerHTML}'s on the Board`)
-      // move currentPlayer to next player and inform that it's their turn
     }
   });
+  if (cardCount === 0) {
+    $('.speech-bubble').html(`There Are No ${letter.innerHTML}'s on the Board`)
+    switchPlayer();
+  }
   letter.classList.contains('consonant-letter') && currentPlayer.calculateScore(cardCount);
   document.querySelectorAll('.consonant-letter').forEach(c => c.classList.add('dead-mouse'));
   document.querySelectorAll('.vowel-letter').forEach(v => v.classList.add('dead-mouse'));
@@ -271,4 +269,11 @@ export function evaluateLetter(event) {
   setTimeout(function() {
     showTurnMessage();
   }, 1600);
+}
+
+// ------------------- switch players -----------------
+
+export function switchPlayer() {
+  console.log('SWITCHING PLAYER');
+  console.log(currentPlayer);
 }
