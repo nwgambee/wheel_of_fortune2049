@@ -41,6 +41,7 @@ const puzzleSquares = document.querySelectorAll('.letter');
 let player1, player2, player3;
 export let currentPlayer;
 export let wheel;
+export let round;
 export let currentPuzzle;
 
 // ------------------- Event Listeners ---------------------- //
@@ -115,6 +116,7 @@ function showGameBoard(event) {
   $('#p-3-score').html(`${currentPlayer.roundScore}`);
   setTimeout(function() {
     showTurnMessage();
+    showCategory();
   }, 2800);
 }
 
@@ -126,9 +128,12 @@ function showTurnMessage() {
   `);
 }
 
+function showCategory() {
+  $('.category').html(`${currentPuzzle.category}`);
+}
+
 export function showWheel(event) {
   event.preventDefault();
-  // $('.speech-bubble').addClass('hidden');
   wheelWindow.classList.remove('hidden');
   wheelWindow.classList.remove('slide-out-bottom');
   wheelWindow.classList.add('slide-in-bottom');
@@ -137,7 +142,6 @@ export function showWheel(event) {
 
 function spinWheel(event) {
   event.preventDefault();
-  wheel.chooseWheelElement();
   if(wheelObject.classList.contains('rotate-out')) {
     wheelObject.classList.add('rotate-center');
     wheelObject.classList.remove('rotate-out');
@@ -145,7 +149,9 @@ function spinWheel(event) {
     wheelObject.classList.add('rotate-out');
     wheelObject.classList.remove('rotate-center');
   }
+  console.log(wheel);
   hideWheel(event);
+  wheel.chooseWheelElement();
 }
 
 function hideWheel(event) {
@@ -164,14 +170,16 @@ function showMoneyAmount() {
   console.log(wheel.currentCard);
   if (wheel.currentCard !== 'Lose A Turn' && wheel.currentCard !== 'Bankrupt') {
     $('.money-card').html(`<p>$${wheel.currentCard}</p>`);
+
   } else if (wheel.currentCard === 'Lose A Turn') {
-    // $('.speech-bubble').removeClass('hidden');
     $('.speech-bubble').html(`<p>Oh No! You ${wheel.currentCard}</p>`);
     $('.money-card').html(`<p></p>`);
   } else if (wheel.currentCard === 'Bankrupt') {
-    // $('.speech-bubble').removeClass('hidden');
     $('.speech-bubble').html(`<p>Oh No! You Are Now ${wheel.currentCard}</p>`);
     $('.money-card').html(`<p></p>`);
+    this.currentPlayer.push(this.currentPlayer.shift());
+    console.log('currentplayer', round.currentPlayer);
+    //need to declare new Round before we can do anything wiht it
   }
 }
 
@@ -241,22 +249,19 @@ export function evaluateLetter(event) {
     if (square.innerText === letter.innerHTML) {
       cardCount++;
       square.style.backgroundColor = 'deeppink';
-      // vannaHost.classList.add('slide-left');
       setTimeout(function() {
         square.style.backgroundColor = 'white';
         square.style.fontSize = '65px';
       }, 1200);
       if (cardCount === 1) {
         $('.speech-bubble').html(`There is ${cardCount} ${letter.innerHTML} on the Board!`);
-      } else if (cardCount === 0) { 
+      } else {
         $('.speech-bubble').html(`There Are ${cardCount} ${letter.innerHTML}'s on the Board!`);
       }
-      // inform player that it's still their turn and update score on DOM
-      // make sure this is else if cardcunt --- 0
-      // please push up
     } else if (cardCount === 0) {
       $('.speech-bubble').html(`There Are No ${letter.innerHTML}'s on the Board`)
       // move currentPlayer to next player and inform that it's their turn
+      // also on line 168
     }
   });
   currentPlayer.calculateScore(cardCount);
