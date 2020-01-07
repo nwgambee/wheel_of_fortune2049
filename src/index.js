@@ -238,6 +238,7 @@ export function evaluateLetter(event) {
       }
       // inform player that it's still their turn and update score on DOM
       // make sure this is else if cardcunt --- 0
+      // please push up
     } else if (cardCount === 0) {
       $('.speech-bubble').html(`There Are No ${letter.innerHTML}'s on the Board`)
       // move currentPlayer to next player and inform that it's their turn
