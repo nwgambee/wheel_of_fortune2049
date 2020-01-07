@@ -39,17 +39,21 @@ $background-color-1: black;
   width: 60%;
   margin-bottom: -350px;
   margin-top: -150px;
-  margin-left: 20%;
+  margin-left: 18%;
   margin-right: 20%;
+	// display: flex;
+	// flex-direction: row;
+	// justify-content: center;
+	// align-items: center;
 }
 
-.small-logo {
-  width: 30%;
-  margin-bottom: -200px;
-  margin-top: -80px;
-  margin-left: 33%;
-  margin-right: 30%;
-}
+// .small-logo {
+//   width: 30%;
+//   margin-bottom: -200px;
+//   margin-top: -80px;
+//   margin-left: 33%;
+//   margin-right: 30%;
+// }
 
 body {
 	background: url("../images/background.svg") no-repeat center fixed;
@@ -196,32 +200,6 @@ button {
   }
 }
 
-.slide-left {
-	-webkit-animation: slide-left 6s linear both;
-	        animation: slide-left 6s linear both;
-}
-
-@-webkit-keyframes slide-left {
-	0% {
-    -webkit-transform: translateX(1000px);
-            transform: translateX(1000px);
-  }
-  100% {
-    -webkit-transform: translateX(-650%);
-            transform: translateX(-650%);
-  }
-}
-@keyframes slide-left {
-	0% {
-    -webkit-transform: translateX(1000px);
-            transform: translateX(1000px);
-  }
-  100% {
-    -webkit-transform: translateZ(0) translateX(-650%);
-            transform: translateZ(0) translateX(-650%);
-  }
-}
-
 // ------------------- Logo Animation ---------------------- //
 
 .scale-down-top {
@@ -268,7 +246,7 @@ button {
   top: 20%;
   left: 30%;
   z-index: 50;
-  border: dotted $color_5 15px;
+  border: dotted $color_5 13.5px;
   border-radius: 260px;
   background-color: black;
 }
@@ -545,6 +523,17 @@ button {
 }
 
 // ------------------- Puzzle Board ---------------------- //
+.category {
+	position: absolute;
+	font: $color_1;
+	font-size: 2em;
+	width: 600px;
+	margin-left: 43%;
+	margin-top: -5%;
+	display: flex;
+	flex-direction: row;
+}
+
 .puzzle-board {
 	display: flex;
 	flex-direction: column;

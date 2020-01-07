@@ -44,6 +44,7 @@ const puzzleSquares = document.querySelectorAll('.letter');
 let game, player1, player2, player3;
 export let currentPlayer;
 export let wheel;
+export let round;
 export let currentPuzzle;
 
 // ------------------- Event Listeners ---------------------- //
@@ -127,6 +128,7 @@ function showGameBoard(event) {
   $('#p-3-score').html(`${currentPlayer.roundScore}`);
   setTimeout(function() {
     showTurnMessage();
+    showCategory();
   }, 2800);
 }
 
@@ -135,6 +137,10 @@ export function showTurnMessage() {
   $('.speech-bubble').html(`
     <p>${currentPlayer.name}'s Turn to Pick</p>
   `);
+}
+
+function showCategory() {
+  $('.category').html(`${currentPuzzle.category}`);
 }
 
 export function showWheel(event) {
@@ -147,7 +153,6 @@ export function showWheel(event) {
 
 function spinWheel(event) {
   event.preventDefault();
-  wheel.chooseWheelElement();
   if(wheelObject.classList.contains('rotate-out')) {
     wheelObject.classList.add('rotate-center');
     wheelObject.classList.remove('rotate-out');
@@ -155,7 +160,9 @@ function spinWheel(event) {
     wheelObject.classList.add('rotate-out');
     wheelObject.classList.remove('rotate-center');
   }
+  console.log(wheel);
   hideWheel(event);
+  wheel.chooseWheelElement();
 }
 
 function hideWheel(event) {
@@ -174,6 +181,7 @@ function showMoneyAmount() {
   console.log(wheel.currentCard);
   if (wheel.currentCard !== 'Lose A Turn' && wheel.currentCard !== 'Bankrupt') {
     $('.money-card').html(`<p>$${wheel.currentCard}</p>`);
+
     $('.speech-bubble').html(`<p>Choose A Consonant!</p>`);
   } else if (wheel.currentCard === 'Lose A Turn') {
     $('.speech-bubble').html(`<p>Oh No! You ${wheel.currentCard}</p>`);
@@ -182,6 +190,9 @@ function showMoneyAmount() {
   } else if (wheel.currentCard === 'Bankrupt') {
     $('.speech-bubble').html(`<p>Oh No! You Are Now ${wheel.currentCard}</p>`);
     $('.money-card').html(`<p></p>`);
+    this.currentPlayer.push(this.currentPlayer.shift());
+    console.log('currentplayer', round.currentPlayer);
+    //need to declare new Round before we can do anything wiht it
     setTimeout(() => showTurnMessage(), 2000);
   }
 }
@@ -251,7 +262,6 @@ export function evaluateLetter(event) {
     if (square.innerText === letter.innerHTML) {
       cardCount++;
       square.style.backgroundColor = 'deeppink';
-      // vannaHost.classList.add('slide-left');
       setTimeout(function() {
         unfreezeButtons();
         square.style.backgroundColor = 'white';
