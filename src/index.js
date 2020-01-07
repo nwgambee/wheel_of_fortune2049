@@ -51,7 +51,7 @@ export let currentPuzzle;
 
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
-wheelObject.addEventListener('click', spinWheel);
+setTimeout(() => wheelObject.addEventListener('click', spinDOMWheel), 5000); 
 for (const btn of alphabetBtns) {
   btn.addEventListener('click', evaluateLetter);
 }
@@ -151,7 +151,7 @@ export function showWheel(event) {
   puzzleBoard.classList.add('invisible');
 }
 
-function spinWheel(event) {
+function spinDOMWheel(event) {
   event.preventDefault();
   if(wheelObject.classList.contains('rotate-out')) {
     wheelObject.classList.add('rotate-center');
@@ -160,7 +160,6 @@ function spinWheel(event) {
     wheelObject.classList.add('rotate-out');
     wheelObject.classList.remove('rotate-center');
   }
-  console.log(wheel);
   hideWheel(event);
   wheel.chooseWheelElement();
 }
@@ -178,7 +177,6 @@ function hideWheel(event) {
 }
 
 function showMoneyAmount() {
-  console.log(wheel.currentCard);
   if (wheel.currentCard !== 'Lose A Turn' && wheel.currentCard !== 'Bankrupt') {
     $('.money-card').html(`<p>$${wheel.currentCard}</p>`);
 
@@ -190,9 +188,6 @@ function showMoneyAmount() {
   } else if (wheel.currentCard === 'Bankrupt') {
     $('.speech-bubble').html(`<p>Oh No! You Are Now ${wheel.currentCard}</p>`);
     $('.money-card').html(`<p></p>`);
-    this.currentPlayer.push(this.currentPlayer.shift());
-    console.log('currentplayer', round.currentPlayer);
-    //need to declare new Round before we can do anything wiht it
     setTimeout(() => showTurnMessage(), 2000);
   }
 }
