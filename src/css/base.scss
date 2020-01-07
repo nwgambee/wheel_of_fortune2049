@@ -331,8 +331,6 @@ button {
 }
 
 
-
-
 // ------------------- Alphabet Banks ---------------------- //
 
 .alphabet-btn {
@@ -663,24 +661,35 @@ button {
 .turn-choice {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-end;
+	align-items: flex-start;
 	width: 10%;
   height: 280px;
 	text-align: right;
-  border-radius: 15px 0px 0px 15px;
-  border: solid 5px $color_1;
+	margin-right: -5px; 
+  // border-radius: 15px 0px 0px 15px;
+  // border: solid 5px $color_1;
   border-right: 0px;
-  background-color: $color-4;
+  // background-color: $color-4;
   font-size: 2rem;
 }
 
 .choice-button {
-  margin-right: 10px;
+	display: flex;
+	flex-direction: row;
 }
 
 .choice-button:hover {
   -webkit-animation: scale-up-right 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	        animation: scale-up-right 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.choice-img {
+	width: 25px;
+	height: 25px;
+}
+
+#spin {
+
 }
 
 
@@ -712,8 +721,6 @@ button {
             transform-origin: 100% 50%;
   }
 }
-
-
 
 .name-input {
   font-size: 1.5rem;

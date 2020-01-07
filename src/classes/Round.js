@@ -13,11 +13,6 @@ class Round {
 
   }
 
-  endTurn() {
-    this.currentPlayer.shift().push();
-
-    // new turn with next player
-  }
   startRound(player) {
     this.currentPlayer = player;
     // console.log(this.currentPlayer);
