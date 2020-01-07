@@ -173,11 +173,21 @@ function beginGame(p1, p2, p3) {
 }
 
 // ------------------- Add Puzzle to Game Board -----------------
+export function combineAmpersand(answerArr) {
+  console.log('hey');
+  for(var i = 0; i < answerArr.length; i++) {
+    if (answerArr[i] === '&') {
+      answerArr[i+1] = '&' + answerArr[i+1]
+      answerArr.splice(i, 1);
+    }
+  }
+  return answerArr
+}
+
 export function displayPuzzleOnBoard(words) {
   // display first word
   if (words.length === 2) {
     displaySecondWord()
-
   }
 }
 
