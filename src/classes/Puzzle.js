@@ -1,4 +1,5 @@
 // import { addPuzzleToBoard, displayFirstWord } from '../index.js'
+import { combineAmpersand } from '../index.js'
 
 class Puzzle {
   constructor(puzzle) {
@@ -10,17 +11,18 @@ class Puzzle {
     this.splitAnswer = [];
     this.firstWord = puzzle.first_word;
   }
+
   splitCorrectAnswer() {
     let upperCaseAnswer = this.correctAnswer.toUpperCase();
-    let splitAtSpace = upperCaseAnswer.split(' ');
+    let splitAtSpace = combineAmpersand(upperCaseAnswer.split(' '));
+    console.log(splitAtSpace);
     splitAtSpace.forEach(word => {
       this.splitAnswer.push(word.split(''));
     });
-    return this.splitAnswer;
+    return this.splitAnswer
   }
 
   displayWords(words) {
-    // console.log(words.numOfWords);
     if (words.numOfWords === 1) {
       this.displayOneWord(words)
     } else if (words.numOfWords === 2) {
@@ -38,7 +40,6 @@ class Puzzle {
     let spaceOne = Math.ceil((14 - firstWord.length) / 2)
     for(var i = 201; i < (firstWord.length + 201); i++) {
         letterSquare = document.getElementById(`${i + spaceOne}`);
-        // console.log(firstWord[i-201] === '&' || '-' || '\'')
         if (firstWord[i - 201] === '&' || firstWord[i - 201] === '-' || firstWord[i - 201] === '\'') {
           letterSquare.classList.add('show-symbol')
         }
@@ -149,18 +150,12 @@ class Puzzle {
     }
   }
 
-
-
-
-
-
-
-
   uncoverLetters() {
     // player.chooseAction
     // uncover letters that have been guessed from the puzzle board
     // run this.checkIfGuessed() to see if this.correctLettersRemaining.length === 0, if so, run round.endRound();
   }
+
   evaluateLetterGuess(letter) {
     if (this.splitAnswer.includes(letter.toUpperCase())) {
       // this.uncoverLetters();
@@ -170,6 +165,7 @@ class Puzzle {
       return false;
     }
   }
+
   evaluateSolution(guess) {
     if (guess.toLowerCase() === this.correctAnswer.toLowerCase()) {
       return true;
