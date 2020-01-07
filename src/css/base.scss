@@ -536,6 +536,15 @@ button {
 	margin-bottom: 50px;
 }
 
+.money-card {
+	width: 60%;
+	background: $color_5;
+	height: 50px;
+	padding: 10px;
+	font-size: 2em;
+	border-radius: 0px 15px 15px 0px;
+}
+
 // ------------------- Puzzle Board ---------------------- //
 .puzzle-board {
 	display: flex;

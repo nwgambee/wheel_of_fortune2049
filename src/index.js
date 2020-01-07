@@ -149,6 +149,21 @@ function hideWheel(event) {
   setTimeout(function() {
     puzzleBoard.classList.remove('invisible')
   }, 2800);
+  setTimeout(function() {
+    showMoneyAmount();
+  }, 2800);
+}
+
+function showMoneyAmount() {
+  if (wheel.currentCard !== 'Lose A Turn' && wheel.currentCard !== 'Bankrupt') {
+    $('.money-card').html(`
+      <p>$${wheel.currentCard}</p>
+      `)
+  } else {
+    $('.money-card').html(`
+      <p>${wheel.currentCard}</p>
+      `)
+  }
 }
 
 const myRand = () => {
