@@ -165,10 +165,22 @@ function showMoneyAmount() {
     $('.money-card').html(`
       <p>$${wheel.currentCard}</p>
       `);
-  } else {
+  } else if (wheel.currentCard === 'Lose A Turn') {
+    $('.speech-bubble').removeClass('hidden');
     $('.speech-bubble').html(`
-      <p>${wheel.currentCard}</p>
-      `)
+      <p>Oh No! You ${wheel.currentCard}</p>
+      `);
+    $('.money-card').html(`
+      <p></p>
+      `);
+  } else if (wheel.currentCard === 'Bankrupt') {
+    $('.speech-bubble').removeClass('hidden');
+    $('.speech-bubble').html(`
+      <p>Oh No! You Are Now ${wheel.currentCard}</p>
+      `);
+    $('.money-card').html(`
+      <p></p>
+      `);
   }
 }
 
