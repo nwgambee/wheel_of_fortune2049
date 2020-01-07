@@ -12,6 +12,9 @@ import './images/w.png';
 import './images/star.svg';
 import './images/vanna.png';
 import './images/pat.png';
+import './images/spin.png';
+import './images/solve.png';
+import './images/buy-vowel.png';
 
 // ------------------- Variable Declerations ---------------------- //
 
@@ -164,6 +167,7 @@ function showMoneyAmount() {
   console.log(wheel.currentCard);
   if (wheel.currentCard !== 'Lose A Turn' && wheel.currentCard !== 'Bankrupt') {
     $('.money-card').html(`<p>$${wheel.currentCard}</p>`);
+    $('.speech-bubble').html(`<p>Choose A Consonant!</p>`);
   } else if (wheel.currentCard === 'Lose A Turn') {
     // $('.speech-bubble').removeClass('hidden');
     $('.speech-bubble').html(`<p>Oh No! You ${wheel.currentCard}</p>`);
@@ -248,7 +252,7 @@ export function evaluateLetter(event) {
       }, 1200);
       if (cardCount === 1) {
         $('.speech-bubble').html(`There is ${cardCount} ${letter.innerHTML} on the Board!`);
-      } else if (cardCount === 0) { 
+      } else {
         $('.speech-bubble').html(`There Are ${cardCount} ${letter.innerHTML}'s on the Board!`);
       }
       // inform player that it's still their turn and update score on DOM
@@ -259,8 +263,9 @@ export function evaluateLetter(event) {
       // move currentPlayer to next player and inform that it's their turn
     }
   });
-  currentPlayer.calculateScore(cardCount);
+  letter.classList.contains('consonant-letter') && currentPlayer.calculateScore(cardCount);
   document.querySelectorAll('.consonant-letter').forEach(c => c.classList.add('dead-mouse'));
+  document.querySelectorAll('.vowel-letter').forEach(v => v.classList.add('dead-mouse'));
   letter.classList.add('used-mouse');
   $(`#p-${currentPlayer.playerNumber}-score`).html(`${currentPlayer.roundScore}`);
   setTimeout(function() {
