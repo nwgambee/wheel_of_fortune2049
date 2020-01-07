@@ -20,7 +20,6 @@ class Puzzle {
   }
 
   displayWords(words) {
-    // console.log(words.numOfWords);
     if (words.numOfWords === 1) {
       this.displayOneWord(words)
     } else if (words.numOfWords === 2) {

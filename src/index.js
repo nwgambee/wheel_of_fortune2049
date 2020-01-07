@@ -109,7 +109,18 @@ function showGameBoard(event) {
   gameBoardPage.classList.remove('hidden');
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
-  // vannaHost.classList.add('slide-left');
+  setTimeout(function() {
+    showMessage();
+    //this is wherer youre running youre function
+  }, 2800);
+}
+
+function showMessage() {
+  $('.speech-bubble').removeClass('hidden');
+  $('.speech-bubble').html(`
+    <p>Hello</p>
+    <p>Player Ones Turn</p>
+    `);
 }
 
 export function showWheel(event) {
@@ -118,7 +129,6 @@ export function showWheel(event) {
   wheelWindow.classList.remove('slide-out-bottom');
   wheelWindow.classList.add('slide-in-bottom');
   puzzleBoard.classList.add('invisible');
-  // form.reset();
 }
 
 function spinWheel(event) {
@@ -190,7 +200,7 @@ export function evaluateLetter(event) {
     if (square.innerText === letter.innerHTML) {
       cardCount++;
       square.style.backgroundColor = 'deeppink';
-      vannaHost.classList.add('slide-left');
+      // vannaHost.classList.add('slide-left');
       setTimeout(function() {
         square.style.backgroundColor = 'white';
         square.style.fontSize = '65px';
