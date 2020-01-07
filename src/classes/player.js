@@ -31,7 +31,7 @@ class Player {
     let guess = document.querySelector('.solve-input').value;
     console.log(currentPuzzle.correctAnswer);
     if (guess.toLowerCase() === currentPuzzle.correctAnswer.toLowerCase()) {
-      // player wins the rounds
+      // player wins the round
       console.log('correct!');
     } else {
       console.log('incorrect!');
