@@ -21,8 +21,14 @@ class Player {
   }
 
   buyVowel() {
-    console.log('buying vowel');
+    if (this.roundScore >= 100) {
+      document.querySelectorAll('.vowel-letter').forEach(v => v.classList.remove('dead-mouse'));
+      this.roundScore -= 100;
+      $('.speech-bubble').html(`<p>Choose A Vowel!</p>`);
 
+    } else {
+      console.log('CANNOT BUY');
+    }
   }
 
   solvePuzzle() {
@@ -42,7 +48,6 @@ class Player {
 
   }
   chooseConsonant() {
-    console.log('choosing consonant');
     document.querySelectorAll('.consonant-letter').forEach(c => c.classList.remove('dead-mouse'));
     // allow consonants to be clicked and wait for user to choose only one
     // assign clicked letter to a variable and pass it into evaluateLetter();
@@ -52,9 +57,7 @@ class Player {
     // evaluateLetter();
   }
   calculateScore(cardCount) {
-    console.log([cardCount, wheel.currentCard]);
     this.roundScore += parseInt(wheel.currentCard) * cardCount;
-    console.log(this.roundScore);
   }
 
 
