@@ -41,6 +41,7 @@ const puzzleSquares = document.querySelectorAll('.letter');
 let player1, player2, player3;
 export let currentPlayer;
 export let wheel;
+export let currentPuzzle;
 
 // ------------------- Event Listeners ---------------------- //
 
@@ -178,6 +179,10 @@ export function displayPuzzleOnBoard(words) {
     displaySecondWord()
 
   }
+}
+
+export function getCurrentPuzzle(puzzle) {
+  currentPuzzle = puzzle;
 }
 
 // ------------------- evaluate letter -----------------

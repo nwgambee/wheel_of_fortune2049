@@ -1,6 +1,7 @@
-import { showWheel, wheel, evaluateLetter } from '../index.js'
+import { showWheel, wheel, evaluateLetter, currentPuzzle } from '../index.js'
 
-import Round from './Round'
+// import {currentPuzzle} from './Puzzle'
+import $ from 'jquery';
 
 class Player {
   constructor(name, order) {
@@ -22,8 +23,20 @@ class Player {
   }
 
   solvePuzzle() {
-    // player.choose
-    console.log('solving puzzle');
+    $('.puzzle-board').append('<input class="solve-input"><button class="solve-btn">solve the puzzle!</button>');
+    let solveBtn = document.querySelector('.solve-btn')
+    solveBtn.addEventListener('click', this.checkGuess);
+  }
+  checkGuess() {
+    let guess = document.querySelector('.solve-input').value;
+    console.log(currentPuzzle.correctAnswer);
+    if (guess.toLowerCase() === currentPuzzle.correctAnswer.toLowerCase()) {
+      // player wins the round
+      console.log('correct!');
+    } else {
+      console.log('incorrect!');
+    }
+
   }
   chooseConsonant() {
     console.log('choosing consonant');

@@ -1,5 +1,5 @@
 import Puzzle from './Puzzle'
-import { getCurrentPlayer } from '../index.js'
+import { getCurrentPlayer, getCurrentPuzzle } from '../index.js'
 
 class Round {
   constructor() {
@@ -38,6 +38,7 @@ class Round {
       .then(data => this.createPuzzle(new Puzzle(data.data.puzzles[wordLength].puzzle_bank[num])))
   }
   createPuzzle(puzzle) {
+    getCurrentPuzzle(puzzle);
     let completedPuzzles = [];
 
     if (!completedPuzzles.includes(puzzle)) {
