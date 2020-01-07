@@ -6,6 +6,7 @@ class Wheel {
     this.currentCard;
     this.color = ['deeppink','black','darkturquoise','darkviolet','deeppink','darkturquoise', 'darkviolet', 'black', 'darkturquoise'];
     this.label = ['600', '2500','750','100','550','800', 'Bankrupt', 'Lose A Turn', '900'];
+    // this.label = ['600', '2500','750','100','550','800', '1000', '1100', '900'];
     // this.label = ['Bankrupt', 'Lose A Turn','Bankrupt', 'Lose A Turn','Bankrupt', 'Lose A Turn','Bankrupt', 'Lose A Turn','Bankrupt'];
     this.slices = 9;
     this.sliceDeg = 360/this.slices;
@@ -50,7 +51,12 @@ class Wheel {
   runBonusWheel() {
   }
   chooseWheelElement() {
+    let result;
     let chosenElement = this.label[Math.floor(Math.random() * this.label.length)]
+    if (chosenElement === result) {
+      chooseWheelElement();
+    }
+    result = chosenElement;
     this.evaluateCurrentCard(chosenElement);
   }
   evaluateCurrentCard(card) {
@@ -59,7 +65,6 @@ class Wheel {
     this.currentCard = card;
     if (card === 'Bankrupt') {
       currentPlayer.roundScore = 0;
-      console.log(currentPlayer.roundScore);
       // update DOM w/ currentPlayer Score
       switchPlayer();
     } else if (card === 'Lose A Turn') {
