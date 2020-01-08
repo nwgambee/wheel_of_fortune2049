@@ -4,6 +4,8 @@
   "description": "Project starter kit using webpack, mocha, chai, and SCSS/SASS enabled",
   "main": "src/index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "start": "webpack-dev-server",
     "build": "webpack",
     "test": "mochapack 'test/**/*.js'",
@@ -11,7 +13,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/turingschool-examples/webpack-starter-kit.git"
+    "url": "git+https://github.com/nwgambee/wheel_of_fortune2049.git",
+    "homepage": "https://github.com/nwgambee/wheel_of_fortune2049"
   },
   "author": "Turing School of Software and Design",
   "license": "MIT",
@@ -21,6 +24,7 @@
     "css-loader": "^2.1.0",
     "eslint": "^5.12.1",
     "file-loader": "^3.0.1",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
     "mocha": "^5.2.0",
     "mochapack": "^1.0.0",
