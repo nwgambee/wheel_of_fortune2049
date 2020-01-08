@@ -14,16 +14,21 @@ class Game {
 
   }
   beginRound(p1, p2, p3) {
+    console.log('new round');
     this.players.push(p1, p2, p3);
-    // instantiate new Round
-    let round = new Round();
     this.rounds++;
-    round.startRound(this.players[0]);
-
+    if (this.rounds < 4) {
+      console.log('starting new round');
+      // instantiate new Round
+      let round = new Round();
+      round.startRound(this.players[0]);
+    } else {
+      this.endGame();
+    }
   }
-
   endGame() {
     //evaluate the winner
+    console.log('game is over');
   }
   endRound() {
     // instantiate new Round

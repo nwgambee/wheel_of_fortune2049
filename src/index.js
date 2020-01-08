@@ -51,12 +51,26 @@ export let currentPuzzle;
 
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
-setTimeout(() => wheelObject.addEventListener('click', spinDOMWheel), 5000); 
+setTimeout(() => wheelObject.addEventListener('click', spinDOMWheel), 5000);
 for (const btn of alphabetBtns) {
   btn.addEventListener('click', evaluateLetter);
 }
 
 // ------------------- Functionality ---------------------- //
+
+export function startNewRound() {
+  resetBoard();
+  game.beginRound(player1, player2, player3);
+  unfreezeButtons();
+}
+
+export function resetBoard() {
+  console.log('resetting board');
+  puzzleSquares.forEach(square => {
+    square.classList.remove('active-square');
+  })
+}
+
 
 function takeTurn() {
   freezeButtons();
@@ -261,7 +275,7 @@ export function evaluateLetter(event) {
         unfreezeButtons();
         square.style.backgroundColor = 'white';
         square.style.fontSize = '65px';
-      }, 1200);
+      }, 2000);
       if (cardCount === 1) {
         $('.speech-bubble').html(`Bazinga! There is ${cardCount} ${letter.innerHTML} on the Board!`);
       } else {
