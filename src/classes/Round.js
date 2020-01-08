@@ -10,9 +10,7 @@ class Round {
   }
 
   startRound(player) {
-    console.log('in round');
     this.currentPlayer = player;
-    // console.log(this.currentPlayer);
     this.generateRandomInfo();
   }
 
@@ -44,7 +42,6 @@ class Round {
   }
 
   allowTurnSelection() {
-    console.log('allow it');
     const playerChoiceBtns = document.querySelector('.turn-choice');
     playerChoiceBtns.addEventListener('click', takeTurn());
   }

@@ -48,9 +48,6 @@ class Wheel {
     this.ctx.restore();
   }
 
-  runBonusWheel() {
-  }
-
   chooseWheelElement() {
     let result;
     let chosenElement = this.label[Math.floor(Math.random() * this.label.length)]

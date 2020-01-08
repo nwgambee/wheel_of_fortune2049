@@ -18,53 +18,65 @@ import './images/buy-vowel.png';
 
 // ------------------- Variable Declerations ---------------------- //
 
-const app = document.querySelector('.winners-page');
-const playGameBtn = document.getElementById('start-game');
-const landingPage = document.getElementById('landing-page');
-const instructionsPage = document.querySelector('.instructions');
-const gameBoardPage = document.querySelector('.game-page');
-const loadGameBtn = document.getElementById('load-game');
-const titleLogo = document.querySelector('.logo');
-const playerOneNameInput = document.getElementById('first-input');
-const playerTwoNameInput = document.getElementById('second-input');
-const playerThreeNameInput = document.getElementById('third-input');
 const allNames = document.querySelector('.player-names');
-const pOneName = document.querySelector('.p-one-name');
-const pTwoName = document.querySelector('.p-two-name');
-const pThreeName = document.querySelector('.p-three-name');
-const patHost = document.querySelector('.pat-host');
-const vannaHost = document.querySelector('.vanna-host');
-const errorMessage = document.querySelector('.error-message');
-const wheelWindow = document.querySelector('.wheel-canvas');
-const wheelObject = document.getElementById('canvas');
-const spinBtn = document.getElementById('spin-btn');
-const puzzleBoard = document.querySelector('.puzzle-board');
 const alphabetBtns = document.querySelectorAll('.alphabet-btn');
+const app = document.querySelector('.winners-page');
+const errorMessage = document.querySelector('.error-message');
+const gameBoardPage = document.querySelector('.game-page');
+const instructionsPage = document.querySelector('.instructions');
+const landingPage = document.getElementById('landing-page');
+const loadGameBtn = document.getElementById('load-game');
+const patHost = document.querySelector('.pat-host');
+const playGameBtn = document.getElementById('start-game');
+const playerOneNameInput = document.getElementById('first-input');
+const playerThreeNameInput = document.getElementById('third-input');
+const playerTwoNameInput = document.getElementById('second-input');
+const pOneName = document.querySelector('.p-one-name');
+const pThreeName = document.querySelector('.p-three-name');
+const pTwoName = document.querySelector('.p-two-name');
+const puzzleBoard = document.querySelector('.puzzle-board');
 const puzzleSquares = document.querySelectorAll('.letter');
+const spinBtn = document.getElementById('spin-btn');
+const titleLogo = document.querySelector('.logo');
+const vannaHost = document.querySelector('.vanna-host');
+const wheelObject = document.getElementById('canvas');
+const wheelWindow = document.querySelector('.wheel-canvas');
 let game, player1, player2, player3;
 export let currentPlayer;
-export let wheel;
-export let round;
 export let currentPuzzle;
+export let round;
+export let wheel;
 let totalCardCount = 0;
 
 
 // ------------------- Event Listeners ---------------------- //
 
-playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
+playGameBtn.addEventListener('click', checkForError);
 setTimeout(() => wheelObject.addEventListener('click', spinDOMWheel), 5000);
 for (const btn of alphabetBtns) {
   btn.addEventListener('click', evaluateLetter);
 }
 
-// ------------------- Functionality ---------------------- //
+// ------------------- Helper Functions ---------------------- //
+
+function showGameBoard(event) {
+  event.preventDefault();
+  wheel = new Wheel;
+  wheel.createWheel();
+  animateGameBoard();
+  displayScore();
+  setTimeout(function() { showTurnMessage(); showCategory() }, 2800);
+}
+
+const myRand = () => {
+  let r = 50
+  while (40 < r && r < 60) { r = Math.random() * 100 }
+  return r
+}
 
 export function startNewRound() {
-  console.log(player1, player2, player3);
-  player1.roundScore = 0;
-  player2.roundScore = 0;
-  player3.roundScore = 0;
+  resetScores();
   $('#round-num').html(`<p>Round ${game.rounds}</p>`);
   $('.speech-bubble').html(`<p>${currentPlayer.name}'s Turn to Pick</p>`);
   resetBoard();
@@ -72,6 +84,15 @@ export function startNewRound() {
   unfreezeButtons();
   displayScore();
 }
+
+// ------------------- Start / Reset Game ---------------------- //
+
+function resetScores() {
+  player1.roundScore = 0;
+  player2.roundScore = 0;
+  player3.roundScore = 0;
+}
+
 export function resetBoard() {
   document.querySelectorAll('.consonant-letter').forEach(c => c.classList.remove('used-mouse'));
   document.querySelectorAll('.vowel-letter').forEach(v => v.classList.remove('used-mouse'));
@@ -79,7 +100,15 @@ export function resetBoard() {
     square.innerHTML = '';
     square.classList.remove('active-square');
     square.style.fontSize = '0px';
-  })
+  });
+}
+
+export function unfreezeButtons() {
+  $('.choice-button').removeClass('dead-mouse');
+}
+
+function freezeButtons() {
+  $('.choice-button').addClass('dead-mouse');
 }
 
 function takeTurn() {
@@ -93,12 +122,10 @@ function takeTurn() {
   }
 }
 
-function freezeButtons() {
-  $('.choice-button').addClass('dead-mouse');
-}
-
-export function unfreezeButtons() {
-  $('.choice-button').removeClass('dead-mouse');
+function displayScore() {
+  $('#p-1-score').html(`${currentPlayer.roundScore}`);
+  $('#p-2-score').html(`${currentPlayer.roundScore}`);
+  $('#p-3-score').html(`${currentPlayer.roundScore}`);
 }
 
 export function getCurrentPlayer(currentPlayerX) {
@@ -122,7 +149,8 @@ function saveNames() {
   let secondName = playerTwoNameInput.value;
   let thirdName = playerThreeNameInput.value;
 
-// beginning of game logic
+// ---------------- GameBoard Display Functions --------------------
+
   beginGame(firstName, secondName, thirdName);
   allNames.innerHTML = `${firstName}, ${secondName}, & ${thirdName}`;
   pOneName.innerText = firstName;
@@ -137,27 +165,13 @@ function showInstructions() {
   patHost.classList.add('slide-top');
 }
 
-function showGameBoard(event) {
-  event.preventDefault();
-  wheel = new Wheel;
-  wheel.createWheel();
+function animateGameBoard(event) {
   titleLogo.classList.add('scale-down-top');
   instructionsPage.classList.add('hidden');
   gameBoardPage.classList.add('fade-in-fwd');
   gameBoardPage.classList.remove('hidden');
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
-  displayScore();
-  setTimeout(function() {
-    showTurnMessage();
-    showCategory();
-  }, 2800);
-}
-
-function displayScore() {
-  $('#p-1-score').html(`${currentPlayer.roundScore}`);
-  $('#p-2-score').html(`${currentPlayer.roundScore}`);
-  $('#p-3-score').html(`${currentPlayer.roundScore}`);
 }
 
 export function showTurnMessage() {
@@ -220,13 +234,6 @@ function showMoneyAmount() {
   }
 }
 
-const myRand = () => {
-  let r = 50
-  while (40 < r && r < 60) {
-    r = Math.random() * 100
-  }
-  return r
-}
 
 for (let i = 0; i < 50; i++) {
   const delay = Math.random() + 's';
@@ -264,13 +271,6 @@ export function combineAmpersand(answerArr) {
   return answerArr
 }
 
-export function displayPuzzleOnBoard(words) {
-  // display first word
-  if (words.length === 2) {
-    displaySecondWord()
-  }
-}
-
 export function getCurrentPuzzle(puzzle) {
   currentPuzzle = puzzle;
 }
@@ -306,6 +306,10 @@ export function evaluateLetter(event) {
     $('.speech-bubble').html(`Data Zap! There Are No ${letter.innerHTML}'s on the Board`)
     switchPlayer();
   }
+  updateLetterBank(letter, cardCount);
+}
+
+function updateLetterBank(letter, cardCount) {
   letter.classList.contains('consonant-letter') && currentPlayer.calculateScore(cardCount);
   document.querySelectorAll('.consonant-letter').forEach(c => c.classList.add('dead-mouse'));
   document.querySelectorAll('.vowel-letter').forEach(v => v.classList.add('dead-mouse'));
