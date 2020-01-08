@@ -19,4 +19,8 @@ describe('Round', function() {
       expect(round.generateRandomInfo()).to.be.a('number');
     })
   })
+  it('should have a startRound() method', function() {
+    round.startRound('player object');
+    expect(round.currentPlayer).to.deep.equal('player object');
+  })
 });

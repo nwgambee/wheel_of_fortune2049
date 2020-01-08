@@ -26,4 +26,7 @@ describe('Wheel', function() {
   it('should have a runBonusWheel method', function() {
     expect(wheel.runBonusWheel).to.be.a('function');
   })
+  it('should have a deg2rad method', function() {
+    expect(wheel.deg2rad(45)).to.equal(45 * Math.PI/180)
+  })
 });
