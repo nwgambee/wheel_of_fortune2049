@@ -274,6 +274,7 @@ export function evaluateLetter(event) {
     }
   });
   if (currentPuzzle.totalLetters === totalCardCount) {
+    totalCardCount = 0;
     startNewRound();
   }
   if (cardCount === 0) {
