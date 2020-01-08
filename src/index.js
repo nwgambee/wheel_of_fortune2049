@@ -153,7 +153,7 @@ function saveNames() {
 // ---------------- GameBoard Display Functions --------------------
 
   beginGame(firstName, secondName, thirdName);
-  allNames.innerHTML = `${firstName}, ${secondName}, & ${thirdName}`;
+  allNames.innerHTML = `${firstName}, ${secondName}, & ${thirdName}!`;
   pOneName.innerText = firstName;
   pTwoName.innerText = secondName;
   pThreeName.innerText = thirdName;
