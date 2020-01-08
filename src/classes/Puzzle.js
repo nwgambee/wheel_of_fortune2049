@@ -151,12 +151,6 @@ class Puzzle {
     }
   }
 
-  uncoverLetters() {
-    // player.chooseAction
-    // uncover letters that have been guessed from the puzzle board
-    // run this.checkIfGuessed() to see if this.correctLettersRemaining.length === 0, if so, run round.endRound();
-  }
-
   evaluateLetterGuess(letter) {
     if (this.splitAnswer.includes(letter.toUpperCase())) {
       // this.uncoverLetters();

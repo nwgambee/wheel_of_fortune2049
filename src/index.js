@@ -273,7 +273,6 @@ export function evaluateLetter(event) {
     if (square.innerText === letter.innerHTML) {
       cardCount++;
       totalCardCount++;
-      //reset for new round
       square.style.backgroundColor = 'deeppink';
       setTimeout(function() {
         unfreezeButtons();
@@ -312,4 +311,15 @@ export function switchPlayer() {
   else if (currentPlayer === player2) {getCurrentPlayer(player3)}
   else {getCurrentPlayer(player1)};
   setTimeout(() => unfreezeButtons(), 1200);
+}
+
+// ------------------- end game -----------------
+
+export function showSolution() {
+  puzzleSquares.forEach(square => {
+    if(square.classList.contains('active-square')) {
+      square.style.fontSize = '65px';
+    }
+  });
+  $('.speech-bubble').html(`Zoom Zoom Zoom! ${currentPlayer.name} Wins This Round!`);
 }
