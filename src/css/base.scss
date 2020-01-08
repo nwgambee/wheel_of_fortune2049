@@ -449,6 +449,7 @@ button {
 	margin-top: -35%;
 	font-size: 50px;
 	margin-bottom: 100px;
+	padding-top: 18%;
 }
 
 .player-card {
@@ -460,11 +461,19 @@ button {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 70%;
+	width: 90%;
 }
 
 .player-card h3 {
 	font-size: 30px;
+}
+
+#p-1-score,
+#p-2-score,
+#p-3-score {
+	color: black;
+	font-size: 1.5em;
+	font-weight: bold;
 }
 
 #player-one {
