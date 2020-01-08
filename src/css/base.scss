@@ -110,6 +110,7 @@ button {
   width: 50%;
   margin: 10px;
   margin-left: 25%;
+	cursor: pointer;
 }
 
 .player-names {
@@ -234,6 +235,7 @@ button {
   border: dotted $color_5 13.5px;
   border-radius: 260px;
   background-color: black;
+	cursor: pointer;
 }
 
 .black-bg {
@@ -684,6 +686,10 @@ button {
 	margin-right: 25px;
 }
 
+.solve-btn {
+	cursor: pointer;
+}
+
 #spin:hover {
 	border-color: $color-5;
 	background-color: $color-2;
@@ -760,6 +766,7 @@ button {
 #start-game {
   width: 50%;
   height: 40px;
+	cursor: pointer;
 }
 
 #first-input {

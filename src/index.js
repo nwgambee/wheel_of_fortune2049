@@ -137,7 +137,7 @@ export function getCurrentPlayer(currentPlayerX) {
 
 function checkForError(event) {
   event.preventDefault();
-  if (playerOneNameInput.value === '') {
+  if (playerOneNameInput.value === '' || playerTwoNameInput.value === '' || playerThreeNameInput.value === '') {
     errorMessage.classList.remove('hidden');
   } else {
     showInstructions();
@@ -153,7 +153,7 @@ function saveNames() {
 // ---------------- GameBoard Display Functions --------------------
 
   beginGame(firstName, secondName, thirdName);
-  allNames.innerHTML = `${firstName}, ${secondName}, & ${thirdName}`;
+  allNames.innerHTML = `${firstName}, ${secondName}, & ${thirdName}!`;
   pOneName.innerText = firstName;
   pTwoName.innerText = secondName;
   pThreeName.innerText = thirdName;
