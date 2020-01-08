@@ -61,6 +61,8 @@ for (const btn of alphabetBtns) {
 // ------------------- Functionality ---------------------- //
 
 export function startNewRound() {
+  $('#round-num').html(`<p>Round ${game.rounds}</p>`);
+  $('.speech-bubble').html(`<p>${currentPlayer.name}'s Turn to Pick</p>`);
   resetBoard();
   game.beginRound(player1, player2, player3);
   unfreezeButtons();
@@ -288,6 +290,7 @@ export function evaluateLetter(event) {
   });
   if (currentPuzzle.totalLetters === totalCardCount) {
     totalCardCount = 0;
+    updateScore(currentPlayer);
     startNewRound();
   }
   if (cardCount === 0) {
@@ -302,6 +305,11 @@ export function evaluateLetter(event) {
   setTimeout(function() {
     showTurnMessage();
   }, 1600);
+}
+
+function updateScore(player) {
+  player.totalScore = player.roundScore
+  player.roundScore = 0;
 }
 
 // ------------------- switch players -----------------
@@ -322,4 +330,11 @@ export function showSolution() {
     }
   });
   $('.speech-bubble').html(`Zoom Zoom Zoom! ${currentPlayer.name} Wins This Round!`);
+}
+
+export function showWinnerNames() {
+  let playerScores = [player1, player2, player3];
+  let sortScore = playerScores.sort((a,b) => {a.totalScore - b.totalScore})
+  console.log(sortScore);
+  // $('.')
 }
