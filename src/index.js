@@ -18,47 +18,47 @@ import './images/buy-vowel.png';
 
 // ------------------- Variable Declerations ---------------------- //
 
-const app = document.querySelector('.winners-page');
-const playGameBtn = document.getElementById('start-game');
-const landingPage = document.getElementById('landing-page');
-const instructionsPage = document.querySelector('.instructions');
-const gameBoardPage = document.querySelector('.game-page');
-const loadGameBtn = document.getElementById('load-game');
-const titleLogo = document.querySelector('.logo');
-const playerOneNameInput = document.getElementById('first-input');
-const playerTwoNameInput = document.getElementById('second-input');
-const playerThreeNameInput = document.getElementById('third-input');
 const allNames = document.querySelector('.player-names');
-const pOneName = document.querySelector('.p-one-name');
-const pTwoName = document.querySelector('.p-two-name');
-const pThreeName = document.querySelector('.p-three-name');
-const patHost = document.querySelector('.pat-host');
-const vannaHost = document.querySelector('.vanna-host');
-const errorMessage = document.querySelector('.error-message');
-const wheelWindow = document.querySelector('.wheel-canvas');
-const wheelObject = document.getElementById('canvas');
-const spinBtn = document.getElementById('spin-btn');
-const puzzleBoard = document.querySelector('.puzzle-board');
 const alphabetBtns = document.querySelectorAll('.alphabet-btn');
+const app = document.querySelector('.winners-page');
+const errorMessage = document.querySelector('.error-message');
+const gameBoardPage = document.querySelector('.game-page');
+const instructionsPage = document.querySelector('.instructions');
+const landingPage = document.getElementById('landing-page');
+const loadGameBtn = document.getElementById('load-game');
+const patHost = document.querySelector('.pat-host');
+const playGameBtn = document.getElementById('start-game');
+const playerOneNameInput = document.getElementById('first-input');
+const playerThreeNameInput = document.getElementById('third-input');
+const playerTwoNameInput = document.getElementById('second-input');
+const pOneName = document.querySelector('.p-one-name');
+const pThreeName = document.querySelector('.p-three-name');
+const pTwoName = document.querySelector('.p-two-name');
+const puzzleBoard = document.querySelector('.puzzle-board');
 const puzzleSquares = document.querySelectorAll('.letter');
+const spinBtn = document.getElementById('spin-btn');
+const titleLogo = document.querySelector('.logo');
+const vannaHost = document.querySelector('.vanna-host');
+const wheelObject = document.getElementById('canvas');
+const wheelWindow = document.querySelector('.wheel-canvas');
 let game, player1, player2, player3;
 export let currentPlayer;
-export let wheel;
-export let round;
 export let currentPuzzle;
+export let round;
+export let wheel;
 let totalCardCount = 0;
 
 
 // ------------------- Event Listeners ---------------------- //
 
-playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
+playGameBtn.addEventListener('click', checkForError);
 setTimeout(() => wheelObject.addEventListener('click', spinDOMWheel), 5000);
 for (const btn of alphabetBtns) {
   btn.addEventListener('click', evaluateLetter);
 }
 
-// ------------------- Functionality ---------------------- //
+// ------------------- Start / Reset Game ---------------------- //
 
 export function startNewRound() {
   console.log(player1, player2, player3);
@@ -72,6 +72,7 @@ export function startNewRound() {
   unfreezeButtons();
   displayScore();
 }
+
 export function resetBoard() {
   document.querySelectorAll('.consonant-letter').forEach(c => c.classList.remove('used-mouse'));
   document.querySelectorAll('.vowel-letter').forEach(v => v.classList.remove('used-mouse'));
