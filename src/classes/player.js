@@ -1,4 +1,4 @@
-import { unfreezeButtons, startNewRound, showWheel, wheel, evaluateLetter, showTurnMessage, currentPuzzle, switchPlayer } from '../index.js'
+import { showSolution, unfreezeButtons, startNewRound, showWheel, wheel, evaluateLetter, showTurnMessage, currentPuzzle, switchPlayer } from '../index.js'
 
 import $ from 'jquery';
 
@@ -37,8 +37,10 @@ class Player {
     let guess = document.querySelector('.solve-input').value;
     if (guess.toLowerCase() === currentPuzzle.correctAnswer.toLowerCase()) {
       console.log('correct!');
-      // end round display congrats message and then start new round
-      startNewRound();
+      showSolution();
+      setTimeout(() => {
+        startNewRound();
+      }, 4000);
     } else {
       switchPlayer();
       $('.speech-bubble').html(`<p>Gadzooks! That guess is incorrect!</p>`);

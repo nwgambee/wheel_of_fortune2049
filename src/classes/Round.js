@@ -9,10 +9,6 @@ class Round {
     this.guessedLetters = [];
   }
 
-  updateScore() {
-
-  }
-
   startRound(player) {
     console.log('in round');
     this.currentPlayer = player;

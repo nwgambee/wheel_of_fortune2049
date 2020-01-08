@@ -1,13 +1,15 @@
 // import Round from './classes/Round'
 // import Round from '../src/classes/Round'
+import { showWinnerNames } from '../index.js'
 import Round from './Round'
 import Player from './Player'
+import $ from 'jquery';
 
 
 class Game {
   constructor() {
     this.winner;
-    this.rounds = 0;
+    this.rounds = 1;
     this.players = [];
   }
   evaluateLeaderboard() {
@@ -17,9 +19,8 @@ class Game {
     console.log('new round');
     this.players.push(p1, p2, p3);
     this.rounds++;
-    if (this.rounds < 4) {
+    if (this.rounds < 5) {
       console.log('starting new round');
-      // instantiate new Round
       let round = new Round();
       round.startRound(this.players[0]);
     } else {
@@ -29,15 +30,9 @@ class Game {
   endGame() {
     //evaluate the winner
     console.log('game is over');
-  }
-  endRound() {
-    // instantiate new Round
-    this.startRound();
-    this.round++
-  }
-
-  startBonus() {
-
+    $('.game-page').addClass('hidden');
+    $('.winners-page').removeClass('hidden');
+    showWinnerNames();
   }
 }
 

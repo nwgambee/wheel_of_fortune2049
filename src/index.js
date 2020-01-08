@@ -61,9 +61,16 @@ for (const btn of alphabetBtns) {
 // ------------------- Functionality ---------------------- //
 
 export function startNewRound() {
+  console.log(player1, player2, player3);
+  player1.roundScore = 0;
+  player2.roundScore = 0;
+  player3.roundScore = 0;
+  $('#round-num').html(`<p>Round ${game.rounds}</p>`);
+  $('.speech-bubble').html(`<p>${currentPlayer.name}'s Turn to Pick</p>`);
   resetBoard();
   game.beginRound(player1, player2, player3);
   unfreezeButtons();
+  displayScore();
 }
 export function resetBoard() {
   document.querySelectorAll('.consonant-letter').forEach(c => c.classList.remove('used-mouse'));
@@ -140,13 +147,17 @@ function showGameBoard(event) {
   gameBoardPage.classList.remove('hidden');
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
-  $('#p-1-score').html(`${currentPlayer.roundScore}`);
-  $('#p-2-score').html(`${currentPlayer.roundScore}`);
-  $('#p-3-score').html(`${currentPlayer.roundScore}`);
+  displayScore();
   setTimeout(function() {
     showTurnMessage();
     showCategory();
   }, 2800);
+}
+
+function displayScore() {
+  $('#p-1-score').html(`${currentPlayer.roundScore}`);
+  $('#p-2-score').html(`${currentPlayer.roundScore}`);
+  $('#p-3-score').html(`${currentPlayer.roundScore}`);
 }
 
 export function showTurnMessage() {
@@ -273,7 +284,6 @@ export function evaluateLetter(event) {
     if (square.innerText === letter.innerHTML) {
       cardCount++;
       totalCardCount++;
-      //reset for new round
       square.style.backgroundColor = 'deeppink';
       setTimeout(function() {
         unfreezeButtons();
@@ -289,6 +299,7 @@ export function evaluateLetter(event) {
   });
   if (currentPuzzle.totalLetters === totalCardCount) {
     totalCardCount = 0;
+    updateScore(currentPlayer);
     startNewRound();
   }
   if (cardCount === 0) {
@@ -305,6 +316,11 @@ export function evaluateLetter(event) {
   }, 1600);
 }
 
+function updateScore(player) {
+  player.totalScore = player.roundScore;
+  player.roundScore = 0;
+}
+
 // ------------------- switch players -----------------
 
 export function switchPlayer() {
@@ -312,4 +328,32 @@ export function switchPlayer() {
   else if (currentPlayer === player2) {getCurrentPlayer(player3)}
   else {getCurrentPlayer(player1)};
   setTimeout(() => unfreezeButtons(), 1200);
+}
+
+// ------------------- end game -----------------
+
+export function showSolution() {
+  currentPlayer.totalScore = currentPlayer.roundScore;
+  currentPlayer.roundScore = 0;
+  console.log(currentPlayer);
+  puzzleSquares.forEach(square => {
+    if(square.classList.contains('active-square')) {
+      square.style.fontSize = '65px';
+    }
+  });
+  $('.speech-bubble').html(`Zoom Zoom Zoom! ${currentPlayer.name} Wins This Round!`);
+}
+
+export function showWinnerNames() {
+  let playerScores = [player1, player2, player3];
+  playerScores.sort((a,b) => b.totalScore - a.totalScore)
+  let firstPlace = playerScores[0];
+  let secondPlace = playerScores[1];
+  let thirdPlace = playerScores[2];
+  $('.winner-name').html(`${firstPlace.name}`);
+  $('#first-place').html(`${firstPlace.totalScore} Credits`);
+  $('.second-name').html(`${secondPlace.name}`);
+  $('#second-place').html(`${secondPlace.totalScore} Credits`);
+  $('.third-name').html(`${thirdPlace.name}`);
+  $('#third-place').html(`${thirdPlace.totalScore} Credits`);
 }
