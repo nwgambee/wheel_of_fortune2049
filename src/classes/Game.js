@@ -1,5 +1,3 @@
-// import Round from './classes/Round'
-// import Round from '../src/classes/Round'
 import { showWinnerNames } from '../index.js'
 import Round from './Round'
 import Player from './Player'
@@ -16,11 +14,9 @@ class Game {
 
   }
   beginRound(p1, p2, p3) {
-    console.log('new round');
     this.players.push(p1, p2, p3);
     this.rounds++;
     if (this.rounds < 5) {
-      console.log('starting new round');
       let round = new Round();
       round.startRound(this.players[0]);
     } else {
@@ -28,8 +24,6 @@ class Game {
     }
   }
   endGame() {
-    //evaluate the winner
-    console.log('game is over');
     $('.game-page').addClass('hidden');
     $('.winners-page').removeClass('hidden');
     showWinnerNames();

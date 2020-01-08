@@ -75,18 +75,22 @@ const myRand = () => {
   return r
 }
 
-// ------------------- Start / Reset Game ---------------------- //
-
 export function startNewRound() {
-  player1.roundScore = 0;
-  player2.roundScore = 0;
-  player3.roundScore = 0;
+  resetScores();
   $('#round-num').html(`<p>Round ${game.rounds}</p>`);
   $('.speech-bubble').html(`<p>${currentPlayer.name}'s Turn to Pick</p>`);
   resetBoard();
   game.beginRound(player1, player2, player3);
   unfreezeButtons();
   displayScore();
+}
+
+// ------------------- Start / Reset Game ---------------------- //
+
+function resetScores() {
+  player1.roundScore = 0;
+  player2.roundScore = 0;
+  player3.roundScore = 0;
 }
 
 export function resetBoard() {

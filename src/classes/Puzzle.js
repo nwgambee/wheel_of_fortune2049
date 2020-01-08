@@ -1,4 +1,3 @@
-// import { addPuzzleToBoard, displayFirstWord } from '../index.js'
 import { combineAmpersand } from '../index.js'
 
 class Puzzle {
@@ -16,7 +15,6 @@ class Puzzle {
     this.splitAnswer = [];
     let upperCaseAnswer = this.correctAnswer.toUpperCase();
     let splitAtSpace = combineAmpersand(upperCaseAnswer.split(' '));
-    console.log(splitAtSpace);
     splitAtSpace.forEach(word => {
       this.splitAnswer.push(word.split(''));
     });
@@ -153,10 +151,8 @@ class Puzzle {
 
   evaluateLetterGuess(letter) {
     if (this.splitAnswer.includes(letter.toUpperCase())) {
-      // this.uncoverLetters();
       return true;
     } else {
-      // endTurn()
       return false;
     }
   }
@@ -165,7 +161,6 @@ class Puzzle {
     if (guess.toLowerCase() === this.correctAnswer.toLowerCase()) {
       return true;
     } else {
-      // endTurn()
       return false;
     }
   }
