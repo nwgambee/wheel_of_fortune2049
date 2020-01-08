@@ -461,7 +461,7 @@ button {
 }
 
 #round-num {
-	margin-top: -25%;
+	margin-top: -35%;
 	font-size: 50px;
 	margin-bottom: 100px;
 }
@@ -476,7 +476,6 @@ button {
 	flex-direction: column;
 	justify-content: center;
 	width: 70%;
-	opacity: 70%;
 }
 
 .player-card h3 {
@@ -662,10 +661,9 @@ button {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	width: 10%;
+	width: 11%;
   height: 280px;
-	text-align: right;
-	margin-right: -5px;
+	// text-align: right;
   // border-radius: 15px 0px 0px 15px;
   // border: solid 5px $color_1;
   border-right: 0px;
@@ -674,22 +672,43 @@ button {
 }
 
 .choice-button {
+	background-color: black;
+	border: 5px solid $color_1;
+	border-radius: 50px;
+	cursor: pointer;
 	display: flex;
 	flex-direction: row;
-}
-
-.choice-button:hover {
-  -webkit-animation: scale-up-right 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: scale-up-right 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	align-items: center;
+	padding: 15px;
+	margin: 5px;
+	margin-right: 50px;
+	width: 355px;
 }
 
 .choice-img {
-	width: 25px;
-	height: 25px;
+	width: 35px;
+	height: 35px;
+	padding: 5px;
 }
 
-#spin {
+#solve-btn {
+	margin-right: 25px;
+}
 
+#spin:hover {
+	border-color: $color-5;
+	background-color: $color-2;
+	box-shadow: inset 0px 0px 6px 1px black;
+}
+#buy:hover {
+	border-color: $color-5;
+	background-color: $color-3;
+	box-shadow: inset 0px 0px 6px 1px black;
+}
+#solve:hover {
+	border-color: $color-5;
+	background-color: $color-4;
+	box-shadow: inset 0px 0px 6px 1px black;
 }
 
 
