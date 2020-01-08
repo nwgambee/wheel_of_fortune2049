@@ -10,9 +10,7 @@ class Game {
     this.rounds = 1;
     this.players = [];
   }
-  evaluateLeaderboard() {
 
-  }
   beginRound(p1, p2, p3) {
     this.players.push(p1, p2, p3);
     this.rounds++;
