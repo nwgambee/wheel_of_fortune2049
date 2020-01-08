@@ -18,6 +18,7 @@ The object of Wheel Of Fortune 2049 is to earn money by spinning the Wheel and s
 ## Stack/Technologies
 - JavaScript
 - HTML/SCSS
+- WebPack
 
 ## Screenshots
 <img width="1440" alt="Screen Shot 2020-01-08 at 7 06 07 AM" src="https://user-images.githubusercontent.com/46171611/71992346-7ac81100-31f2-11ea-9060-97f64f4c110d.png">
