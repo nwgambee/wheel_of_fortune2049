@@ -27,6 +27,9 @@ describe.skip('Game', function() {
       expect(game.players.length).to.deep.equal(3)
     });
   });
+  it('should be able to end the game', function() {
+    expect(game.endGame()).to.be.a('function');
+  })
 
 
 });
