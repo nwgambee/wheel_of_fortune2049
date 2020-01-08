@@ -46,6 +46,8 @@ export let currentPlayer;
 export let wheel;
 export let round;
 export let currentPuzzle;
+let totalCardCount = 0;
+
 
 // ------------------- Event Listeners ---------------------- //
 
@@ -256,6 +258,8 @@ export function evaluateLetter(event) {
   puzzleSquares.forEach(square => {
     if (square.innerText === letter.innerHTML) {
       cardCount++;
+      totalCardCount++;
+      //reset for new round
       square.style.backgroundColor = 'deeppink';
       setTimeout(function() {
         unfreezeButtons();
@@ -269,6 +273,9 @@ export function evaluateLetter(event) {
       }
     }
   });
+  if (currentPuzzle.totalLetters === totalCardCount) {
+    startNewRound();
+  }
   if (cardCount === 0) {
     $('.speech-bubble').html(`Data Zap! There Are No ${letter.innerHTML}'s on the Board`)
     switchPlayer();
