@@ -64,7 +64,8 @@ export function startNewRound() {
   unfreezeButtons();
 }
 export function resetBoard() {
-  console.log('resetting board');
+  document.querySelectorAll('.consonant-letter').forEach(c => c.classList.remove('used-mouse'));
+  document.querySelectorAll('.vowel-letter').forEach(v => v.classList.remove('used-mouse'));
   puzzleSquares.forEach(square => {
     square.innerHTML = '';
     square.classList.remove('active-square');
@@ -264,7 +265,6 @@ export function getCurrentPuzzle(puzzle) {
 // ------------------- evaluate letter -----------------
 
 export function evaluateLetter(event) {
-  // if letter is contained within puzzle, display it on the DOM. If not, it is the next players turn.
   let cardCount = 0;
   let letter = event.target;
   puzzleSquares.forEach(square => {
@@ -273,7 +273,6 @@ export function evaluateLetter(event) {
       square.style.backgroundColor = 'deeppink';
       setTimeout(function() {
         unfreezeButtons();
-        // square.style.backgroundColor = 'white';
         square.style.backgroundColor = '';
         square.style.fontSize = '65px';
       }, 2000);

@@ -1,5 +1,7 @@
 import { currentPlayer, switchPlayer } from '../index.js'
 
+import $ from 'jquery';
+
 class Wheel {
   constructor(elements) {
     this.elements = elements;
@@ -65,7 +67,7 @@ class Wheel {
     this.currentCard = card;
     if (card === 'Bankrupt') {
       currentPlayer.roundScore = 0;
-      // update DOM w/ currentPlayer Score
+      $(`#p-${currentPlayer.playerNumber}-score`).html(`${currentPlayer.roundScore}`);
       switchPlayer();
     } else if (card === 'Lose A Turn') {
       switchPlayer();
