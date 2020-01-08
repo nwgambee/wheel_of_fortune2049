@@ -686,6 +686,10 @@ button {
 	margin-right: 25px;
 }
 
+.solve-btn {
+	cursor: pointer;
+}
+
 #spin:hover {
 	border-color: $color-5;
 	background-color: $color-2;
