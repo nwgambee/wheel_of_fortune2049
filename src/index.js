@@ -83,6 +83,7 @@ export function startNewRound() {
   game.beginRound(player1, player2, player3);
   unfreezeButtons();
   displayScore();
+  showCategory();
 }
 
 // ------------------- Start / Reset Game ---------------------- //
