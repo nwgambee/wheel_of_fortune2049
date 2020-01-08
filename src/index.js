@@ -63,14 +63,14 @@ export function startNewRound() {
   game.beginRound(player1, player2, player3);
   unfreezeButtons();
 }
-
 export function resetBoard() {
   console.log('resetting board');
   puzzleSquares.forEach(square => {
+    square.innerHTML = '';
     square.classList.remove('active-square');
+    square.style.fontSize = '0px';
   })
 }
-
 
 function takeTurn() {
   freezeButtons();
@@ -273,7 +273,8 @@ export function evaluateLetter(event) {
       square.style.backgroundColor = 'deeppink';
       setTimeout(function() {
         unfreezeButtons();
-        square.style.backgroundColor = 'white';
+        // square.style.backgroundColor = 'white';
+        square.style.backgroundColor = '';
         square.style.fontSize = '65px';
       }, 2000);
       if (cardCount === 1) {
