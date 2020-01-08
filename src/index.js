@@ -58,10 +58,26 @@ for (const btn of alphabetBtns) {
   btn.addEventListener('click', evaluateLetter);
 }
 
+// ------------------- Helper Functions ---------------------- //
+
+function showGameBoard(event) {
+  event.preventDefault();
+  wheel = new Wheel;
+  wheel.createWheel();
+  animateGameBoard();
+  displayScore();
+  setTimeout(function() { showTurnMessage(); showCategory() }, 2800);
+}
+
+const myRand = () => {
+  let r = 50
+  while (40 < r && r < 60) { r = Math.random() * 100 }
+  return r
+}
+
 // ------------------- Start / Reset Game ---------------------- //
 
 export function startNewRound() {
-  console.log(player1, player2, player3);
   player1.roundScore = 0;
   player2.roundScore = 0;
   player3.roundScore = 0;
@@ -80,7 +96,15 @@ export function resetBoard() {
     square.innerHTML = '';
     square.classList.remove('active-square');
     square.style.fontSize = '0px';
-  })
+  });
+}
+
+export function unfreezeButtons() {
+  $('.choice-button').removeClass('dead-mouse');
+}
+
+function freezeButtons() {
+  $('.choice-button').addClass('dead-mouse');
 }
 
 function takeTurn() {
@@ -94,12 +118,10 @@ function takeTurn() {
   }
 }
 
-function freezeButtons() {
-  $('.choice-button').addClass('dead-mouse');
-}
-
-export function unfreezeButtons() {
-  $('.choice-button').removeClass('dead-mouse');
+function displayScore() {
+  $('#p-1-score').html(`${currentPlayer.roundScore}`);
+  $('#p-2-score').html(`${currentPlayer.roundScore}`);
+  $('#p-3-score').html(`${currentPlayer.roundScore}`);
 }
 
 export function getCurrentPlayer(currentPlayerX) {
@@ -123,7 +145,8 @@ function saveNames() {
   let secondName = playerTwoNameInput.value;
   let thirdName = playerThreeNameInput.value;
 
-// beginning of game logic
+// ---------------- GameBoard Display Functions --------------------
+
   beginGame(firstName, secondName, thirdName);
   allNames.innerHTML = `${firstName}, ${secondName}, & ${thirdName}`;
   pOneName.innerText = firstName;
@@ -138,27 +161,13 @@ function showInstructions() {
   patHost.classList.add('slide-top');
 }
 
-function showGameBoard(event) {
-  event.preventDefault();
-  wheel = new Wheel;
-  wheel.createWheel();
+function animateGameBoard(event) {
   titleLogo.classList.add('scale-down-top');
   instructionsPage.classList.add('hidden');
   gameBoardPage.classList.add('fade-in-fwd');
   gameBoardPage.classList.remove('hidden');
   vannaHost.classList.remove('hidden');
   vannaHost.classList.add('slide-in-fwd-right');
-  displayScore();
-  setTimeout(function() {
-    showTurnMessage();
-    showCategory();
-  }, 2800);
-}
-
-function displayScore() {
-  $('#p-1-score').html(`${currentPlayer.roundScore}`);
-  $('#p-2-score').html(`${currentPlayer.roundScore}`);
-  $('#p-3-score').html(`${currentPlayer.roundScore}`);
 }
 
 export function showTurnMessage() {
@@ -221,13 +230,6 @@ function showMoneyAmount() {
   }
 }
 
-const myRand = () => {
-  let r = 50
-  while (40 < r && r < 60) {
-    r = Math.random() * 100
-  }
-  return r
-}
 
 for (let i = 0; i < 50; i++) {
   const delay = Math.random() + 's';
@@ -265,13 +267,6 @@ export function combineAmpersand(answerArr) {
   return answerArr
 }
 
-export function displayPuzzleOnBoard(words) {
-  // display first word
-  if (words.length === 2) {
-    displaySecondWord()
-  }
-}
-
 export function getCurrentPuzzle(puzzle) {
   currentPuzzle = puzzle;
 }
@@ -307,6 +302,10 @@ export function evaluateLetter(event) {
     $('.speech-bubble').html(`Data Zap! There Are No ${letter.innerHTML}'s on the Board`)
     switchPlayer();
   }
+  updateLetterBank(letter, cardCount);
+}
+
+function updateLetterBank(letter, cardCount) {
   letter.classList.contains('consonant-letter') && currentPlayer.calculateScore(cardCount);
   document.querySelectorAll('.consonant-letter').forEach(c => c.classList.add('dead-mouse'));
   document.querySelectorAll('.vowel-letter').forEach(v => v.classList.add('dead-mouse'));
