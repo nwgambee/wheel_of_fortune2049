@@ -58,6 +58,21 @@ for (const btn of alphabetBtns) {
 
 // ------------------- Functionality ---------------------- //
 
+export function startNewRound() {
+  resetBoard();
+  game.beginRound(player1, player2, player3);
+  unfreezeButtons();
+}
+export function resetBoard() {
+  document.querySelectorAll('.consonant-letter').forEach(c => c.classList.remove('used-mouse'));
+  document.querySelectorAll('.vowel-letter').forEach(v => v.classList.remove('used-mouse'));
+  puzzleSquares.forEach(square => {
+    square.innerHTML = '';
+    square.classList.remove('active-square');
+    square.style.fontSize = '0px';
+  })
+}
+
 function takeTurn() {
   freezeButtons();
   if (event.target.id === 'spin-btn') {
@@ -250,7 +265,6 @@ export function getCurrentPuzzle(puzzle) {
 // ------------------- evaluate letter -----------------
 
 export function evaluateLetter(event) {
-  // if letter is contained within puzzle, display it on the DOM. If not, it is the next players turn.
   let cardCount = 0;
   let letter = event.target;
   puzzleSquares.forEach(square => {
@@ -259,9 +273,9 @@ export function evaluateLetter(event) {
       square.style.backgroundColor = 'deeppink';
       setTimeout(function() {
         unfreezeButtons();
-        square.style.backgroundColor = 'white';
+        square.style.backgroundColor = '';
         square.style.fontSize = '65px';
-      }, 1200);
+      }, 2000);
       if (cardCount === 1) {
         $('.speech-bubble').html(`Bazinga! There is ${cardCount} ${letter.innerHTML} on the Board!`);
       } else {

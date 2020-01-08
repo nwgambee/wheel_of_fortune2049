@@ -1,13 +1,13 @@
 import { currentPlayer, switchPlayer } from '../index.js'
 
+import $ from 'jquery';
+
 class Wheel {
   constructor(elements) {
     this.elements = elements;
     this.currentCard;
     this.color = ['deeppink','black','darkturquoise','darkviolet','deeppink','darkturquoise', 'darkviolet', 'black', 'darkturquoise'];
     this.label = ['600', '2500','750','100','550','800', 'Bankrupt', 'Lose A Turn', '900'];
-    // this.label = ['600', '2500','750','100','550','800', '1000', '1100', '900'];
-    // this.label = ['Bankrupt', 'Lose A Turn','Bankrupt', 'Lose A Turn','Bankrupt', 'Lose A Turn','Bankrupt', 'Lose A Turn','Bankrupt'];
     this.slices = 9;
     this.sliceDeg = 360/this.slices;
     this.deg = 40;
@@ -61,16 +61,13 @@ class Wheel {
     this.evaluateCurrentCard(chosenElement);
   }
   evaluateCurrentCard(card) {
-    // display results of each wheel spin on DOM
-
     this.currentCard = card;
     if (card === 'Bankrupt') {
       currentPlayer.roundScore = 0;
-      // update DOM w/ currentPlayer Score
+      $(`#p-${currentPlayer.playerNumber}-score`).html(`${currentPlayer.roundScore}`);
       switchPlayer();
     } else if (card === 'Lose A Turn') {
       switchPlayer();
-      // current players turn is over, move to next player
     } else {
       currentPlayer.chooseConsonant()
     }

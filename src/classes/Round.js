@@ -1,5 +1,5 @@
 import Puzzle from './Puzzle'
-import { getCurrentPlayer, getCurrentPuzzle } from '../index.js'
+import { getCurrentPlayer, resetBoard, getCurrentPuzzle } from '../index.js'
 
 class Round {
   constructor() {
@@ -14,6 +14,7 @@ class Round {
   }
 
   startRound(player) {
+    console.log('in round');
     this.currentPlayer = player;
     // console.log(this.currentPlayer);
     this.generateRandomInfo();

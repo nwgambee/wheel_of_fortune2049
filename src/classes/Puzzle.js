@@ -13,6 +13,7 @@ class Puzzle {
   }
 
   splitCorrectAnswer() {
+    this.splitAnswer = [];
     let upperCaseAnswer = this.correctAnswer.toUpperCase();
     let splitAtSpace = combineAmpersand(upperCaseAnswer.split(' '));
     console.log(splitAtSpace);
