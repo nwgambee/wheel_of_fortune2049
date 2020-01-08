@@ -37,10 +37,7 @@ class Player {
     let guess = document.querySelector('.solve-input').value;
     if (guess.toLowerCase() === currentPuzzle.correctAnswer.toLowerCase()) {
       console.log('correct!');
-      // end round display congrats message and then start new round
       showSolution();
-      this.totalScore = this.roundScore;
-      this.roundScore = 0;
       setTimeout(() => {
         startNewRound();
       }, 4000);
