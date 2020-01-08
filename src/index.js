@@ -114,11 +114,11 @@ function freezeButtons() {
 
 function takeTurn() {
   freezeButtons();
-  if (event.target.id === 'spin-btn') {
+  if (event.target.classList.contains('spin-choice')) {
     currentPlayer.spinWheel();
-  } else if (event.target.id === 'buy-btn') {
+  } else if (event.target.classList.contains('buy-choice')) {
     currentPlayer.buyVowel();
-  } else if (event.target.id === 'solve-btn') {
+  } else if (event.target.classList.contains('solve-choice')) {
     currentPlayer.solvePuzzle();
   }
 }
@@ -287,10 +287,10 @@ export function evaluateLetter(event) {
       totalCardCount++;
       square.style.backgroundColor = 'deeppink';
       setTimeout(function() {
-        unfreezeButtons();
         square.style.backgroundColor = '';
         square.style.fontSize = '65px';
       }, 2000);
+      setTimeout(() => unfreezeButtons(), 3000);
       if (cardCount === 1) {
         $('.speech-bubble').html(`Bazinga! There is ${cardCount} ${letter.innerHTML} on the Board!`);
       } else {
@@ -332,7 +332,7 @@ export function switchPlayer() {
   if (currentPlayer === player1) {getCurrentPlayer(player2)}
   else if (currentPlayer === player2) {getCurrentPlayer(player3)}
   else {getCurrentPlayer(player1)};
-  setTimeout(() => unfreezeButtons(), 1200);
+  setTimeout(() => unfreezeButtons(), 2000);
 }
 
 // ------------------- end game -----------------

@@ -24,7 +24,7 @@ class Player {
       setTimeout(() => {
         unfreezeButtons();
         showTurnMessage();
-      }, 2000);
+      }, 3000);
     }
   }
 
@@ -47,13 +47,13 @@ class Player {
       setTimeout(() => {
         unfreezeButtons();
         showTurnMessage();
-      }, 2000);
+      }, 3000);
     }
     $('.solve-input').remove();
     $('.solve-btn').remove();
   }
   chooseConsonant() {
-    document.querySelectorAll('.consonant-letter').forEach(c => c.classList.remove('dead-mouse'));
+    setTimeout(() => document.querySelectorAll('.consonant-letter').forEach(c => c.classList.remove('dead-mouse')), 3000);
   }
   calculateScore(cardCount) {
     this.roundScore += parseInt(wheel.currentCard) * cardCount;
