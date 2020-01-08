@@ -51,7 +51,7 @@ export let currentPuzzle;
 
 playGameBtn.addEventListener('click', checkForError);
 loadGameBtn.addEventListener('click', showGameBoard);
-setTimeout(() => wheelObject.addEventListener('click', spinDOMWheel), 5000); 
+setTimeout(() => wheelObject.addEventListener('click', spinDOMWheel), 5000);
 for (const btn of alphabetBtns) {
   btn.addEventListener('click', evaluateLetter);
 }
@@ -145,6 +145,7 @@ function showCategory() {
 
 export function showWheel(event) {
   event.preventDefault();
+  $('.speech-bubble').html(`<p>Lunarious! Click Wheel To Spin!`);
   wheelWindow.classList.remove('hidden');
   wheelWindow.classList.remove('slide-out-bottom');
   wheelWindow.classList.add('slide-in-bottom');
@@ -179,7 +180,6 @@ function hideWheel(event) {
 function showMoneyAmount() {
   if (wheel.currentCard !== 'Lose A Turn' && wheel.currentCard !== 'Bankrupt') {
     $('.money-card').html(`<p>$${wheel.currentCard}</p>`);
-
     $('.speech-bubble').html(`<p>Choose A Consonant!</p>`);
   } else if (wheel.currentCard === 'Lose A Turn') {
     $('.speech-bubble').html(`<p>Oh No! You ${wheel.currentCard}</p>`);

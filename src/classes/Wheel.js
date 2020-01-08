@@ -50,6 +50,7 @@ class Wheel {
 
   runBonusWheel() {
   }
+
   chooseWheelElement() {
     let result;
     let chosenElement = this.label[Math.floor(Math.random() * this.label.length)]
