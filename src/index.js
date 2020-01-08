@@ -61,6 +61,7 @@ for (const btn of alphabetBtns) {
 // ------------------- Functionality ---------------------- //
 
 export function startNewRound() {
+  console.log(player1, player2, player3);
   $('#round-num').html(`<p>Round ${game.rounds}</p>`);
   $('.speech-bubble').html(`<p>${currentPlayer.name}'s Turn to Pick</p>`);
   resetBoard();
@@ -334,7 +335,14 @@ export function showSolution() {
 
 export function showWinnerNames() {
   let playerScores = [player1, player2, player3];
-  let sortScore = playerScores.sort((a,b) => {a.totalScore - b.totalScore})
-  console.log(sortScore);
-  // $('.')
+  playerScores.sort((a,b) => b.roundScore - a.roundScore)
+  let firstPlace = playerScores[0];
+  let secondPlace = playerScores[1];
+  let thirdPlace = playerScores[2];
+  $('.winner-name').html(`${firstPlace.name}`);
+  $('#first-place').html(`${firstPlace.roundScore} Credits`);
+  $('.second-name').html(`${secondPlace.name}`);
+  $('#second-place').html(`${secondPlace.roundScore} Credits`);
+  $('.third-name').html(`${thirdPlace.name}`);
+  $('#third-place').html(`${thirdPlace.roundScore} Credits`);
 }

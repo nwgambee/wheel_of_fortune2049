@@ -39,7 +39,7 @@ class Player {
       console.log('correct!');
       // end round display congrats message and then start new round
       showSolution();
-      this.totalScore = this.roundScore
+      this.totalScore = this.roundScore;
       this.roundScore = 0;
       setTimeout(() => {
         startNewRound();
