@@ -7,7 +7,7 @@ class Wheel {
     this.elements = elements;
     this.currentCard;
     this.color = ['deeppink','black','darkturquoise','darkviolet','deeppink','darkturquoise', 'darkviolet', 'black', 'darkturquoise'];
-    this.label = ['600', '2500','750','100','550','800', 'Bankrupt', 'Lose A Turn', '900'];
+    this.label = ['Wren Steitle','Jordan Holtkamp','Linda Le','Wren Steitle','Jordan Holtkamp','Linda Le','Wren Steitle','Jordan Holtkamp','Linda Le'];
     this.slices = 9;
     this.sliceDeg = 360/this.slices;
     this.deg = 40;
